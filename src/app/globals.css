@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --roma-bg: #f5f5f5;
+  --roma-bg-alt: #e8e8e8;
+  --roma-dark: #1a1a1a;
+  --roma-purple: #8B5CF6;
+  --roma-purple-light: #A78BFA;
+  --roma-white: #ffffff;
+}
+
+@theme inline {
+  --color-roma-bg: var(--roma-bg);
+  --color-roma-bg-alt: var(--roma-bg-alt);
+  --color-roma-dark: var(--roma-dark);
+  --color-roma-purple: var(--roma-purple);
+  --color-roma-purple-light: var(--roma-purple-light);
+  --color-roma-white: var(--roma-white);
+
+  --font-body: var(--font-inter);
+  --font-display: var(--font-playfair);
+
+  --radius-pill: 9999px;
+  --radius-card: 1.5rem;
+
+  --spacing-section: 100vw;
+}
+
+body {
+  background: var(--roma-bg);
+  color: var(--roma-dark);
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Smooth scroll on mobile */
+@media (max-width: 1023px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
