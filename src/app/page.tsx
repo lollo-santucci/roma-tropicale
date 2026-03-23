@@ -1,6 +1,7 @@
 "use client";
 
 import HorizontalScroll from "@/components/layout/HorizontalScroll";
+import Navigation from "@/components/layout/Navigation";
 import { SECTIONS } from "@/lib/constants";
 
 const SECTION_COLORS = [
@@ -16,6 +17,7 @@ const SECTION_COLORS = [
 export default function Home() {
   return (
     <HorizontalScroll>
+      <Navigation />
       {SECTIONS.map((section, i) => (
         <section
           key={section.id}
