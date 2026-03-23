@@ -38,3 +38,22 @@ body {
     scroll-behavior: smooth;
   }
 }
+
+/* Selection color */
+::selection {
+  background: var(--roma-purple);
+  color: var(--roma-white);
+}
+
+/* Hide scrollbar in horizontal mode */
+@media (min-width: 1024px) {
+  body {
+    overflow: hidden;
+  }
+}
+
+/* Smooth transitions for interactive elements */
+a,
+button {
+  transition: color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}

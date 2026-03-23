@@ -2,6 +2,7 @@
 
 import AnimatedText from "@/components/ui/AnimatedText";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 
 const archiveEvents = [
   {
@@ -39,7 +40,7 @@ export default function EventsSection() {
       <div className="min-h-screen px-6 sm:px-10 lg:px-16 py-24 lg:py-16 flex flex-col gap-10 lg:gap-14">
         {/* Hero */}
         <div className="pt-12 relative">
-          <div className="bg-roma-bg-alt rounded-card aspect-[16/7] sm:aspect-[16/6] w-full flex items-end p-6 sm:p-10">
+          <div className="bg-roma-bg-alt rounded-card aspect-[16/7] sm:aspect-[16/6] w-full flex items-end p-6 sm:p-10 overflow-hidden relative">
             <AnimatedText
               text="I nostri eventi"
               as="h2"
