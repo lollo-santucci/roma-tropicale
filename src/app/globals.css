@@ -18,12 +18,23 @@
   --color-roma-white: var(--roma-white);
 
   --font-body: var(--font-inter);
-  --font-display: var(--font-playfair);
+  --font-display: var(--font-inter);
 
   --radius-pill: 9999px;
   --radius-card: 1.5rem;
 
   --spacing-section: 100vw;
+
+  --animate-marquee: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 body {
@@ -32,11 +43,8 @@ body {
   font-family: var(--font-body), sans-serif;
 }
 
-/* Smooth scroll on mobile */
-@media (max-width: 1023px) {
-  html {
-    scroll-behavior: smooth;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 /* Selection color */
@@ -45,15 +53,16 @@ body {
   color: var(--roma-white);
 }
 
-/* Hide scrollbar in horizontal mode */
-@media (min-width: 1024px) {
-  body {
-    overflow: hidden;
-  }
-}
-
 /* Smooth transitions for interactive elements */
 a,
 button {
   transition: color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -1,20 +1,22 @@
 "use client";
 
+import Link from "next/link";
 import AnimatedText from "@/components/ui/AnimatedText";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { BRAND, SECTIONS } from "@/lib/constants";
-import { useScrollContext } from "@/components/layout/HorizontalScroll";
+import { BRAND } from "@/lib/constants";
 
-const footerLinks = ["About", "Events", "Academy", "Contact"];
-const footerSectionIds = ["about", "events", "academy", "contacts"] as const;
+const footerLinks = [
+  { label: "About", href: "/about" },
+  { label: "Events", href: "/events" },
+  { label: "Academy", href: "/academy" },
+  { label: "Contact", href: "/contacts" },
+];
 
 export default function ContactsSection() {
-  const { scrollToSection } = useScrollContext();
-
   return (
     <section
       id="contacts"
-      className="w-screen flex-shrink-0 min-h-screen bg-roma-bg overflow-y-auto"
+      className="min-h-screen bg-roma-bg overflow-y-auto"
     >
       <div className="min-h-screen px-6 sm:px-10 lg:px-16 py-24 lg:py-16 flex flex-col justify-between">
         {/* Top: say hi */}
@@ -115,18 +117,14 @@ export default function ContactsSection() {
 
             {/* Nav links */}
             <nav className="flex flex-col sm:flex-row gap-2 sm:gap-6">
-              {footerLinks.map((label, i) => (
-                <button
-                  key={label}
-                  onClick={() =>
-                    scrollToSection(
-                      footerSectionIds[i] as (typeof SECTIONS)[number]["id"]
-                    )
-                  }
+              {footerLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
                   className="text-roma-dark/50 text-sm hover:text-roma-dark transition-colors"
                 >
-                  {label}
-                </button>
+                  {link.label}
+                </Link>
               ))}
             </nav>
           </footer>
