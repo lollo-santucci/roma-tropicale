@@ -3,27 +3,21 @@
 import AnimatedText from "@/components/ui/AnimatedText";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import ImageReveal from "@/components/ui/ImageReveal";
-
-const benefits = [
-  "Accesso prioritario a tutti gli eventi",
-  "Sconti esclusivi sul merch",
-  "Accesso alla community privata",
-  "Workshop mensili gratuiti",
-  "Newsletter dedicata con contenuti extra",
-];
+import PillButton from "@/components/ui/PillButton";
+import { MEMBERSHIP_BENEFITS } from "@/lib/constants";
 
 export default function MembershipSection() {
   return (
     <section
       id="membership"
-      className="w-screen flex-shrink-0 min-h-screen bg-roma-bg-alt overflow-y-auto"
+      className="bg-roma-bg-alt px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24"
     >
-      <div className="min-h-screen px-6 sm:px-10 lg:px-16 py-24 lg:py-16 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
         {/* Text side */}
         <div className="flex-1 flex flex-col gap-6">
           <AnimatedText
             text="Entra a far parte del club!"
-            as="h2"
+            as="h1"
             className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark"
           />
 
@@ -37,7 +31,7 @@ export default function MembershipSection() {
 
           <ScrollReveal delay={0.1}>
             <ul className="space-y-3">
-              {benefits.map((b) => (
+              {MEMBERSHIP_BENEFITS.map((b) => (
                 <li key={b} className="flex items-start gap-3">
                   <span className="w-2 h-2 rounded-full bg-roma-purple mt-2 flex-shrink-0" />
                   <span className="text-roma-dark/80 text-sm sm:text-base">{b}</span>
@@ -58,14 +52,14 @@ export default function MembershipSection() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <button className="bg-roma-purple text-roma-white rounded-pill px-8 py-3.5 text-sm font-medium hover:bg-roma-purple-light transition-colors self-start">
-              SCOPRI DI PI&Ugrave;
-            </button>
+            <PillButton variant="purple" href="/contacts">
+              SCOPRI DI PIÙ
+            </PillButton>
           </ScrollReveal>
         </div>
 
         {/* Image side */}
-        <div className="flex-1 w-full max-w-lg">
+        <div className="flex-1 w-full max-w-lg" role="img" aria-label="Membership community photo">
           <ImageReveal className="w-full" aspectRatio="aspect-[3/4]" />
         </div>
       </div>

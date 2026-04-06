@@ -2,34 +2,21 @@
 
 import AnimatedText from "@/components/ui/AnimatedText";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-
-const products = [
-  {
-    name: "Bucket Hat",
-    description: "Cappello bucket con logo Roma Tropicale ricamato.",
-  },
-  {
-    name: "Cappello Patch",
-    description: "Baseball cap con patch tropicale in edizione limitata.",
-  },
-  {
-    name: "T-shirt",
-    description: "T-shirt in cotone organico con grafica tropicale.",
-  },
-];
+import PillButton from "@/components/ui/PillButton";
+import { PRODUCTS } from "@/lib/constants";
 
 export default function MerchSection() {
   return (
     <section
       id="merch"
-      className="w-screen flex-shrink-0 min-h-screen bg-roma-bg overflow-y-auto"
+      className="bg-roma-bg px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24"
     >
-      <div className="min-h-screen px-6 sm:px-10 lg:px-16 py-24 lg:py-16 flex flex-col gap-10 lg:gap-14">
+      <div className="flex flex-col gap-10 lg:gap-14">
         {/* Header */}
-        <div className="pt-12">
+        <div>
           <AnimatedText
             text="Il merch di Roma Tropicale"
-            as="h2"
+            as="h1"
             className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark"
           />
           <ScrollReveal delay={0.2}>
@@ -39,19 +26,23 @@ export default function MerchSection() {
           </ScrollReveal>
         </div>
 
-        {/* Products grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {products.map((product, i) => (
+        {/* Products grid — 2x2 on sm+ */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+          {PRODUCTS.map((product, i) => (
             <ScrollReveal key={product.name} delay={i * 0.1}>
               <div className="flex flex-col gap-4">
-                <div className="bg-roma-bg-alt rounded-card aspect-[3/4]" />
+                <div
+                  className="bg-roma-bg-alt rounded-card aspect-[3/4]"
+                  role="img"
+                  aria-label={`${product.name} photo placeholder`}
+                />
                 <h3 className="font-[family-name:var(--font-display)] text-xl sm:text-2xl text-roma-dark">
                   {product.name}
                 </h3>
                 <p className="text-roma-dark/60 text-sm">{product.description}</p>
-                <button className="bg-roma-dark text-roma-white rounded-pill px-6 py-3 text-sm font-medium hover:opacity-80 transition-opacity self-start">
+                <PillButton variant="primary" href="/contacts" className="self-start">
                   ORDINA ORA
-                </button>
+                </PillButton>
               </div>
             </ScrollReveal>
           ))}

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { NAV_LINKS } from "@/lib/constants";
 
 export default function Navbar() {
   const [visible, setVisible] = useState(true);

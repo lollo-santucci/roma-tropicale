@@ -2,9 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { NAV_LINKS } from "@/lib/constants";
 
 // Scattered collage layout — each item has position, size, and scroll-driven effects
 // scrollScale: [start, mid, end] scale values as scroll progresses

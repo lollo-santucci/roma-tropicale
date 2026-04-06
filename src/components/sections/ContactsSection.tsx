@@ -1,30 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedText from "@/components/ui/AnimatedText";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { BRAND } from "@/lib/constants";
-
-const footerLinks = [
-  { label: "About", href: "/about" },
-  { label: "Events", href: "/events" },
-  { label: "Academy", href: "/academy" },
-  { label: "Contact", href: "/contacts" },
-];
+import DarkCard from "@/components/ui/DarkCard";
+import NewsletterForm from "@/components/ui/NewsletterForm";
+import { BRAND, FOOTER_LINKS } from "@/lib/constants";
 
 export default function ContactsSection() {
   return (
     <section
       id="contacts"
-      className="min-h-screen bg-roma-bg overflow-y-auto"
+      className="min-h-screen bg-roma-bg px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24"
     >
-      <div className="min-h-screen px-6 sm:px-10 lg:px-16 py-24 lg:py-16 flex flex-col justify-between">
+      <div className="min-h-screen flex flex-col justify-between">
         {/* Top: say hi */}
         <div className="pt-12 flex flex-col lg:flex-row gap-8 lg:gap-16 items-start lg:items-end">
           <div className="flex-1">
             <AnimatedText
               text="say hi (:"
-              as="h2"
+              as="h1"
               className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-7xl text-roma-dark"
             />
             <ScrollReveal delay={0.2}>
@@ -44,21 +40,22 @@ export default function ContactsSection() {
               </p>
             </ScrollReveal>
             {/* Purple drop placeholder */}
-            <div className="w-16 h-24 bg-roma-purple rounded-full" />
+            <div
+              className="w-16 h-24 bg-roma-purple rounded-full"
+              role="img"
+              aria-label="Decorative purple shape"
+            />
           </div>
         </div>
 
         {/* Collaborations card */}
         <ScrollReveal className="my-8 lg:my-12">
-          <div className="bg-roma-dark rounded-card p-6 sm:p-8 max-w-2xl">
-            <p className="text-roma-white font-[family-name:var(--font-display)] text-xl sm:text-2xl mb-4">
-              Collaborazioni & Partnership
-            </p>
-            <p className="text-roma-white/60 text-sm mb-6">
-              Lavoriamo con brand e realtà che condividono i nostri valori di
-              sostenibilità e creatività.
-            </p>
-            <div className="flex flex-wrap gap-3">
+          <DarkCard
+            title="Collaborazioni & Partnership"
+            description="Lavoriamo con brand e realtà che condividono i nostri valori di sostenibilità e creatività."
+            className="max-w-2xl"
+          >
+            <div className="flex flex-wrap gap-3 mt-6">
               {BRAND.partners.map((p) => (
                 <span
                   key={p}
@@ -68,7 +65,7 @@ export default function ContactsSection() {
                 </span>
               ))}
             </div>
-          </div>
+          </DarkCard>
         </ScrollReveal>
 
         {/* Social + Newsletter */}
@@ -76,31 +73,36 @@ export default function ContactsSection() {
           {/* Social */}
           <ScrollReveal>
             <div className="flex gap-4">
-              {(["Instagram", "Spotify", "LinkedIn"] as const).map((s) => (
-                <a
-                  key={s}
-                  href="#"
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-roma-dark rounded-full flex items-center justify-center text-roma-white text-xs hover:bg-roma-purple transition-colors"
-                >
-                  {s.slice(0, 2).toUpperCase()}
-                </a>
-              ))}
+              <a
+                href={BRAND.socials.instagram}
+                aria-label="Instagram"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-roma-dark rounded-full flex items-center justify-center hover:bg-roma-purple transition-colors"
+              >
+                <Image src="/icons/instagram.svg" alt="" width={20} height={20} />
+              </a>
+              <a
+                href={BRAND.socials.spotify}
+                aria-label="Spotify"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-roma-dark rounded-full flex items-center justify-center hover:bg-roma-purple transition-colors"
+              >
+                <Image src="/icons/spotify.svg" alt="" width={20} height={20} />
+              </a>
+              <a
+                href={BRAND.socials.linkedin}
+                aria-label="LinkedIn"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-roma-dark rounded-full flex items-center justify-center hover:bg-roma-purple transition-colors"
+              >
+                <Image src="/icons/linkedin.svg" alt="" width={20} height={20} />
+              </a>
             </div>
           </ScrollReveal>
 
-          {/* Newsletter mini */}
+          {/* Newsletter compact */}
           <ScrollReveal delay={0.1} className="flex-1 max-w-sm">
-            <div className="bg-roma-dark rounded-card p-4 sm:p-5">
+            <DarkCard className="p-4 sm:p-5">
               <p className="text-roma-white text-sm mb-3">Newsletter</p>
-              <div className="flex gap-2">
-                <div className="flex-1 bg-roma-white/10 rounded-pill px-4 py-2 text-roma-white/40 text-xs">
-                  La tua email
-                </div>
-                <button className="bg-roma-purple text-roma-white rounded-pill px-4 py-2 text-xs font-medium hover:bg-roma-purple-light transition-colors">
-                  GO
-                </button>
-              </div>
-            </div>
+              <NewsletterForm variant="compact" />
+            </DarkCard>
           </ScrollReveal>
         </div>
 
@@ -117,7 +119,7 @@ export default function ContactsSection() {
 
             {/* Nav links */}
             <nav className="flex flex-col sm:flex-row gap-2 sm:gap-6">
-              {footerLinks.map((link) => (
+              {FOOTER_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
