@@ -61,12 +61,12 @@ describe("Property 10: Educator rendering from constants", () => {
     });
   });
 
-  it("renders circular placeholders for educators (rounded-full class)", () => {
+  it("renders photo placeholders for educators", () => {
     const { container } = render(<AcademySection />);
 
-    const circularPlaceholders = container.querySelectorAll(".rounded-full");
+    const photoPlaceholders = container.querySelectorAll('[role="img"]');
 
-    // At least as many circular placeholders as educators
-    expect(circularPlaceholders.length).toBeGreaterThanOrEqual(EDUCATORS.length);
+    // At least as many photo placeholders as educators (plus hero images)
+    expect(photoPlaceholders.length).toBeGreaterThanOrEqual(EDUCATORS.length);
   });
 });

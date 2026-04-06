@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { BRAND } from "@/lib/constants";
 
 export default function NewsletterSection() {
   return (
@@ -21,24 +23,14 @@ export default function NewsletterSection() {
             appuntamenti da non perdere e piccole scoperte
             botaniche.
           </p>
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="w-full space-y-8"
+          <Link
+            href={BRAND.newsletterForm}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-10 py-3 bg-roma-white text-roma-dark text-xs uppercase tracking-widest rounded-pill hover:bg-roma-white/80 transition-colors font-medium"
           >
-            <div>
-              <input
-                type="email"
-                placeholder="e-mail"
-                className="w-full bg-transparent border-b border-roma-white/20 text-roma-white placeholder:text-roma-white/30 pb-3 text-sm text-center focus:outline-none focus:border-roma-white/50 transition-colors"
-              />
-            </div>
-            <button
-              type="submit"
-              className="px-10 py-3 bg-roma-white text-roma-dark text-xs uppercase tracking-widest rounded-pill hover:bg-roma-white/80 transition-colors font-medium"
-            >
-              Subscribe
-            </button>
-          </form>
+            Subscribe
+          </Link>
         </div>
       </motion.div>
     </section>

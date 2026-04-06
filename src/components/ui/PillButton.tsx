@@ -41,8 +41,16 @@ export default function PillButton({
     : undefined;
 
   if (href) {
+    const isExternal = href.startsWith("http");
     return (
-      <Link href={href} className={classes} style={style} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+      <Link
+        href={href}
+        className={classes}
+        style={style}
+        onMouseEnter={onEnter}
+        onMouseLeave={onLeave}
+        {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
+      >
         {children}
       </Link>
     );

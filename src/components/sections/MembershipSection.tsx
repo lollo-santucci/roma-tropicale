@@ -1,68 +1,104 @@
 "use client";
 
-import AnimatedText from "@/components/ui/AnimatedText";
+import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import ImageReveal from "@/components/ui/ImageReveal";
 import PillButton from "@/components/ui/PillButton";
-import { MEMBERSHIP_BENEFITS } from "@/lib/constants";
+import AnimatedText from "@/components/ui/AnimatedText";
+import { BRAND, MEMBERSHIP_TEXTS } from "@/lib/constants";
+
+const SOCIALS = [
+  { name: "Instagram", icon: "/icons/instagram.svg", href: BRAND.socials.instagram },
+  { name: "Spotify", icon: "/icons/spotify.svg", href: BRAND.socials.spotify },
+  { name: "LinkedIn", icon: "/icons/linkedin.svg", href: BRAND.socials.linkedin },
+] as const;
 
 export default function MembershipSection() {
   return (
-    <section
-      id="membership"
-      className="bg-roma-bg-alt px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24"
-    >
-      <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
-        {/* Text side */}
-        <div className="flex-1 flex flex-col gap-6">
+    <section id="membership" className="bg-roma-bg px-6 sm:px-10 lg:px-0">
+      {/* ── Logo Header ── */}
+      <div className="flex items-center justify-between pt-[30px] px-0 lg:px-[100px]">
+        <Image
+          src="/imgs/logo-romatropicale.svg"
+          alt="Roma Tropicale"
+          width={100}
+          height={107}
+          className="w-[100px] h-[107px]"
+        />
+        <PillButton href="/">HOME</PillButton>
+      </div>
+
+      {/* ── Header Section ── */}
+      <div className="flex flex-col lg:flex-row items-start gap-10 sm:gap-12 lg:gap-16 px-0 lg:px-[100px] py-10 sm:py-[60px]">
+        {/* Left column */}
+        <div className="flex flex-col gap-[25px] w-full lg:w-[480px] lg:shrink-0">
           <AnimatedText
             text="Entra a far parte del club!"
             as="h1"
-            className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark"
+            className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] text-roma-dark tracking-[-2px]"
           />
 
           <ScrollReveal>
-            <p className="text-roma-dark/70 text-base sm:text-lg leading-relaxed">
-              La membership di Roma Tropicale ti dà accesso a un mondo di esperienze
-              uniche, connessioni autentiche e contenuti esclusivi della nostra community
-              plant-based.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <ul className="space-y-3">
-              {MEMBERSHIP_BENEFITS.map((b) => (
-                <li key={b} className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-roma-purple mt-2 flex-shrink-0" />
-                  <span className="text-roma-dark/80 text-sm sm:text-base">{b}</span>
-                </li>
+            <div className="text-[13px] leading-[20px] text-roma-dark">
+              {MEMBERSHIP_TEXTS.intro.map((p, i) => (
+                <p key={i} className="mb-5">{p}</p>
               ))}
-            </ul>
-          </ScrollReveal>
 
-          <ScrollReveal delay={0.2}>
-            <div className="flex items-baseline gap-2 mt-2">
-              <span className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl text-roma-dark">
-                4&euro;
-              </span>
-              <span className="text-roma-dark/50 text-sm">
-                fino al 31 dicembre 2026
-              </span>
+              {MEMBERSHIP_TEXTS.body.map((p, i) => (
+                <p key={`body-${i}`} className="mb-5">{p}</p>
+              ))}
+
+              <p className="mb-0">{MEMBERSHIP_TEXTS.question}</p>
+              <ul className="list-disc ml-5 mt-1">
+                {MEMBERSHIP_TEXTS.benefits.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+
+              <p className="mt-5 mb-0">{MEMBERSHIP_TEXTS.pricing}</p>
+              <p>{MEMBERSHIP_TEXTS.pricingDetail}</p>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.3}>
-            <PillButton variant="purple" href="/contacts">
-              SCOPRI DI PIÙ
-            </PillButton>
+          <ScrollReveal>
+            <div className="flex flex-col items-start gap-10 py-8">
+              <PillButton href={BRAND.membershipForm} rotate={-13}>
+                Iscriviti ora
+              </PillButton>
+            </div>
           </ScrollReveal>
         </div>
 
-        {/* Image side */}
-        <div className="flex-1 w-full max-w-lg" role="img" aria-label="Membership community photo">
-          <ImageReveal className="w-full" aspectRatio="aspect-[3/4]" />
+        {/* Right column: hero image + social icons */}
+        <div className="flex gap-5 items-end w-full lg:flex-1">
+          <div
+            className="bg-roma-bg-alt flex-1 lg:flex-none lg:w-[560px] h-[400px] lg:h-[625px]"
+            role="img"
+            aria-label="Membership community photo placeholder"
+          />
+          <div className="flex flex-col gap-2 items-center justify-center">
+            {SOCIALS.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-roma-dark flex items-center justify-center hover:bg-roma-purple transition-colors"
+                aria-label={social.name}
+              >
+                <Image
+                  src={social.icon}
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="w-4 h-4 invert"
+                />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
+
+
     </section>
   );
 }

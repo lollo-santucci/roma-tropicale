@@ -58,10 +58,10 @@ export default function ContactsSection() {
             <div className="flex flex-wrap gap-3 mt-6">
               {BRAND.partners.map((p) => (
                 <span
-                  key={p}
+                  key={p.name}
                   className="bg-roma-white/10 rounded-pill px-4 py-2 text-roma-white text-sm"
                 >
-                  {p}
+                  {p.name}
                 </span>
               ))}
             </div>

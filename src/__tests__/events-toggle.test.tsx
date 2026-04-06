@@ -1,9 +1,8 @@
-// Feature: roma-tropicale-pages, Property 6: Events toggle state consistency
-// **Validates: Requirements 8.3, 8.4, 8.5**
+// Feature: roma-tropicale-pages, Property 6: Events section structure
+// **Validates: Event page renders all sections from Figma design**
 
 import { describe, it, expect, vi } from "vitest";
-import { render, fireEvent } from "@testing-library/react";
-import fc from "fast-check";
+import { render } from "@testing-library/react";
 
 vi.mock("framer-motion", () => ({
   motion: {
@@ -28,43 +27,34 @@ vi.mock("next/link", () => ({
   default: ({ href, children, ...props }: any) => <a href={href} {...props}>{children}</a>,
 }));
 
+vi.mock("next/image", () => ({
+  default: (props: any) => <img {...props} />,
+}));
+
+vi.mock("@/components/ui/PillButton", () => ({
+  default: ({ children, href, variant, className, onClick }: any) =>
+    href ? <a href={href} className={`${variant} ${className}`}>{children}</a> : <button onClick={onClick} className={`${variant} ${className}`}>{children}</button>,
+}));
+
 import EventsSection from "@/components/sections/EventsSection";
 
-const toggleClickArb = fc.array(
-  fc.constantFrom("home" as const, "archive" as const),
-  { minLength: 1, maxLength: 20 }
-);
+describe("Property 6: Events section structure", () => {
+  it("renders all main sections: Workshop, Le attività, La Venue", () => {
+    const { getByText } = render(<EventsSection />);
 
-describe("Property 6: Events toggle state consistency", () => {
-  it("displays exactly one view matching the last toggle click for any sequence of clicks", () => {
-    fc.assert(
-      fc.property(toggleClickArb, (clicks) => {
-        const { getByText, queryByText, unmount } = render(<EventsSection />);
+    expect(getByText("Workshop")).toBeTruthy();
+    expect(getByText("Le attività")).toBeTruthy();
+    expect(getByText("La Venue")).toBeTruthy();
+  });
 
-        // Execute each click in the sequence
-        for (const click of clicks) {
-          const buttonText = click === "home" ? "HOME" : "ARCHIVE";
-          fireEvent.click(getByText(buttonText));
-        }
+  it("renders the festival title", () => {
+    const { getByText } = render(<EventsSection />);
+    expect(getByText("Primavera Tropicale Festival")).toBeTruthy();
+  });
 
-        const lastClick = clicks[clicks.length - 1];
-
-        if (lastClick === "home") {
-          // Home view: the planning text should be visible
-          expect(queryByText("Stiamo pianificando il prossimo evento")).not.toBeNull();
-          // Archive view: "From the archive" should NOT be visible
-          expect(queryByText("From the archive")).toBeNull();
-        } else {
-          // Archive view: "From the archive" should be visible
-          expect(queryByText("From the archive")).not.toBeNull();
-          // Home view: the planning text should NOT be visible
-          expect(queryByText("Stiamo pianificando il prossimo evento")).toBeNull();
-        }
-
-        // Cleanup to avoid DOM leaks between property runs
-        unmount();
-      }),
-      { numRuns: 50 }
-    );
+  it("renders event highlights", () => {
+    const { getByText } = render(<EventsSection />);
+    expect(getByText(/Sonorizzazioni nella natura/)).toBeTruthy();
+    expect(getByText(/Green Market/)).toBeTruthy();
   });
 });

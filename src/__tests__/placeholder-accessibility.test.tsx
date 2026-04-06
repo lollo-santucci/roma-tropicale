@@ -78,9 +78,8 @@ describe("Property 12: Placeholder element accessibility and dimensions", () => 
     }
   );
 
-  it("EventsSection (archive view) — all role='img' elements have non-empty aria-label", () => {
-    const { container, getByText } = render(<EventsSection />);
-    fireEvent.click(getByText("ARCHIVE"));
+  it("EventsSection — all role='img' elements have non-empty aria-label", () => {
+    const { container } = render(<EventsSection />);
 
     const placeholders = container.querySelectorAll('[role="img"]');
     expect(placeholders.length).toBeGreaterThan(0);

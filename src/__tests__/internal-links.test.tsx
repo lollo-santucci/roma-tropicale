@@ -54,7 +54,7 @@ import MerchSection from "@/components/sections/MerchSection";
 import MembershipSection from "@/components/sections/MembershipSection";
 import ContactsSection from "@/components/sections/ContactsSection";
 
-const VALID_ROUTES = ["/", "/about", "/events", "/academy", "/merch", "/membership", "/contacts"];
+const VALID_ROUTES = ["/", "/about", "/events", "/academy", "/merch", "/membership", "/contacts", "/events/herbarium-giapponese", "/events/kokedama-tropicale", "/events/terrarium-workshop"];
 
 const sections: [string, React.ComponentType][] = [
   ["AboutSection", AboutSection],
@@ -98,9 +98,8 @@ describe("Property 13: Internal link validity", () => {
     });
   });
 
-  it("EventsSection (archive view) — all internal links are valid", () => {
-    const { container, getByText } = render(<EventsSection />);
-    fireEvent.click(getByText("ARCHIVE"));
+  it("EventsSection — all internal links are valid", () => {
+    const { container } = render(<EventsSection />);
     const links = getInternalLinks(container);
 
     links.forEach((link) => {

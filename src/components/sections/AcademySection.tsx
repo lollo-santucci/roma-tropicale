@@ -1,133 +1,170 @@
 "use client";
 
-import SectionHeader from "@/components/ui/SectionHeader";
+import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import ImageReveal from "@/components/ui/ImageReveal";
 import PillButton from "@/components/ui/PillButton";
-import { EDUCATORS } from "@/lib/constants";
+import AnimatedText from "@/components/ui/AnimatedText";
+import { BRAND, ACADEMY_TEXTS, EDUCATORS } from "@/lib/constants";
+
+const SOCIALS = [
+  { name: "Instagram", icon: "/icons/instagram.svg", href: BRAND.socials.instagram },
+  { name: "Spotify", icon: "/icons/spotify.svg", href: BRAND.socials.spotify },
+  { name: "LinkedIn", icon: "/icons/linkedin.svg", href: BRAND.socials.linkedin },
+] as const;
 
 export default function AcademySection() {
   return (
-    <section
-      id="academy"
-      className="bg-roma-bg-alt px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24"
-    >
-      <div className="flex flex-col gap-12 lg:gap-16">
-        {/* Header: SectionHeader + orchid placeholder */}
-        <div className="pt-12 flex flex-col lg:flex-row gap-8 items-start lg:items-end">
-          <div className="flex-1">
-            <SectionHeader
-              label="Academy Tropicale"
-              heading="learn."
-              as="h1"
-            />
-          </div>
-          <div
-            className="w-32 h-32 sm:w-40 sm:h-40 bg-roma-purple/20 rounded-full flex items-center justify-center"
-            role="img"
-            aria-label="Orchid decorative placeholder"
-          >
-            <span className="text-roma-purple text-4xl">🌺</span>
-          </div>
-        </div>
+    <section id="academy" className="bg-roma-bg px-6 sm:px-10 lg:px-0">
+      {/* ── Hero Image (full-width) ── */}
+      <div
+        className="-mx-6 sm:-mx-10 lg:mx-0 w-screen aspect-[1214/664] lg:aspect-auto lg:h-screen bg-roma-bg-alt"
+        role="img"
+        aria-label="Academy hero image placeholder"
+      />
 
-        {/* Hero: ImageReveal 16:9 + "tera" branding */}
-        <div className="relative">
-          <div role="img" aria-label="Academy hero image placeholder">
-            <ImageReveal className="w-full" aspectRatio="aspect-[16/9]" />
-          </div>
-          <ScrollReveal delay={0.2}>
-            <p className="mt-4 text-roma-dark/50 text-sm tracking-widest uppercase">
-              tera
-            </p>
-          </ScrollReveal>
-        </div>
+      {/* ── Logo Header ── */}
+      <div className="flex items-center pt-[30px] px-0 lg:px-[100px]">
+        <Image
+          src="/imgs/logo-romatropicale.svg"
+          alt="Roma Tropicale"
+          width={100}
+          height={107}
+          className="w-[100px] h-[107px]"
+        />
+      </div>
 
-        {/* Two side-by-side content blocks */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Left: cos'è Academy Tropicale */}
-          <div className="flex flex-col gap-4">
-            <ScrollReveal>
-              <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl text-roma-dark">
-                cos&apos;è Academy Tropicale
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.05}>
-              <p className="text-roma-dark/70 text-base sm:text-lg leading-relaxed">
-                L&apos;Academy Tropicale è il nostro programma educativo dedicato alla
-                cultura plant-based, al design sostenibile e alla creatività. Workshop
-                pratici, corsi intensivi e masterclass con i migliori professionisti del
-                settore.
-              </p>
-            </ScrollReveal>
-            <div role="img" aria-label="Academy Tropicale course photo placeholder">
-              <ImageReveal className="w-full" aspectRatio="aspect-[3/4]" />
-            </div>
-          </div>
-
-          {/* Right: Iconic Essentials */}
-          <div className="flex flex-col gap-4">
-            <ScrollReveal>
-              <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl text-roma-dark">
-                Iconic Essentials
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.05}>
-              <p className="text-roma-dark/70 text-base sm:text-lg leading-relaxed">
-                Un percorso intensivo sulle basi della cultura tropicale urbana:
-                dalla cura delle piante al design degli spazi verdi, passando per
-                la sostenibilità e la creatività.
-              </p>
-            </ScrollReveal>
-            <div role="img" aria-label="Iconic Essentials course photo placeholder">
-              <ImageReveal className="w-full" aspectRatio="aspect-[3/4]" />
-            </div>
-          </div>
-        </div>
-
-        {/* Cosa include il corso */}
-        <div>
-          <SectionHeader heading="cosa include il corso" as="h2" className="mb-6" />
-          <ScrollReveal>
-            <ul className="list-disc list-inside text-roma-dark/70 text-base sm:text-lg leading-relaxed space-y-2">
-              <li>Workshop pratici con educatori professionisti</li>
-              <li>Materiali e strumenti inclusi</li>
-              <li>Accesso alla community esclusiva</li>
-              <li>Certificato di partecipazione</li>
-              <li>Supporto post-corso dedicato</li>
-            </ul>
-          </ScrollReveal>
-        </div>
-
-        {/* Educators */}
-        <div>
-          <SectionHeader
-            heading="I nostri Educatori Creativi"
-            as="h2"
-            className="mb-6"
+      {/* ── Section 1: cos'è l'Academy Tropicale ── */}
+      <div className="flex flex-col lg:flex-row items-start gap-10 sm:gap-12 lg:gap-16 px-0 lg:px-[100px] py-10 sm:py-[60px]">
+        {/* Left column */}
+        <div className="flex flex-col gap-[25px] w-full lg:w-[480px] lg:shrink-0">
+          <AnimatedText
+            text="cos'è l'Academy Tropicale"
+            as="h1"
+            className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] text-roma-dark tracking-[-2px]"
           />
-          <div className="flex flex-wrap gap-6">
-            {EDUCATORS.map((educator, i) => (
-              <ScrollReveal key={educator.name} delay={i * 0.05}>
-                <div className="flex flex-col items-center gap-3">
-                  <div
-                    className="bg-roma-bg rounded-full w-20 h-20 sm:w-24 sm:h-24"
-                    role="img"
-                    aria-label={`${educator.name} educator photo placeholder`}
-                  />
-                  <p className="text-roma-dark text-sm font-medium text-center">
-                    {educator.name}
-                  </p>
-                </div>
-              </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="text-[13px] leading-[20px] text-roma-dark">
+              {ACADEMY_TEXTS.intro.map((p, i) => (
+                <p key={i} className="mb-5">{p}</p>
+              ))}
+
+              <p className="mb-0">{ACADEMY_TEXTS.audience.question}</p>
+              <p className="mb-0">{ACADEMY_TEXTS.audience.intro}</p>
+              <ul className="list-disc ml-5">
+                {ACADEMY_TEXTS.audience.items.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="flex flex-col items-start gap-10 py-8">
+              <PillButton href="https://www.paypal.com/ncp/payment/VMF3J8BGRD9RJ" rotate={-13}>
+                Iscriviti ora
+              </PillButton>
+              <PillButton href="https://www.academytropicale.com" rotate={15}>
+                Accedi
+              </PillButton>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Right column: hero image + social icons */}
+        <div className="flex gap-5 items-end w-full lg:flex-1">
+          <div
+            className="bg-roma-bg-alt flex-1 lg:flex-none lg:w-[560px] h-[350px] lg:h-[552px]"
+            role="img"
+            aria-label="Academy course photo placeholder"
+          />
+          <div className="flex flex-col gap-2 items-center justify-center">
+            {SOCIALS.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-roma-dark flex items-center justify-center hover:bg-roma-purple transition-colors"
+                aria-label={social.name}
+              >
+                <Image
+                  src={social.icon}
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="w-4 h-4 invert"
+                />
+              </a>
             ))}
           </div>
         </div>
+      </div>
 
-        {/* CTA */}
-        <ScrollReveal>
-          <PillButton href="/contacts">SCOPRI I CORSI</PillButton>
-        </ScrollReveal>
+      {/* ── Section 2: il corso Essentials ── */}
+      <div className="flex flex-col lg:flex-row items-start gap-10 sm:gap-12 lg:gap-16 px-0 lg:px-[100px] py-10 sm:py-[60px]">
+        {/* Left column */}
+        <div className="flex flex-col gap-[25px] w-full lg:w-[480px] lg:shrink-0">
+          <AnimatedText
+            text="il corso Essentials"
+            as="h2"
+            className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] text-roma-dark tracking-[-2px]"
+          />
+
+          <ScrollReveal>
+            <div className="text-[13px] leading-[20px] text-roma-dark">
+              <p className="mb-5">{ACADEMY_TEXTS.essentials.intro}</p>
+
+              <p className="font-medium mb-0">Programma</p>
+              <ul className="list-disc ml-5 mb-5">
+                {ACADEMY_TEXTS.essentials.program.map((lesson, i) => (
+                  <li key={i}>
+                    <span className="font-medium text-[#b06fff]">{lesson.title}</span>
+                    {` – a cura di ${lesson.educator}`}
+                  </li>
+                ))}
+              </ul>
+
+              <p className="font-medium mb-0">La collaborazione con Tera</p>
+              <p className="mb-5">{ACADEMY_TEXTS.essentials.tera}</p>
+
+              <p className="mb-0">Come acquistare il corso</p>
+              <p className="mb-0">{ACADEMY_TEXTS.essentials.purchase}</p>
+              <p>{ACADEMY_TEXTS.essentials.purchaseDetail}</p>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Right column: image */}
+        <div className="flex items-end w-full lg:flex-1">
+          <div
+            className="bg-roma-bg-alt flex-1 lg:flex-none lg:w-[560px] h-[350px] lg:h-[552px]"
+            role="img"
+            aria-label="Essentials course photo placeholder"
+          />
+        </div>
+      </div>
+
+      {/* ── Educators Section ── */}
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-start justify-center px-0 lg:px-[60px] py-10 sm:py-[60px]">
+        {EDUCATORS.map((educator, i) => (
+          <ScrollReveal key={educator.name} delay={i * 0.08} className="flex-1 min-w-0">
+            <div className="flex flex-col gap-4 overflow-hidden">
+              <div
+                className="bg-[#d1d1d1] w-full h-[276px]"
+                role="img"
+                aria-label={`${educator.name} photo placeholder`}
+              />
+              <hr className="border-roma-dark/20 w-full" />
+              <p className="text-[11px] font-semibold tracking-[0.66px] uppercase text-roma-dark">
+                {educator.name}
+              </p>
+              <p className="text-[11px] tracking-[0.66px] uppercase text-roma-dark">
+                {educator.description}
+              </p>
+            </div>
+          </ScrollReveal>
+        ))}
       </div>
     </section>
   );

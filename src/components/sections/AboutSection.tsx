@@ -53,7 +53,7 @@ export default function AboutSection() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="hidden sm:flex flex-col gap-8 items-start">
+            <div className="hidden sm:flex flex-col gap-10 py-8 items-start">
               <PillButton href="/" rotate={-13}>Home</PillButton>
               <PillButton href="/about" rotate={15}>Blog</PillButton>
             </div>
@@ -160,14 +160,25 @@ export default function AboutSection() {
 
           {/* Partner logo grid */}
           <ScrollReveal>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
               {BRAND.partners.map((partner) => (
                 <div
-                  key={partner}
-                  className="flex items-center justify-center h-12 sm:h-14 lg:h-16 bg-roma-bg rounded"
-                  role="img"
-                  aria-label={`Logo ${partner}`}
-                />
+                  key={partner.name}
+                  className="flex items-center justify-center h-12 sm:h-14 lg:h-16"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={160}
+                    height={60}
+                    className={cn(
+                      "w-auto object-contain opacity-60 hover:opacity-100 transition-opacity",
+                      partner.size === "small"
+                        ? "max-h-10 sm:max-h-12 lg:max-h-14"
+                        : "max-h-16 sm:max-h-20 lg:max-h-24"
+                    )}
+                  />
+                </div>
               ))}
             </div>
           </ScrollReveal>

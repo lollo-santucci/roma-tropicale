@@ -73,19 +73,14 @@ describe("EventsSection", () => {
     expect(getByLabelText("Event hero placeholder")).toBeTruthy();
   });
 
-  it('has toggle buttons "HOME" and "ARCHIVE"', () => {
+  it("renders festival title", () => {
     const { getByText } = render(<EventsSection />);
-    expect(getByText("HOME")).toBeTruthy();
-    expect(getByText("ARCHIVE")).toBeTruthy();
+    expect(getByText("Primavera Tropicale Festival")).toBeTruthy();
   });
 
-  it('"From the archive" label appears in archive view', () => {
-    const { getByText, queryByText } = render(<EventsSection />);
-    // Initially in home view — no archive label
-    expect(queryByText("From the archive")).toBeNull();
-    // Switch to archive
-    fireEvent.click(getByText("ARCHIVE"));
-    expect(getByText("From the archive")).toBeTruthy();
+  it("renders Workshop section", () => {
+    const { getByText } = render(<EventsSection />);
+    expect(getByText("Workshop")).toBeTruthy();
   });
 });
 
@@ -95,9 +90,9 @@ describe("AcademySection", () => {
     expect(getByLabelText("Academy hero image placeholder")).toBeTruthy();
   });
 
-  it('"SCOPRI I CORSI" links to /contacts', () => {
+  it('"Iscriviti ora" links to /contacts', () => {
     const { getByText } = render(<AcademySection />);
-    const link = getByText("SCOPRI I CORSI");
+    const link = getByText(/iscriviti ora/i);
     expect(link.closest("a")?.getAttribute("href")).toBe("/contacts");
   });
 });
@@ -116,15 +111,14 @@ describe("MerchSection", () => {
 });
 
 describe("MembershipSection", () => {
-  it('pricing "4€" is visible', () => {
+  it('pricing "5€" is visible', () => {
     const { container } = render(<MembershipSection />);
-    // The component renders 4€ as "4" + entity "€"
-    expect(container.textContent).toContain("4€");
+    expect(container.textContent).toContain("5€");
   });
 
-  it('"SCOPRI DI PIÙ" links to /contacts', () => {
+  it('"Iscriviti ora" links to /contacts', () => {
     const { getByText } = render(<MembershipSection />);
-    const link = getByText("SCOPRI DI PIÙ");
+    const link = getByText(/iscriviti ora/i);
     expect(link.closest("a")?.getAttribute("href")).toBe("/contacts");
   });
 });

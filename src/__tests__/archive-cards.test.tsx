@@ -1,8 +1,8 @@
-// Feature: roma-tropicale-pages, Property 7: Archive event card completeness
-// **Validates: Requirements 8.1.1, 8.1.2, 8.1.5, 8.7**
+// Feature: roma-tropicale-pages, Property 7: Event workshop and activity cards
+// **Validates: Workshop cards and activity cards render from constants**
 
 import { describe, it, expect, vi } from "vitest";
-import { render, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 vi.mock("framer-motion", () => ({
   motion: {
@@ -31,45 +31,30 @@ vi.mock("next/image", () => ({
   default: (props: any) => <img {...props} />,
 }));
 
-vi.mock("@/components/ui/ImageReveal", () => ({
-  default: ({ className, aspectRatio }: any) => <div className={`${className} ${aspectRatio}`} />,
-}));
-
 vi.mock("@/components/ui/PillButton", () => ({
   default: ({ children, href, variant, className, onClick }: any) =>
     href ? <a href={href} className={`${variant} ${className}`}>{children}</a> : <button onClick={onClick} className={`${variant} ${className}`}>{children}</button>,
 }));
 
 import EventsSection from "@/components/sections/EventsSection";
-import { ARCHIVE_EVENTS } from "@/lib/constants";
+import { EVENT_WORKSHOPS, EVENT_ACTIVITIES, EVENT_VENUE_CARDS } from "@/lib/constants";
 
-describe("Property 7: Archive event card completeness", () => {
-  ARCHIVE_EVENTS.forEach((event) => {
-    it(`renders complete card for archive event "${event.title}"`, () => {
-      const { getByText } = render(<EventsSection />);
-
-      // Switch to archive view
-      fireEvent.click(getByText("ARCHIVE"));
-
-      // Verify title, date, location, description are all rendered
-      expect(getByText(event.title)).toBeTruthy();
-      expect(getByText(event.date)).toBeTruthy();
-      expect(getByText(event.location)).toBeTruthy();
-      expect(getByText(event.description)).toBeTruthy();
-    });
+describe("Property 7: Event workshop and activity cards", () => {
+  it("renders workshop photo placeholders", () => {
+    const { getAllByLabelText } = render(<EventsSection />);
+    const cards = getAllByLabelText("Workshop photo placeholder");
+    expect(cards).toHaveLength(EVENT_WORKSHOPS.length);
   });
 
-  it("archive cards have colored backgrounds (not just bg-roma-bg-alt)", () => {
-    const { getByText, container } = render(<EventsSection />);
+  it("renders activity cards with names", () => {
+    const { getAllByLabelText } = render(<EventsSection />);
+    const cards = getAllByLabelText("Activity photo placeholder");
+    expect(cards).toHaveLength(EVENT_ACTIVITIES.length);
+  });
 
-    // Switch to archive view
-    fireEvent.click(getByText("ARCHIVE"));
-
-    const coloredBgs = container.querySelectorAll(
-      '[class*="bg-amber-100"], [class*="bg-emerald-100"], [class*="bg-orange-100"], [class*="bg-lime-100"]'
-    );
-
-    // There should be at least as many colored backgrounds as archive events
-    expect(coloredBgs.length).toBeGreaterThanOrEqual(ARCHIVE_EVENTS.length);
+  it("renders venue cards", () => {
+    const { getAllByLabelText } = render(<EventsSection />);
+    const cards = getAllByLabelText("Venue photo placeholder");
+    expect(cards).toHaveLength(EVENT_VENUE_CARDS.length);
   });
 });

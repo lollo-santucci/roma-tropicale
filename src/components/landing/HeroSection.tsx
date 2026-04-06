@@ -80,12 +80,13 @@ export default function HeroSection() {
           transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
         >
           <Image
-            src="/videos/logo-romatropicale-3d.svg"
+            src="/videos/logo-romatropicale-3d.gif"
+            unoptimized
             alt="Roma Tropicale"
-            width={280}
-            height={300}
+            width={400}
+            height={428}
             priority
-            className="w-[180px] sm:w-[240px] lg:w-[280px] h-auto"
+            className="w-[180px] sm:w-[240px] lg:w-[280px] xl:w-[500px] h-auto"
           />
         </motion.div>
       </div>
