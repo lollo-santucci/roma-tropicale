@@ -1,91 +1,191 @@
 "use client";
 
-import SectionHeader from "@/components/ui/SectionHeader";
+import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import ImageReveal from "@/components/ui/ImageReveal";
 import PillButton from "@/components/ui/PillButton";
-import DarkCard from "@/components/ui/DarkCard";
-import { BRAND, TEAM_MEMBERS } from "@/lib/constants";
+import AnimatedText from "@/components/ui/AnimatedText";
+import { BRAND, ABOUT_TEXTS, ABOUT_REF_CARDS } from "@/lib/constants";
+import { cn } from "@/lib/utils";
+
+const SOCIALS = [
+  { name: "Instagram", icon: "/icons/instagram.svg", href: BRAND.socials.instagram },
+  { name: "Spotify", icon: "/icons/spotify.svg", href: BRAND.socials.spotify },
+  { name: "LinkedIn", icon: "/icons/linkedin.svg", href: BRAND.socials.linkedin },
+] as const;
 
 export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="bg-roma-bg-alt px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24"
-    >
-      <div className="flex flex-col gap-12 lg:gap-16">
-        {/* Page Header */}
-        <SectionHeader
-          label="About us"
-          heading="Siamo una community creativa plant-based radicata a Roma"
-          as="h1"
-          className="pt-12"
+    <section id="about" className="bg-roma-bg px-6 sm:px-10 lg:px-24">
+      {/* ── Logo Header ── */}
+      <div className="max-w-7xl mx-auto flex items-center pt-6 sm:pt-8">
+        <Image
+          src="/imgs/logo-romatropicale.svg"
+          alt="Roma Tropicale"
+          width={100}
+          height={107}
+          className="size-auto max-w-[80px] sm:max-w-[100px]"
         />
+      </div>
 
-        {/* Manifesto + Image */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      {/* ── Header Section ── */}
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-8 sm:gap-12 lg:gap-16 py-10 sm:py-14 lg:py-16">
+        <div className="flex flex-col gap-5 sm:gap-6 w-full lg:flex-1">
+          <AnimatedText
+            text="about us"
+            as="h1"
+            className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight text-balance"
+          />
+
           <ScrollReveal>
-            <p className="text-roma-dark/70 text-base sm:text-lg leading-relaxed">
-              {BRAND.tagline}. Organizziamo eventi, workshop e attività creative
-              che connettono persone attraverso la cultura plant-based, il design
-              e la sostenibilità. Il nostro obiettivo è costruire una rete di
-              connessioni verdi nella città eterna.
-            </p>
+            <div className="flex flex-col gap-4 sm:gap-5 text-sm leading-relaxed text-roma-dark">
+              {ABOUT_TEXTS.intro.map((p, i) => (
+                <p key={i} className="text-pretty">{p}</p>
+              ))}
+              <div>
+                <p className="font-medium text-roma-purple">Mission</p>
+                <p className="text-pretty">{ABOUT_TEXTS.mission}</p>
+              </div>
+              <div>
+                <p className="font-medium text-roma-purple">Vision</p>
+                <p className="text-pretty">{ABOUT_TEXTS.vision}</p>
+              </div>
+            </div>
           </ScrollReveal>
-          <div role="img" aria-label="Brand photo placeholder">
-            <ImageReveal
-              className="w-full"
-              aspectRatio="aspect-[3/4]"
-            />
-          </div>
+
+          <ScrollReveal>
+            <div className="hidden sm:flex flex-col gap-8 items-start">
+              <PillButton href="/" rotate={-13}>Home</PillButton>
+              <PillButton href="/about" rotate={15}>Blog</PillButton>
+            </div>
+          </ScrollReveal>
         </div>
 
-        {/* Navigation Pills */}
-        <ScrollReveal>
-          <div className="flex flex-wrap gap-3">
-            <PillButton href="/events">EVENTS</PillButton>
-            <PillButton href="/academy">ACADEMY</PillButton>
-            <PillButton href="/membership">MEMBERSHIP</PillButton>
-          </div>
-        </ScrollReveal>
-
-        {/* Team & Network */}
-        <div>
-          <SectionHeader heading="Team & Network" as="h2" className="mb-6" />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {TEAM_MEMBERS.map((m, i) => (
-              <ScrollReveal key={m.name} delay={i * 0.05}>
-                <div className="flex flex-col gap-3">
-                  <div
-                    className="bg-roma-bg rounded-card aspect-square"
-                    role="img"
-                    aria-label="Team member photo placeholder"
-                  />
-                  <p className="text-roma-dark font-medium text-sm">
-                    {m.name}
-                  </p>
-                  <p className="text-roma-dark/50 text-xs">{m.role}</p>
-                </div>
-              </ScrollReveal>
+        <div className="flex gap-4 sm:gap-5 items-end w-full lg:flex-1">
+          <div
+            className="bg-roma-bg-alt flex-1 w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[552px]"
+            role="img"
+            aria-label="About hero image placeholder"
+          />
+          <div className="flex flex-col gap-2 items-center">
+            {SOCIALS.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="size-9 sm:size-10 rounded-full bg-roma-dark flex items-center justify-center hover:bg-roma-purple transition-colors"
+                aria-label={social.name}
+              >
+                <Image
+                  src={social.icon}
+                  alt=""
+                  width={16}
+                  height={16}
+                  className="size-4 invert"
+                />
+              </a>
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Partners */}
-        <ScrollReveal>
-          <DarkCard title="Collaborazioni & Partner">
-            <div className="flex flex-wrap gap-6 items-center mt-4">
-              {BRAND.partners.map((p) => (
-                <div
-                  key={p}
-                  className="bg-roma-white/10 rounded-pill px-5 py-2 text-roma-white text-sm"
-                >
+      {/* ── Team & Network Section ── */}
+      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-start gap-8 sm:gap-12 lg:gap-16 py-10 sm:py-14 lg:py-16">
+        <ScrollReveal direction="left" className="w-full lg:flex-1">
+          <div
+            className="bg-roma-bg-alt w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[552px]"
+            role="img"
+            aria-label="Team photo placeholder"
+          />
+        </ScrollReveal>
+
+        <div className="flex flex-col gap-5 sm:gap-6 items-start sm:items-end w-full lg:flex-1">
+          <AnimatedText
+            text="team & network"
+            as="h2"
+            className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight sm:text-right w-full text-balance"
+          />
+          <ScrollReveal>
+            <div className="text-sm leading-relaxed text-roma-dark sm:text-right">
+              {ABOUT_TEXTS.teamNetwork.map((p, i) => (
+                <p key={i} className={cn("text-pretty", i < ABOUT_TEXTS.teamNetwork.length - 1 && "mb-4 sm:mb-5")}>
                   {p}
-                </div>
+                </p>
               ))}
             </div>
-          </DarkCard>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
+      </div>
+
+      {/* ── Reference Cards Section ── */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 px-6 sm:px-10 lg:px-[60px] py-10 sm:py-14 lg:py-16">
+        {ABOUT_REF_CARDS.map((card, i) => (
+          <ScrollReveal key={card.label} delay={i * 0.1}>
+            <div className="flex flex-col gap-4 items-center">
+              <div
+                className="bg-[#d1d1d1] w-full aspect-[3/4]"
+                role="img"
+                aria-label={`${card.label} photo placeholder`}
+              />
+              <PillButton href={card.href} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
+                {card.label}
+              </PillButton>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+
+      {/* ── Brands Section ── */}
+      <div className="bg-roma-bg-alt -mx-6 sm:-mx-10 lg:-mx-24 px-6 sm:px-10 lg:px-24 py-12 sm:py-14 lg:py-16">
+        <div className="max-w-7xl mx-auto flex flex-col gap-5 sm:gap-6">
+          {/* Horizontal divider line */}
+          <hr className="border-roma-dark/10 w-full" />
+
+          {/* Header row: title + arrow + description */}
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-4 sm:gap-6">
+            <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl lg:text-4xl text-roma-dark tracking-tight leading-snug w-full lg:w-72 shrink-0 text-balance">
+              Brands we collaborate with
+            </h2>
+            <Image
+              src="/icons/arrow-right.svg"
+              alt=""
+              width={200}
+              height={61}
+              className="hidden lg:block shrink-0"
+            />
+            <p className="text-roma-dark text-sm sm:text-base lg:text-2xl text-pretty">
+              {ABOUT_TEXTS.brandsDescription}
+            </p>
+          </div>
+
+          {/* Partner logo grid */}
+          <ScrollReveal>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5">
+              {BRAND.partners.map((partner) => (
+                <div
+                  key={partner}
+                  className="flex items-center justify-center h-12 sm:h-14 lg:h-16 bg-roma-bg rounded"
+                  role="img"
+                  aria-label={`Logo ${partner}`}
+                />
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Collaboration details */}
+          <ScrollReveal>
+            <div className="text-roma-dark/40 text-xs sm:text-sm leading-relaxed max-w-lg flex flex-col gap-3 sm:gap-4">
+              <p className="text-pretty">{ABOUT_TEXTS.collaborationIntro}</p>
+              <p className="text-pretty">{ABOUT_TEXTS.collaborationChannels}</p>
+              <ul className="list-disc ml-5">
+                {ABOUT_TEXTS.collaborationItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p className="text-pretty">{ABOUT_TEXTS.collaborationFooter}</p>
+            </div>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

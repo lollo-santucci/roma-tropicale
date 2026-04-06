@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <PageShell>
+    <PageShell showNavbar={false}>
       <AboutSection />
     </PageShell>
   );

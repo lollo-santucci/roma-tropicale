@@ -45,24 +45,24 @@ import MembershipSection from "@/components/sections/MembershipSection";
 import ContactsSection from "@/components/sections/ContactsSection";
 
 describe("AboutSection", () => {
-  it("renders exactly 3 team members", () => {
-    const { getAllByText } = render(<AboutSection />);
-    // TEAM_MEMBERS has 3 entries: Member 1, Member 2, Member 3
-    const members = getAllByText(/^Member \d$/);
-    expect(members).toHaveLength(3);
-  });
-
-  it("contains manifesto text", () => {
+  it("renders 3 reference cards with pill buttons", () => {
     const { getByText } = render(<AboutSection />);
-    expect(getByText(/Organizziamo eventi, workshop/)).toBeTruthy();
+    expect(getByText("SCOPRI IL MERCH")).toBeTruthy();
+    expect(getByText("ASCOLTA LE PLAYLIST")).toBeTruthy();
+    expect(getByText("BECOME A MEMBER")).toBeTruthy();
   });
 
-  it("has navigation pills to /events, /academy, /membership", () => {
+  it("contains manifesto intro text", () => {
+    const { getByText } = render(<AboutSection />);
+    expect(getByText(/Roma Tropicale è un movimento urbano/)).toBeTruthy();
+  });
+
+  it("has navigation pills HOME and BLOG", () => {
     const { container } = render(<AboutSection />);
     const links = Array.from(container.querySelectorAll("a"));
     const hrefs = links.map((a) => a.getAttribute("href"));
-    expect(hrefs).toContain("/events");
-    expect(hrefs).toContain("/academy");
+    expect(hrefs).toContain("/");
+    expect(hrefs).toContain("/merch");
     expect(hrefs).toContain("/membership");
   });
 });
@@ -103,15 +103,15 @@ describe("AcademySection", () => {
 });
 
 describe("MerchSection", () => {
-  it("renders exactly 4 products", () => {
-    const { getAllByText } = render(<MerchSection />);
-    const orderButtons = getAllByText("ORDINA ORA");
-    expect(orderButtons).toHaveLength(4);
+  it("renders 3 reference cards", () => {
+    const { getAllByLabelText } = render(<MerchSection />);
+    const cards = getAllByLabelText("Reference card photo placeholder");
+    expect(cards).toHaveLength(3);
   });
 
   it("has descriptive text block", () => {
     const { getByText } = render(<MerchSection />);
-    expect(getByText(/Prodotti esclusivi in edizione limitata/)).toBeTruthy();
+    expect(getByText(/Il Merch di Roma Tropicale nasce come una produzione/)).toBeTruthy();
   });
 });
 

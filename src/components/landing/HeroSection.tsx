@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import PillButton from "@/components/ui/PillButton";
 import { MARQUEE_ITEMS, BRAND } from "@/lib/constants";
 
 function Marquee() {
@@ -95,18 +96,8 @@ export default function HeroSection() {
           Ciao ✿
         </p>
         <div className="flex flex-col gap-8 md:gap-10">
-          <Link
-            href="/blog"
-            className="px-5 py-4 bg-roma-dark text-roma-white text-xs sm:text-sm uppercase tracking-widest rounded-pill hover:bg-roma-purple transition-all text-center -rotate-[10deg] hover:rotate-0"
-          >
-            Blog
-          </Link>
-          <Link
-            href="/membership"
-            className="px-5 py-4 bg-roma-dark text-roma-white text-xs sm:text-sm uppercase tracking-widest rounded-pill hover:bg-roma-purple transition-all text-center rotate-[10deg] hover:rotate-0"
-          >
-            Membership
-          </Link>
+          <PillButton href="/blog" rotate={-10}>Blog</PillButton>
+          <PillButton href="/membership" rotate={10}>Membership</PillButton>
         </div>
       </div>
 

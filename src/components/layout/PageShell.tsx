@@ -4,13 +4,14 @@ import FooterSection from "@/components/landing/FooterSection";
 
 interface PageShellProps {
   children: React.ReactNode;
+  showNavbar?: boolean;
 }
 
-export default function PageShell({ children }: PageShellProps) {
+export default function PageShell({ children, showNavbar = true }: PageShellProps) {
   return (
     <main>
       <CustomCursor />
-      <Navbar />
+      {showNavbar && <Navbar />}
       {children}
       <FooterSection />
     </main>

@@ -41,23 +41,18 @@ vi.mock("@/components/ui/PillButton", () => ({
 }));
 
 import MerchSection from "@/components/sections/MerchSection";
-import { PRODUCTS } from "@/lib/constants";
+import { MERCH_REF_CARDS } from "@/lib/constants";
 
 describe("Property 8: Merch product card completeness", () => {
-  PRODUCTS.forEach((product) => {
-    it(`renders complete card for product "${product.name}"`, () => {
-      const { getByText, getAllByText } = render(<MerchSection />);
+  it("renders merch description text", () => {
+    const { getByText } = render(<MerchSection />);
+    expect(getByText(/Il Merch di Roma Tropicale nasce come una produzione/)).toBeTruthy();
+  });
 
-      // Verify name and description are rendered
-      expect(getByText(product.name)).toBeTruthy();
-      expect(getByText(product.description)).toBeTruthy();
-
-      // Verify "ORDINA ORA" links exist with href="/contacts"
-      const ordinaLinks = getAllByText("ORDINA ORA");
-      const matchingLink = ordinaLinks.find(
-        (el) => el.closest("a")?.getAttribute("href") === "/contacts"
-      );
-      expect(matchingLink).toBeTruthy();
+  MERCH_REF_CARDS.forEach((card) => {
+    it(`renders reference card with label "${card.label}"`, () => {
+      const { getByText } = render(<MerchSection />);
+      expect(getByText(card.label)).toBeTruthy();
     });
   });
 });

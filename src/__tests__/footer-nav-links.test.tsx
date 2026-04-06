@@ -12,10 +12,10 @@ vi.mock("next/link", () => ({
 }));
 
 import FooterSection from "@/components/landing/FooterSection";
-import { NAV_LINKS } from "@/lib/constants";
+import { FOOTER_LINKS } from "@/lib/constants";
 
 describe("Property 16: Footer links from NAV_LINKS", () => {
-  it.each(NAV_LINKS.map((link) => [link.label, link.href] as const))(
+  it.each(FOOTER_LINKS.map((link) => [link.label, link.href] as const))(
     "FooterSection contains a link with label '%s' and href '%s'",
     (label, href) => {
       const { getByText } = render(<FooterSection />);
