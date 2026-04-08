@@ -7,12 +7,7 @@ import PillButton from "@/components/ui/PillButton";
 import { MARQUEE_ITEMS, BRAND } from "@/lib/constants";
 
 function Marquee() {
-  const repeated = [
-    ...MARQUEE_ITEMS,
-    ...MARQUEE_ITEMS,
-    ...MARQUEE_ITEMS,
-    ...MARQUEE_ITEMS,
-  ];
+  const repeated = Array(10).fill(MARQUEE_ITEMS).flat();
 
   return (
     <div className="absolute top-0 left-0 right-0 z-20 overflow-hidden bg-roma-dark py-3.5">
@@ -22,6 +17,7 @@ function Marquee() {
             key={i}
             href={item.href}
             className="mx-8 text-sm sm:text-base text-roma-white hover:text-roma-white/80 tracking-wider shrink-0"
+            {...(item.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
           >
             {item.text}
             <span className="ml-12 text-roma-white/40">•</span>
@@ -79,14 +75,15 @@ export default function HeroSection() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
         >
-          <Image
-            src="/videos/logo-romatropicale-3d.gif"
-            unoptimized
-            alt="Roma Tropicale"
-            width={400}
-            height={428}
-            priority
-            className="w-[180px] sm:w-[240px] lg:w-[280px] xl:w-[500px] h-auto"
+          <video
+            src="/videos/logo-romatropicale-3d.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/imgs/logo-romatropicale.svg"
+            className="w-[350px] sm:w-[500px] lg:w-[500px] xl:w-[600px] 2xl:w-[800px] h-auto"
           />
         </motion.div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PillButton from "@/components/ui/PillButton";
 import AnimatedText from "@/components/ui/AnimatedText";
@@ -45,7 +46,7 @@ export default function EventsSection() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-roma-dark flex items-center justify-center hover:bg-roma-purple transition-colors"
+                className="size-9 sm:size-10 rounded-full bg-roma-dark flex items-center justify-center hover:bg-roma-purple transition-colors"
                 aria-label={social.name}
               >
                 <Image
@@ -53,7 +54,7 @@ export default function EventsSection() {
                   alt=""
                   width={16}
                   height={16}
-                  className="w-4 h-4 invert"
+                  className="size-4 invert"
                 />
               </a>
             ))}
@@ -62,36 +63,38 @@ export default function EventsSection() {
       </div>
 
       {/* ── Logo Header ── */}
-      <div className="flex items-center pt-[30px] px-0 lg:px-[100px]">
-        <Image
-          src="/imgs/logo-romatropicale.svg"
-          alt="Roma Tropicale"
-          width={100}
-          height={107}
-          className="w-[100px] h-[107px]"
-        />
+      <div className="max-w-7xl mx-auto flex items-center pt-6 sm:pt-8">
+        <Link href="/">
+          <Image
+            src="/imgs/logo-romatropicale.svg"
+            alt="Roma Tropicale — Torna alla home"
+            width={100}
+            height={107}
+            className="size-auto max-w-[80px] sm:max-w-[100px]"
+          />
+        </Link>
       </div>
 
       {/* ── Section 1: Primavera Tropicale Festival ── */}
-      <div className="flex flex-col lg:flex-row items-start gap-10 sm:gap-12 lg:gap-16 px-0 lg:px-[100px] py-10 sm:py-[60px]">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-8 sm:gap-12 lg:gap-16 py-10 sm:py-14 lg:py-16">
         {/* Left column */}
-        <div className="flex flex-col gap-[25px] w-full lg:w-[480px] lg:shrink-0">
+        <div className="flex flex-col gap-5 sm:gap-6 w-full lg:flex-1">
           <AnimatedText
             text={EVENT_TEXTS.title}
             as="h1"
-            className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] text-roma-dark tracking-[-2px]"
+            className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight text-balance"
           />
 
           <ScrollReveal>
-            <div className="text-[13px] leading-[20px] text-roma-dark">
+            <div className="flex flex-col gap-4 sm:gap-5 text-sm leading-relaxed text-roma-dark">
               {EVENT_TEXTS.intro.map((p, i) => (
-                <p key={i} className="mb-5">{p}</p>
+                <p key={i} className="text-pretty">{p}</p>
               ))}
 
-              <p className="mb-0">Cosa ti aspetta?</p>
+              <p>Cosa ti aspetta?</p>
               {EVENT_TEXTS.highlights.map((h, i) => (
                 <p key={i} className="mb-0">
-                  <span className="font-medium text-[#b06fff]">• {h.title}</span>
+                  <span className="font-medium text-roma-purple">• {h.title}</span>
                   {` | ${h.description}`}
                 </p>
               ))}
@@ -115,7 +118,7 @@ export default function EventsSection() {
         {/* Right column: image */}
         <div className="flex items-end w-full lg:flex-1">
           <div
-            className="bg-roma-bg-alt flex-1 lg:flex-none lg:w-[560px] h-[350px] lg:h-[552px]"
+            className="bg-roma-bg-alt w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[552px]"
             role="img"
             aria-label="Festival photo placeholder"
           />

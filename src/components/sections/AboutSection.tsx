@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PillButton from "@/components/ui/PillButton";
 import AnimatedText from "@/components/ui/AnimatedText";
@@ -18,13 +19,15 @@ export default function AboutSection() {
     <section id="about" className="bg-roma-bg px-6 sm:px-10 lg:px-24">
       {/* ── Logo Header ── */}
       <div className="max-w-7xl mx-auto flex items-center pt-6 sm:pt-8">
-        <Image
-          src="/imgs/logo-romatropicale.svg"
-          alt="Roma Tropicale"
-          width={100}
-          height={107}
-          className="size-auto max-w-[80px] sm:max-w-[100px]"
-        />
+        <Link href="/">
+          <Image
+            src="/imgs/logo-romatropicale.svg"
+            alt="Roma Tropicale — Torna alla home"
+            width={100}
+            height={107}
+            className="size-auto max-w-[80px] sm:max-w-[100px]"
+          />
+        </Link>
       </div>
 
       {/* ── Header Section ── */}
@@ -61,11 +64,15 @@ export default function AboutSection() {
         </div>
 
         <div className="flex gap-4 sm:gap-5 items-end w-full lg:flex-1">
-          <div
-            className="bg-roma-bg-alt flex-1 w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[552px]"
-            role="img"
-            aria-label="About hero image placeholder"
-          />
+          <div className="relative flex-1 w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[552px] overflow-hidden">
+            <Image
+              src="/about/1.jpg"
+              alt="Roma Tropicale community"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
           <div className="flex flex-col gap-2 items-center">
             {SOCIALS.map((social) => (
               <a
@@ -92,11 +99,14 @@ export default function AboutSection() {
       {/* ── Team & Network Section ── */}
       <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-start gap-8 sm:gap-12 lg:gap-16 py-10 sm:py-14 lg:py-16">
         <ScrollReveal direction="left" className="w-full lg:flex-1">
-          <div
-            className="bg-roma-bg-alt w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[552px]"
-            role="img"
-            aria-label="Team photo placeholder"
-          />
+          <div className="relative w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[552px] overflow-hidden">
+            <Image
+              src="/about/2.jpg"
+              alt="Team & Network Roma Tropicale"
+              fill
+              className="object-cover object-top"
+            />
+          </div>
         </ScrollReveal>
 
         <div className="flex flex-col gap-5 sm:gap-6 items-start sm:items-end w-full lg:flex-1">
@@ -122,11 +132,14 @@ export default function AboutSection() {
         {ABOUT_REF_CARDS.map((card, i) => (
           <ScrollReveal key={card.label} delay={i * 0.1}>
             <div className="flex flex-col gap-4 items-center">
-              <div
-                className="bg-[#d1d1d1] w-full aspect-[3/4]"
-                role="img"
-                aria-label={`${card.label} photo placeholder`}
-              />
+              <div className="relative w-full aspect-[3/4] overflow-hidden">
+                <Image
+                  src={card.image}
+                  alt={card.label}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <PillButton href={card.href} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
                 {card.label}
               </PillButton>

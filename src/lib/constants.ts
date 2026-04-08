@@ -329,9 +329,9 @@ export const MERCH_REF_CARDS = [
 ] as const;
 
 export const ABOUT_REF_CARDS = [
-  { label: "SCOPRI IL MERCH", href: "/merch" },
-  { label: "ASCOLTA LE PLAYLIST", href: "https://open.spotify.com/user/j775s2cr1wn1f95xsx6fjes3d?si=4996c84c2bf24288&nd=1&dlsi=b85c280780fd454e" },
-  { label: "BECOME A MEMBER", href: "/membership" },
+  { label: "SCOPRI IL MERCH", href: "/merch", image: "/about/3.jpg" },
+  { label: "ASCOLTA LE PLAYLIST", href: "https://open.spotify.com/user/j775s2cr1wn1f95xsx6fjes3d?si=4996c84c2bf24288&nd=1&dlsi=b85c280780fd454e", image: "/about/4.jpg" },
+  { label: "BECOME A MEMBER", href: "/membership", image: "/about/5.jpg" },
 ] as const;
 
 export const FOOTER_LINKS = [
