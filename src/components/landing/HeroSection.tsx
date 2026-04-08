@@ -84,13 +84,13 @@ export default function HeroSection() {
               transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
             >
               <video
-                src="/videos/logo-romatropicale-3d.webm"
+                src="/videos/logo-romatropicale-3d.mov"
                 autoPlay
                 loop
                 muted
                 playsInline
                 preload="auto"
-                className="w-[700px] sm:w-[500px] h-auto"
+                className="w-[700px] sm:w-[500px] h-auto mix-blend-multiply"
               />
             </motion.div>
           </div>
@@ -161,7 +161,7 @@ export default function HeroSection() {
               playsInline
               preload="auto"
               poster="/imgs/logo-romatropicale.svg"
-              className="w-[500px] xl:w-[600px] 2xl:w-[800px] h-auto"
+              className="w-[500px] xl:w-[600px] 2xl:w-[800px] h-auto mix-blend-multiply"
             />
           </motion.div>
         </div>
