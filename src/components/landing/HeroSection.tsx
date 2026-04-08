@@ -90,7 +90,6 @@ export default function HeroSection() {
                 muted
                 playsInline
                 preload="auto"
-                poster="/imgs/logo-romatropicale.svg"
                 className="w-[700px] sm:w-[500px] h-auto"
               />
             </motion.div>
