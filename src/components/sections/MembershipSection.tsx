@@ -73,11 +73,15 @@ export default function MembershipSection() {
 
         {/* Right column: hero image + social icons */}
         <div className="flex gap-4 sm:gap-5 items-end w-full lg:flex-1">
-          <div
-            className="bg-roma-bg-alt flex-1 w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[625px]"
-            role="img"
-            aria-label="Membership community photo placeholder"
-          />
+          <div className="relative flex-1 w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[625px] overflow-hidden">
+            <Image
+              src="/membership/member-01.jpg"
+              alt="Membership community"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
           <div className="flex flex-col gap-2 items-center">
             {SOCIALS.map((social) => (
               <a

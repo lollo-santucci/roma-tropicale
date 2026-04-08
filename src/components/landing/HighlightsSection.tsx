@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { HIGHLIGHTS } from "@/lib/constants";
@@ -88,29 +89,18 @@ export default function HighlightsSection() {
         {/* Header */}
         <div className="mb-10">
           <ScrollReveal direction="up">
-            <div className="flex items-center gap-6">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-roma-dark tracking-tight shrink-0">
+            <div className="flex flex-col lg:flex-row items-start justify-between w-full gap-4 lg:gap-8">
+              <h2 className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] text-roma-dark tracking-[-1.2px] leading-[34px] shrink-0">
                 Highlights
               </h2>
-
-              <div className="hidden sm:flex items-center shrink-0">
-                <div className="w-16 lg:w-24 h-px bg-roma-dark/30" />
-                <svg
-                  width="14"
-                  height="10"
-                  viewBox="0 0 14 10"
-                  fill="none"
-                  className="text-roma-dark/30 -ml-px"
-                >
-                  <path
-                    d="M9 0L14 5L9 10"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                  />
-                </svg>
-              </div>
-
-              <p className="text-xs sm:text-sm text-roma-dark/50 leading-relaxed max-w-md">
+              <Image
+                src="/icons/arrow-right.svg"
+                alt=""
+                width={200}
+                height={61}
+                className="hidden lg:block shrink-0"
+              />
+              <p className="text-roma-dark text-base sm:text-lg lg:text-2xl">
                 i nostri articoli preferiti, i prossimi eventi, ispirazioni
                 botaniche, workshop a cui non puoi mancare!
               </p>

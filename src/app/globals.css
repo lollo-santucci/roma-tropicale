@@ -26,6 +26,7 @@
   --spacing-section: 100vw;
 
   --animate-marquee: marquee 20s linear infinite;
+  --animate-marquee-fast: marquee 10s linear infinite;
 }
 
 @keyframes marquee {
