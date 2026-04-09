@@ -51,11 +51,15 @@ export default function MerchSection() {
 
         {/* Right column: hero image + social icons */}
         <div className="flex gap-4 sm:gap-5 items-end w-full lg:flex-1">
-          <div
-            className="bg-roma-bg-alt flex-1 w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[543px]"
-            role="img"
-            aria-label="Merch hero image placeholder"
-          />
+          <div className="relative flex-1 w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[543px] overflow-hidden">
+            <Image
+              src="/merch/1.jpg"
+              alt="Merch Roma Tropicale"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
           <div className="flex flex-col gap-2 items-center">
             {SOCIALS.map((social) => (
               <a
@@ -82,14 +86,17 @@ export default function MerchSection() {
       {/* ── Reference Cards Section ── */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 px-6 sm:px-10 lg:px-[60px] py-10 sm:py-14 lg:py-16">
         {MERCH_REF_CARDS.map((card, i) => (
-          <ScrollReveal key={card.label} delay={i * 0.1}>
-            <div className="flex flex-col gap-4 items-center w-full md:w-[380px]">
-              <div
-                className="bg-[#d1d1d1] w-full md:w-[380px] h-[480px]"
-                role="img"
-                aria-label="Reference card photo placeholder"
-              />
-              <PillButton href={card.href} className="text-[11px] tracking-[0.66px] h-10 px-5">
+          <ScrollReveal key={i} delay={i * 0.1}>
+            <div className="flex flex-col gap-4 items-center">
+              <div className="relative w-full aspect-[3/4] overflow-hidden">
+                <Image
+                  src={card.image}
+                  alt={card.label}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <PillButton href={card.href} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
                 {card.label}
               </PillButton>
             </div>

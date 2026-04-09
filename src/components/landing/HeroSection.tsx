@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -61,8 +60,6 @@ function SocialIcons({ className }: { className?: string }) {
 }
 
 export default function HeroSection() {
-  const [videoReady, setVideoReady] = useState(false);
-
   return (
     <section className="lg:h-screen relative overflow-hidden">
       {/* ── Mobile/Tablet: vertical flow ── */}
@@ -83,7 +80,7 @@ export default function HeroSection() {
           <div className="flex flex-1 items-center justify-center px-6 sm:px-10">
             <motion.div
               initial={{ scale: 0.85, opacity: 0 }}
-              animate={videoReady ? { scale: 1, opacity: 1 } : { scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
             >
               <video
@@ -93,7 +90,7 @@ export default function HeroSection() {
                 muted
                 playsInline
                 preload="auto"
-                onPlaying={() => setVideoReady(true)}
+
                 className="w-[700px] sm:w-[500px] h-auto mix-blend-multiply"
               />
             </motion.div>
@@ -151,21 +148,20 @@ export default function HeroSection() {
         <SocialIcons className="absolute top-24 right-24 z-10 flex flex-col gap-2.5" />
 
         {/* Center: Logo video */}
-        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none mix-blend-multiply">
           <motion.div
             initial={{ scale: 0.85, opacity: 0 }}
-            animate={videoReady ? { scale: 1, opacity: 1 } : { scale: 0.85, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
           >
             <video
-              src="/videos/logo-romatropicale-3d.webm"
+              src="/videos/logo-romatropicale-3d.mov"
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
-              onPlaying={() => setVideoReady(true)}
-              className="w-[500px] xl:w-[600px] 2xl:w-[800px] h-auto mix-blend-multiply"
+              className="w-[500px] xl:w-[600px] 2xl:w-[800px] h-auto"
             />
           </motion.div>
         </div>

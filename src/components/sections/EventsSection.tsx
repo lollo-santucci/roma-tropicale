@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import HorizontalScrollSection from "@/components/ui/HorizontalScrollSection";
 import PillButton from "@/components/ui/PillButton";
 import AnimatedText from "@/components/ui/AnimatedText";
 import {
@@ -21,9 +23,9 @@ const SOCIALS = [
 
 export default function EventsSection() {
   return (
-    <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-0">
+    <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-0 overflow-hidden">
       {/* ── Hero Image (full-width) ── */}
-      <div className="relative -mx-6 sm:-mx-10 lg:mx-0 w-screen h-[400px] sm:h-[600px] lg:h-screen">
+      <div className="relative -mx-6 sm:-mx-10 lg:mx-0 lg:w-full h-[400px] sm:h-[600px] lg:h-screen overflow-hidden">
         <div
           className="absolute inset-0 bg-roma-dark"
           role="img"
@@ -143,16 +145,14 @@ export default function EventsSection() {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 items-center justify-center w-full py-10 sm:py-[60px]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full py-10 sm:py-[60px]">
           {EVENT_WORKSHOPS.map((ws, i) => (
             <ScrollReveal key={ws.slug} delay={i * 0.1}>
-              <div className="flex flex-col gap-4 items-center w-full md:w-[380px]">
-                <div
-                  className="bg-[#d1d1d1] w-full md:w-[380px] h-[480px]"
-                  role="img"
-                  aria-label="Workshop photo placeholder"
-                />
-                <PillButton href={`/events/${ws.slug}`} className="text-[11px] tracking-[0.66px] h-10 px-5">
+              <div className="flex flex-col gap-4 items-center">
+                <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#d1d1d1]">
+                  {/* placeholder — sostituire con <Image> quando disponibili */}
+                </div>
+                <PillButton href={`/events/${ws.slug}`} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
                   partecipa
                 </PillButton>
               </div>
@@ -161,85 +161,61 @@ export default function EventsSection() {
         </div>
       </div>
 
-      {/* ── Section 3: Le attività ── */}
-      <div className="flex flex-col gap-[10px] items-start px-6 sm:px-10 lg:px-[60px] py-[35px]">
-        <div className="flex flex-col lg:flex-row items-start justify-between w-full gap-4 lg:gap-8">
-          <h2 className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] text-roma-dark tracking-[-1.2px] leading-[34px] shrink-0">
-            Le attività
-          </h2>
-          <Image
-            src="/icons/arrow-right.svg"
-            alt=""
-            width={200}
-            height={61}
-            className="hidden lg:block shrink-0"
-          />
-          <p className="text-roma-dark text-base sm:text-lg lg:text-2xl">
-            {EVENT_TEXTS.activitiesIntro}
-          </p>
-        </div>
+      {/* ── Section 3: Le attività (horizontal scroll) ── */}
+      <HorizontalScrollSection
+        title="Le attività"
+        description={EVENT_TEXTS.activitiesIntro}
+      >
+        {EVENT_ACTIVITIES.map((activity, i) => (
+          <motion.div
+            key={activity.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="w-[280px] sm:w-[300px] lg:w-[430px] 2xl:w-[600px] shrink-0"
+          >
+            <div className="w-full aspect-square overflow-hidden bg-[#d1d1d1]">
+              {/* placeholder — sostituire con <Image> quando disponibili */}
+            </div>
+            <hr className="border-roma-dark/20 w-full my-3" />
+            <p className="text-sm font-bold text-roma-dark mb-1">
+              {activity.name}
+            </p>
+            <p className="text-xs text-roma-dark/50 leading-relaxed">
+              {activity.description}
+            </p>
+          </motion.div>
+        ))}
+      </HorizontalScrollSection>
 
-        <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-start justify-center w-full py-10 sm:py-[60px]">
-          {EVENT_ACTIVITIES.map((activity, i) => (
-            <ScrollReveal key={activity.name} delay={i * 0.08} className="flex-1 min-w-0">
-              <div className="flex flex-col gap-4 overflow-hidden">
-                <div
-                  className="bg-[#d1d1d1] w-full h-[276px]"
-                  role="img"
-                  aria-label="Activity photo placeholder"
-                />
-                <hr className="border-roma-dark/20 w-full" />
-                <p className="text-[11px] font-semibold tracking-[0.66px] uppercase text-roma-dark">
-                  {activity.name}
-                </p>
-                <p className="text-[11px] tracking-[0.66px] uppercase text-roma-dark">
-                  {activity.description}
-                </p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </div>
-
-      {/* ── Section 4: La Venue ── */}
-      <div className="flex flex-col gap-[10px] items-start px-6 sm:px-10 lg:px-[60px] py-[35px]">
-        <div className="flex flex-col lg:flex-row items-start justify-between w-full gap-4 lg:gap-8">
-          <h2 className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] text-roma-dark tracking-[-1.2px] leading-[34px] shrink-0">
-            La Venue
-          </h2>
-          <Image
-            src="/icons/arrow-right.svg"
-            alt=""
-            width={200}
-            height={61}
-            className="hidden lg:block shrink-0"
-          />
-          <p className="text-roma-dark text-base sm:text-lg lg:text-2xl">
-            {EVENT_TEXTS.venueIntro}
-          </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-start justify-center w-full py-10 sm:py-[60px]">
-          {EVENT_VENUE_CARDS.map((card, i) => (
-            <ScrollReveal key={card.name} delay={i * 0.08} className="flex-1 min-w-0">
-              <div className="flex flex-col gap-4 overflow-hidden">
-                <div
-                  className="bg-[#d1d1d1] w-full h-[276px]"
-                  role="img"
-                  aria-label="Venue photo placeholder"
-                />
-                <hr className="border-roma-dark/20 w-full" />
-                <p className="text-[11px] font-semibold tracking-[0.66px] uppercase text-roma-dark">
-                  {card.name}
-                </p>
-                <p className="text-[11px] tracking-[0.66px] uppercase text-roma-dark">
-                  {card.description}
-                </p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </div>
+      {/* ── Section 4: La Venue (horizontal scroll) ── */}
+      <HorizontalScrollSection
+        title="La Venue"
+        description={EVENT_TEXTS.venueIntro}
+      >
+        {EVENT_VENUE_CARDS.map((card, i) => (
+          <motion.div
+            key={card.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="w-[280px] sm:w-[300px] lg:w-[430px] 2xl:w-[600px] shrink-0"
+          >
+            <div className="w-full aspect-square overflow-hidden bg-[#d1d1d1]">
+              {/* placeholder — sostituire con <Image> quando disponibili */}
+            </div>
+            <hr className="border-roma-dark/20 w-full my-3" />
+            <p className="text-sm font-bold text-roma-dark mb-1">
+              {card.name}
+            </p>
+            <p className="text-xs text-roma-dark/50 leading-relaxed">
+              {card.description}
+            </p>
+          </motion.div>
+        ))}
+      </HorizontalScrollSection>
     </section>
   );
 }

@@ -1,9 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+import { motion } from "framer-motion";
+import HorizontalScrollSection from "@/components/ui/HorizontalScrollSection";
 import { HIGHLIGHTS } from "@/lib/constants";
 
 const PLACEHOLDER_COLORS = [
@@ -30,7 +28,7 @@ function HighlightCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="w-[280px] sm:w-[300px] shrink-0"
+      className="w-[280px] sm:w-[300px] lg:w-[430px] 2xl:w-[600px] shrink-0"
     >
       <div
         className={`w-full aspect-square overflow-hidden ${PLACEHOLDER_COLORS[index % PLACEHOLDER_COLORS.length]}`}
@@ -51,79 +49,20 @@ function HighlightCard({
 }
 
 export default function HighlightsSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const maxTranslateRef = useRef(0);
-
-  useEffect(() => {
-    function measure() {
-      if (trackRef.current && containerRef.current) {
-        const trackWidth = trackRef.current.scrollWidth;
-        const clientW = containerRef.current.clientWidth;
-        const padL = parseFloat(
-          getComputedStyle(containerRef.current).paddingLeft
-        );
-        // Scroll until last card + padding hits the right clip edge
-        maxTranslateRef.current = Math.max(
-          0,
-          trackWidth - clientW + padL + padL
-        );
-      }
-    }
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  });
-
-  const x = useTransform(scrollYProgress, (v) => -v * maxTranslateRef.current);
-
   return (
-    <section id="highlights" ref={sectionRef} className="relative" style={{ height: "300vh" }}>
-      <div ref={containerRef} className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden px-12">
-        {/* Header */}
-        <div className="mb-10">
-          <ScrollReveal direction="up">
-            <div className="flex flex-col lg:flex-row items-start justify-between w-full gap-4 lg:gap-8">
-              <h2 className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] text-roma-dark tracking-[-1.2px] leading-[34px] shrink-0">
-                Highlights
-              </h2>
-              <Image
-                src="/icons/arrow-right.svg"
-                alt=""
-                width={200}
-                height={61}
-                className="hidden lg:block shrink-0"
-              />
-              <p className="text-roma-dark text-base sm:text-lg lg:text-2xl">
-                i nostri articoli preferiti, i prossimi eventi, ispirazioni
-                botaniche, workshop a cui non puoi mancare!
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        {/* Horizontal scroll track driven by vertical scroll */}
-        <motion.div
-          ref={trackRef}
-          style={{ x }}
-          className="flex gap-5"
-        >
-          {HIGHLIGHTS.map((item, i) => (
-            <HighlightCard
-              key={i}
-              title={item.title}
-              description={item.description}
-              index={i}
-            />
-          ))}
-        </motion.div>
-      </div>
-    </section>
+    <HorizontalScrollSection
+      id="highlights"
+      title="Highlights"
+      description="i nostri articoli preferiti, i prossimi eventi, ispirazioni botaniche, workshop a cui non puoi mancare!"
+    >
+      {HIGHLIGHTS.map((item, i) => (
+        <HighlightCard
+          key={i}
+          title={item.title}
+          description={item.description}
+          index={i}
+        />
+      ))}
+    </HorizontalScrollSection>
   );
 }

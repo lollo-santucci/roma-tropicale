@@ -1,0 +1,70 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "Events" [ref=e5] [cursor=pointer]:
+          - /url: /events
+        - link "Academy" [ref=e6] [cursor=pointer]:
+          - /url: /academy
+        - link "About" [ref=e7] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e8] [cursor=pointer]:
+          - /url: /contacts
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - link "Roma Tropicale — Torna alla home" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - img "Roma Tropicale — Torna alla home" [ref=e12]
+        - link "HOME" [ref=e13] [cursor=pointer]:
+          - /url: /
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - heading "il merch di Roma Tropicale" [level=1] [ref=e16]:
+            - generic [ref=e18]: il
+            - generic [ref=e20]: merch
+            - generic [ref=e22]: di
+            - generic [ref=e24]: Roma
+            - generic [ref=e26]: Tropicale
+          - generic [ref=e28]:
+            - paragraph [ref=e29]: Il Merch di Roma Tropicale nasce come una produzione in edizione limitata, pensata per mettere al centro qualità, cura dei dettagli e una gestione responsabile delle quantità.
+            - paragraph [ref=e30]: Produciamo solo ciò che serve, con l'obiettivo di ridurre gli sprechi e valorizzare ogni singolo pezzo.
+            - paragraph [ref=e31]: Il progetto unisce prodotti a vocazione sostenibile, lavorazioni e personalizzazioni realizzate da fornitori locali, e la collaborazione con illustratori e illustratrici cool, che firmano le grafiche delle collezioni. Ogni pezzo è realizzato con particolare attenzione ai materiali e ai processi di produzione, per garantire qualità e durata nel tempo.
+            - paragraph [ref=e32]: Le tempistiche di realizzazione variano indicativamente dai 10 giorni alle 3 settimane, in base alla disponibilità in magazzino e al carico di lavoro al momento della conferma dell'ordine.
+            - paragraph [ref=e33]: Ad ogni evento sarà possibile trovare una selezione del merch, tra nuove capsule e pezzi iconici "from the archive".
+            - paragraph [ref=e34]: Acquistare un prodotto del merch significa supportare attivamente l'Associazione Culturale no profit Roma Tropicale e contribuire allo sviluppo delle sue attività, diventando parte della community e ambassador del progetto.
+        - generic [ref=e35]:
+          - img "Merch Roma Tropicale" [ref=e37]
+          - generic [ref=e38]:
+            - link "Instagram" [ref=e39] [cursor=pointer]:
+              - /url: https://www.instagram.com/roma_tropicale/
+            - link "Spotify" [ref=e40] [cursor=pointer]:
+              - /url: https://open.spotify.com/user/j775s2cr1wn1f95xsx6fjes3d?si=4996c84c2bf24288&nd=1&dlsi=b85c280780fd454e
+            - link "LinkedIn" [ref=e41] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/roma-tropicale/?viewAsMember=true
+      - generic [ref=e42]:
+        - generic [ref=e44]:
+          - img "SCOPRI IL MERCH" [ref=e46]
+          - link "SCOPRI IL MERCH" [ref=e47] [cursor=pointer]:
+            - /url: /merch
+        - generic [ref=e49]:
+          - img "ASCOLTA LE PLAYLIST" [ref=e51]
+          - link "ASCOLTA LE PLAYLIST" [ref=e52] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e54]:
+          - img "BECOME A MEMBER" [ref=e56]
+          - link "BECOME A MEMBER" [ref=e57] [cursor=pointer]:
+            - /url: /membership
+    - generic [ref=e58]:
+      - img "Roma Tropicale" [ref=e59]
+      - navigation [ref=e60]:
+        - link "About" [ref=e61] [cursor=pointer]:
+          - /url: /about
+        - link "Events" [ref=e62] [cursor=pointer]:
+          - /url: /events
+        - link "Academy" [ref=e63] [cursor=pointer]:
+          - /url: /academy
+        - link "Contact" [ref=e64] [cursor=pointer]:
+          - /url: /contacts
+  - button "Open Next.js Dev Tools" [ref=e70] [cursor=pointer]:
+    - img [ref=e71]
+  - alert [ref=e74]

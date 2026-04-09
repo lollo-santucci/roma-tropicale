@@ -316,16 +316,16 @@ export const ABOUT_TEXTS = {
 export const MERCH_TEXTS = [
   "Il Merch di Roma Tropicale nasce come una produzione in edizione limitata, pensata per mettere al centro qualità, cura dei dettagli e una gestione responsabile delle quantità.",
   "Produciamo solo ciò che serve, con l'obiettivo di ridurre gli sprechi e valorizzare ogni singolo pezzo.",
-  "Il progetto unisce prodotti a vocazione sostenibile, lavorazioni e personalizzazioni realizzate da fornitori locali, e la collaborazione con l'illustratore e street artist romano Starz, che firma le grafiche delle collezioni.\nOgni pezzo è realizzato con particolare attenzione ai materiali e ai processi di produzione, per garantire qualità e durata nel tempo.",
+  "Il progetto unisce prodotti a vocazione sostenibile, lavorazioni e personalizzazioni realizzate da fornitori locali, e la collaborazione con illustratori e illustratrici cool, che firmano le grafiche delle collezioni. Ogni pezzo è realizzato con particolare attenzione ai materiali e ai processi di produzione, per garantire qualità e durata nel tempo.",
   "Le tempistiche di realizzazione variano indicativamente dai 10 giorni alle 3 settimane, in base alla disponibilità in magazzino e al carico di lavoro al momento della conferma dell'ordine.",
-  "Ad ogni evento sarà possibile trovare una selezione del merch, tra nuove capsule e pezzi iconici from the archive.",
+  'Ad ogni evento sarà possibile trovare una selezione del merch, tra nuove capsule e pezzi iconici "from the archive".',
   "Acquistare un prodotto del merch significa supportare attivamente l'Associazione Culturale no profit Roma Tropicale e contribuire allo sviluppo delle sue attività, diventando parte della community e ambassador del progetto.",
 ] as const;
 
 export const MERCH_REF_CARDS = [
-  { label: "SCOPRI IL MERCH", href: "/merch" },
-  { label: "ASCOLTA LE PLAYLIST", href: "#" },
-  { label: "BECOME A MEMBER", href: "/membership" },
+  { label: "CONTATTACI", href: "mailto:romatropicale@gmail.com?subject=Richiesta%20Merch&body=Ciao%2C%20vorrei%20informazioni%20sul%20merch.", image: "/merch/2.png" },
+  { label: "CONTATTACI", href: "mailto:romatropicale@gmail.com?subject=Richiesta%20Merch&body=Ciao%2C%20vorrei%20informazioni%20sul%20merch.", image: "/merch/3.png" },
+  { label: "CONTATTACI", href: "mailto:romatropicale@gmail.com?subject=Richiesta%20Merch&body=Ciao%2C%20vorrei%20informazioni%20sul%20merch.", image: "/merch/4.jpg" },
 ] as const;
 
 export const ABOUT_REF_CARDS = [

@@ -64,7 +64,7 @@ export default function MembershipSection() {
 
           <ScrollReveal>
             <div className="flex flex-col items-start gap-10 py-8">
-              <PillButton href={BRAND.membershipForm} rotate={-13}>
+              <PillButton href={BRAND.membershipForm} rotate={0}>
                 Iscriviti ora
               </PillButton>
             </div>

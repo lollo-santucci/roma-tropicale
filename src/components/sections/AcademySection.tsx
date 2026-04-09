@@ -26,9 +26,9 @@ export default function AcademySection() {
   };
 
   return (
-    <section id="academy" className="bg-roma-bg px-6 sm:px-10 lg:px-0">
+    <section id="academy" className="bg-roma-bg px-6 sm:px-10 lg:px-0 overflow-hidden">
       {/* ── Hero Image (full-width) ── */}
-      <div className="-mx-6 sm:-mx-10 lg:mx-0 w-screen aspect-[1214/664] lg:aspect-auto lg:h-screen relative overflow-hidden">
+      <div className="-mx-6 sm:-mx-10 lg:mx-0 lg:w-full aspect-[1214/664] lg:aspect-auto lg:h-screen relative overflow-hidden">
         <Image
           src="/academy/academy-hero.png"
           alt="Academy Tropicale"
@@ -67,7 +67,6 @@ export default function AcademySection() {
                 <p key={i} className="text-pretty">{p}</p>
               ))}
 
-              <p className="text-pretty">{ACADEMY_TEXTS.audience.question}</p>
               <p className="text-pretty">{ACADEMY_TEXTS.audience.intro}</p>
               <ul className="list-disc ml-5">
                 {ACADEMY_TEXTS.audience.items.map((item, i) => (
