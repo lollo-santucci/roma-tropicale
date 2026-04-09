@@ -65,7 +65,7 @@ export default function HeroSection() {
       {/* ── Mobile/Tablet: vertical flow ── */}
       <div className="lg:hidden">
         {/* Top fold: fits in viewport */}
-        <div className="flex flex-col justify-between h-[92dvh]">
+        <div className="flex flex-col justify-between h-[92dvh] pt-[env(safe-area-inset-top)]">
           {/* 1. Marquee */}
           <Marquee />
 
