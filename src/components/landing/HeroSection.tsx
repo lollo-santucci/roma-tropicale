@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -10,7 +11,7 @@ function Marquee() {
   const repeated = Array(10).fill(MARQUEE_ITEMS).flat();
 
   return (
-    <div className="w-full z-20 overflow-hidden bg-roma-dark py-3.5 lg:absolute lg:top-0 lg:left-0 lg:right-0">
+    <div className="w-full z-20 overflow-hidden bg-roma-dark py-3.5 shrink-0 lg:absolute lg:top-0 lg:left-0 lg:right-0">
       <div className="flex whitespace-nowrap animate-marquee-fast lg:animate-marquee">
         {repeated.map((item, i) => (
           <Link
@@ -60,6 +61,8 @@ function SocialIcons({ className }: { className?: string }) {
 }
 
 export default function HeroSection() {
+  const [videoReady, setVideoReady] = useState(false);
+
   return (
     <section className="lg:h-screen relative overflow-hidden">
       {/* ── Mobile/Tablet: vertical flow ── */}
@@ -80,7 +83,7 @@ export default function HeroSection() {
           <div className="flex flex-1 items-center justify-center px-6 sm:px-10">
             <motion.div
               initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              animate={videoReady ? { scale: 1, opacity: 1 } : { scale: 0.85, opacity: 0 }}
               transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
             >
               <video
@@ -90,6 +93,7 @@ export default function HeroSection() {
                 muted
                 playsInline
                 preload="auto"
+                onPlaying={() => setVideoReady(true)}
                 className="w-[700px] sm:w-[500px] h-auto mix-blend-multiply"
               />
             </motion.div>
@@ -150,7 +154,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
           <motion.div
             initial={{ scale: 0.85, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            animate={videoReady ? { scale: 1, opacity: 1 } : { scale: 0.85, opacity: 0 }}
             transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
           >
             <video
@@ -160,7 +164,7 @@ export default function HeroSection() {
               muted
               playsInline
               preload="auto"
-              poster="/imgs/logo-romatropicale.svg"
+              onPlaying={() => setVideoReady(true)}
               className="w-[500px] xl:w-[600px] 2xl:w-[800px] h-auto mix-blend-multiply"
             />
           </motion.div>
