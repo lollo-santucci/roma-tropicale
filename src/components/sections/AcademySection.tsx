@@ -33,6 +33,7 @@ export default function AcademySection() {
           src="/academy/academy-hero.png"
           alt="Academy Tropicale"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -185,6 +186,7 @@ export default function AcademySection() {
               src="/academy/foto-vaso.png"
               alt="Corso Essentials — vaso"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>

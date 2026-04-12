@@ -56,6 +56,7 @@ export default function MerchSection() {
               src="/merch/1.jpg"
               alt="Merch Roma Tropicale"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
               priority
             />
@@ -93,6 +94,7 @@ export default function MerchSection() {
                   src={card.image}
                   alt={card.label}
                   fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
                   className="object-cover"
                 />
               </div>

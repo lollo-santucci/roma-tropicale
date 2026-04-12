@@ -69,6 +69,7 @@ export default function AboutSection() {
               src="/about/1.jpg"
               alt="Roma Tropicale community"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
               priority
             />
@@ -104,6 +105,7 @@ export default function AboutSection() {
               src="/about/2.jpg"
               alt="Team & Network Roma Tropicale"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-top"
             />
           </div>
@@ -137,6 +139,7 @@ export default function AboutSection() {
                   src={card.image}
                   alt={card.label}
                   fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
                   className="object-cover"
                 />
               </div>

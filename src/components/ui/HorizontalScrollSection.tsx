@@ -10,6 +10,7 @@ interface HorizontalScrollSectionProps {
   title: string;
   description: string;
   children: ReactNode;
+  transparent?: boolean;
 }
 
 export default function HorizontalScrollSection({
@@ -17,6 +18,7 @@ export default function HorizontalScrollSection({
   title,
   description,
   children,
+  transparent = false,
 }: HorizontalScrollSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -54,7 +56,7 @@ export default function HorizontalScrollSection({
 
   return (
     <section id={id} ref={sectionRef} className="relative" style={{ height: sectionHeight }}>
-      <div ref={containerRef} className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden px-6 sm:px-10 lg:px-12">
+      <div ref={containerRef} className={`sticky top-0 h-screen flex flex-col justify-center overflow-hidden px-6 sm:px-10 lg:px-12 z-10 ${transparent ? "" : "bg-roma-bg"}`}>
         {/* Header */}
         <div className="mb-6">
           <ScrollReveal direction="up">
@@ -80,7 +82,7 @@ export default function HorizontalScrollSection({
         <motion.div
           ref={trackRef}
           style={{ x }}
-          className="flex gap-5"
+          className="relative flex gap-5"
         >
           {children}
         </motion.div>

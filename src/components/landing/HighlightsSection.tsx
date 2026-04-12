@@ -54,6 +54,7 @@ export default function HighlightsSection() {
       id="highlights"
       title="Highlights"
       description="i nostri articoli preferiti, i prossimi eventi, ispirazioni botaniche, workshop a cui non puoi mancare!"
+      transparent
     >
       {HIGHLIGHTS.map((item, i) => (
         <HighlightCard

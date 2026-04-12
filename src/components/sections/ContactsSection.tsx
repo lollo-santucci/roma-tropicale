@@ -4,132 +4,158 @@ import Link from "next/link";
 import Image from "next/image";
 import AnimatedText from "@/components/ui/AnimatedText";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import DarkCard from "@/components/ui/DarkCard";
+import PillButton from "@/components/ui/PillButton";
 import NewsletterForm from "@/components/ui/NewsletterForm";
-import { BRAND, FOOTER_LINKS } from "@/lib/constants";
+import { BRAND } from "@/lib/constants";
+
+const SOCIALS = [
+  { name: "Instagram", icon: "/icons/instagram.svg", href: BRAND.socials.instagram },
+  { name: "Spotify", icon: "/icons/spotify.svg", href: BRAND.socials.spotify },
+  { name: "LinkedIn", icon: "/icons/linkedin.svg", href: BRAND.socials.linkedin },
+] as const;
 
 export default function ContactsSection() {
   return (
-    <section
-      id="contacts"
-      className="min-h-screen bg-roma-bg px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24"
-    >
-      <div className="min-h-screen flex flex-col justify-between">
-        {/* Top: say hi */}
-        <div className="pt-12 flex flex-col lg:flex-row gap-8 lg:gap-16 items-start lg:items-end">
-          <div className="flex-1">
+    <section id="contacts" className="bg-roma-bg px-6 sm:px-10 lg:px-0">
+      {/* ── Logo Header ── */}
+      <div className="max-w-7xl mx-auto flex items-center pt-6 sm:pt-8">
+        <Link href="/">
+          <Image
+            src="/imgs/logo-romatropicale.svg"
+            alt="Roma Tropicale — Torna alla home"
+            width={100}
+            height={107}
+            className="size-auto max-w-[80px] sm:max-w-[100px]"
+          />
+        </Link>
+      </div>
+
+      {/* ── Header Section ── */}
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-16 py-10 sm:py-14 lg:py-16">
+        {/* Left column */}
+        <div className="flex flex-col gap-5 sm:gap-6 w-full lg:max-w-[480px]">
+          <div className="flex flex-col gap-1">
             <AnimatedText
               text="say hi (:"
               as="h1"
-              className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl lg:text-7xl text-roma-dark"
+              className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl lg:text-[36px] text-roma-dark tracking-[-1.8px]"
             />
-            <ScrollReveal delay={0.2}>
+            <ScrollReveal delay={0.1}>
               <a
                 href={`mailto:${BRAND.email}`}
-                className="text-roma-dark text-2xl sm:text-3xl lg:text-5xl font-[family-name:var(--font-display)] hover:text-roma-purple transition-colors mt-4 inline-block"
+                className="text-roma-dark text-2xl sm:text-3xl lg:text-[40px] tracking-[-2px] hover:text-roma-purple transition-colors"
               >
                 {BRAND.email}
               </a>
             </ScrollReveal>
           </div>
 
-          <div className="flex flex-col items-end gap-4">
-            <ScrollReveal direction="left">
-              <p className="text-roma-dark/60 text-sm sm:text-base text-right max-w-xs">
-                {BRAND.tagline}
+          <ScrollReveal delay={0.2}>
+            <div className="text-sm leading-relaxed text-roma-dark">
+              <p>Non abbiamo una sede fisica: puoi incontrarci ai nostri eventi itineranti, tra piante, workshop e momenti di incontro.</p>
+              <p className="mt-4">
+                <a
+                  href={BRAND.socials.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-roma-purple underline"
+                >
+                  Seguici su Instagram
+                </a>
+                {" per scoprire dove saremo e partecipare ai prossimi eventi!"}
               </p>
-            </ScrollReveal>
-            {/* Purple drop placeholder */}
-            <div
-              className="w-16 h-24 bg-roma-purple rounded-full"
-              role="img"
-              aria-label="Decorative purple shape"
-            />
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
 
-        {/* Collaborations card */}
-        <ScrollReveal className="my-8 lg:my-12">
-          <DarkCard
-            title="Collaborazioni & Partnership"
-            description="Lavoriamo con brand e realtà che condividono i nostri valori di sostenibilità e creatività."
-            className="max-w-2xl"
-          >
-            <div className="flex flex-wrap gap-3 mt-6">
-              {BRAND.partners.map((p) => (
-                <span
-                  key={p.name}
-                  className="bg-roma-white/10 rounded-pill px-4 py-2 text-roma-white text-sm"
-                >
-                  {p.name}
-                </span>
-              ))}
-            </div>
-          </DarkCard>
+        {/* Right column */}
+        <div className="flex flex-col items-end w-full lg:max-w-[480px]">
+          <ScrollReveal direction="left">
+            <p className="text-2xl sm:text-3xl lg:text-[36px] text-roma-dark text-right tracking-[-1.8px] leading-tight">
+              {BRAND.tagline}
+            </p>
+          </ScrollReveal>
+          <Image
+            src="/icons/upside-drop.svg"
+            alt=""
+            width={150}
+            height={225}
+            className="w-[80px] sm:w-[100px] lg:w-[130px] h-auto mt-4"
+          />
+        </div>
+      </div>
+
+      {/* ── Collaborazioni & Partnership + Social ── */}
+      <div className="relative flex justify-center py-10 sm:py-14">
+        {/* Card — centrata */}
+        <ScrollReveal>
+          <div className="bg-roma-dark rounded-[24px] flex flex-col gap-8 sm:gap-12 items-center justify-center px-6 sm:px-12 lg:px-[200px] py-10 sm:py-[50px]">
+            <h2 className="font-[family-name:var(--font-display)] text-xl sm:text-2xl lg:text-[36px] text-white tracking-[-1.8px] text-center">
+              Collaborazioni & Partnership
+            </h2>
+            <p className="text-sm sm:text-base lg:text-[20px] text-white text-center tracking-[-1px] max-w-[479px]">
+              Scrivici se vuoi proporre un progetto, ospitare un evento o collaborare con la nostra community.
+            </p>
+            <PillButton
+              href={`mailto:${BRAND.email}?subject=Collaborazione`}
+              className="bg-[#f3f0f0] text-black hover:bg-roma-purple hover:text-white text-base sm:text-[20px] tracking-[-1px] px-8 sm:px-[45px] py-4 sm:py-5"
+            >
+              SCRIVICI!
+            </PillButton>
+          </div>
         </ScrollReveal>
 
-        {/* Social + Newsletter */}
-        <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 mb-8">
-          {/* Social */}
-          <ScrollReveal>
-            <div className="flex gap-4">
-              <a
-                href={BRAND.socials.instagram}
-                aria-label="Instagram"
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-roma-dark rounded-full flex items-center justify-center hover:bg-roma-purple transition-colors"
-              >
-                <Image src="/icons/instagram.svg" alt="" width={20} height={20} />
-              </a>
-              <a
-                href={BRAND.socials.spotify}
-                aria-label="Spotify"
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-roma-dark rounded-full flex items-center justify-center hover:bg-roma-purple transition-colors"
-              >
-                <Image src="/icons/spotify.svg" alt="" width={20} height={20} />
-              </a>
-              <a
-                href={BRAND.socials.linkedin}
-                aria-label="LinkedIn"
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-roma-dark rounded-full flex items-center justify-center hover:bg-roma-purple transition-colors"
-              >
-                <Image src="/icons/linkedin.svg" alt="" width={20} height={20} />
-              </a>
-            </div>
-          </ScrollReveal>
-
-          {/* Newsletter compact */}
-          <ScrollReveal delay={0.1} className="flex-1 max-w-sm">
-            <DarkCard className="p-4 sm:p-5">
-              <p className="text-roma-white text-sm mb-3">Newsletter</p>
-              <NewsletterForm variant="compact" />
-            </DarkCard>
-          </ScrollReveal>
+        {/* Social icons — lg+: verticale a destra in absolute */}
+        <div className="hidden lg:flex flex-col gap-2.5 items-center absolute right-10 lg:right-[60px] bottom-14">
+          {SOCIALS.map((social) => (
+            <a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="size-10 rounded-full bg-roma-dark flex items-center justify-center hover:bg-roma-purple transition-colors"
+              aria-label={social.name}
+            >
+              <Image
+                src={social.icon}
+                alt=""
+                width={16}
+                height={16}
+                className="size-4 invert"
+              />
+            </a>
+          ))}
         </div>
 
-        {/* Footer */}
-        <ScrollReveal>
-          <footer className="border-t border-roma-dark/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-roma-purple rounded-lg flex items-center justify-center">
-                <span className="text-roma-white font-bold text-xs">RT</span>
-              </div>
-              <span className="text-roma-dark text-sm">{BRAND.name}</span>
-            </div>
+        {/* Social icons — mobile/tablet: orizzontale sotto */}
+        <div className="flex lg:hidden gap-2.5 items-center absolute bottom-0 left-6 sm:left-10">
+          {SOCIALS.map((social) => (
+            <a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="size-9 rounded-full bg-roma-dark flex items-center justify-center hover:bg-roma-purple transition-colors"
+              aria-label={social.name}
+            >
+              <Image
+                src={social.icon}
+                alt=""
+                width={16}
+                height={16}
+                className="size-4 invert"
+              />
+            </a>
+          ))}
+        </div>
+      </div>
 
-            {/* Nav links */}
-            <nav className="flex flex-col sm:flex-row gap-2 sm:gap-6">
-              {FOOTER_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-roma-dark/50 text-sm hover:text-roma-dark transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </footer>
+      {/* ── Newsletter ── */}
+      <div className="flex justify-center py-6 sm:py-10">
+        <ScrollReveal>
+          <div className="bg-roma-dark rounded-[24px] px-6 sm:px-12 lg:px-[200px] py-10 sm:py-12 flex flex-col items-center gap-6">
+            <NewsletterForm variant="full" />
+          </div>
         </ScrollReveal>
       </div>
     </section>

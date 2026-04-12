@@ -13,6 +13,7 @@ import {
   EVENT_WORKSHOPS,
   EVENT_ACTIVITIES,
   EVENT_VENUE_CARDS,
+  EVENT_ARCHIVE,
 } from "@/lib/constants";
 
 const SOCIALS = [
@@ -23,7 +24,8 @@ const SOCIALS = [
 
 export default function EventsSection() {
   return (
-    <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-0 overflow-hidden">
+    <>
+    <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-0 overflow-x-hidden">
       {/* ── Hero Image (full-width) ── */}
       <div className="relative -mx-6 sm:-mx-10 lg:mx-0 lg:w-full h-[400px] sm:h-[600px] lg:h-screen overflow-hidden">
         <div
@@ -160,6 +162,7 @@ export default function EventsSection() {
           ))}
         </div>
       </div>
+    </section>
 
       {/* ── Section 3: Le attività (horizontal scroll) ── */}
       <HorizontalScrollSection
@@ -216,6 +219,34 @@ export default function EventsSection() {
           </motion.div>
         ))}
       </HorizontalScrollSection>
-    </section>
+
+      {/* ── Section 5: From the archive (horizontal scroll) ── */}
+      <HorizontalScrollSection
+        title="From the archive"
+        description="Una selezione dei nostri eventi preferiti del passato."
+      >
+        {EVENT_ARCHIVE.map((item, i) => (
+          <motion.div
+            key={item.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="w-[280px] sm:w-[300px] lg:w-[430px] 2xl:w-[600px] shrink-0"
+          >
+            <div className="w-full aspect-square overflow-hidden bg-[#d1d1d1]">
+              {/* placeholder — sostituire con <Image> quando disponibili */}
+            </div>
+            <hr className="border-roma-dark/20 w-full my-3" />
+            <p className="text-sm font-bold text-roma-dark mb-1">
+              {item.name}
+            </p>
+            <p className="text-xs text-roma-dark/50 leading-relaxed">
+              {item.description}
+            </p>
+          </motion.div>
+        ))}
+      </HorizontalScrollSection>
+    </>
   );
 }

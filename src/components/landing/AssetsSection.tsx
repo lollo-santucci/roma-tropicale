@@ -1,9 +1,14 @@
 "use client";
 
-import { useRef } from "react";
+import { Suspense, useRef, lazy } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+
+const AssetEditor = process.env.NODE_ENV === "development"
+  ? lazy(() => import("./AssetEditor"))
+  : null;
 
 type Asset = {
   type: "image" | "video";
@@ -20,26 +25,35 @@ type Asset = {
   radius?: string;
 };
 
-// ── Desktop layout (lg+): 13 items, 4-col scattered collage ──
-// w = quanto è largo (% del container)
-// ratio = che forma ha (larghezza/altezza)
+// ── Desktop layout (lg+): scattered collage ──
 const ASSETS_DESKTOP: Asset[] = [
-  { type: "video", src: "/landing/landing-08.mp4", label: "Plants", top: "0%", left: "5%", w: "22%", ratio: "5/9", rotate: -1, scrollScale: [0.5, 1.3, 0.7], scrollRotate: [-3, 2], radius: "0" },
-  { type: "image", src: "/landing/landing-02.jpg", label: "Garden", top: "2%", left: "30%", w: "18%", ratio: "3/4", rotate: 1, scrollScale: [0.95, 1, 0.9], scrollRotate: [2, -1] },
-  { type: "image", src: "/landing/landing-03.jpg", label: "Pool", top: "0%", left: "55%", w: "20%", ratio: "3/4", scrollScale: [0.88, 1.02, 0.96], scrollRotate: [0, 5] },
-  { type: "image", src: "/landing/landing-04.jpg", label: "Portrait", top: "5%", left: "78%", w: "18%", ratio: "3/4", rotate: 2, scrollScale: [0.92, 1.08, 0.94], scrollRotate: [4, -2] },
-  { type: "image", src: "/landing/landing-01.jpg", label: "Event", top: "35%", left: "0%", w: "20%", ratio: "3/4", scrollScale: [0.9, 1, 1.06], scrollRotate: [-2, 3] },
-  { type: "image", src: "/landing/landing-05.jpg", label: "Nature", top: "30%", left: "22%", w: "16%", ratio: "3/4", rotate: -2, scrollScale: [0.95, 1.04, 0.92], scrollRotate: [-4, 1] },
-  { type: "image", src: "/landing/landing-06.jpg", label: "Studio", top: "32%", left: "42%", w: "22%", ratio: "3/4", rotate: 1, scrollScale: [0.88, 1, 1.1], scrollRotate: [1, -45] },
-  { type: "image", src: "/landing/landing-07.jpg", label: "Workshop", top: "28%", left: "68%", w: "16%", ratio: "2/3", scrollScale: [0.92, 1.06, 0.98], scrollRotate: [0, -2] },
-  { type: "video", src: "/landing/landing-09.mp4", label: "People", top: "38%", left: "86%", w: "14%", ratio: "2/3", rotate: -1, scrollScale: [0.96, 1, 0.88], scrollRotate: [-1, 4] },
-  { type: "image", src: "/landing/landing-01.jpg", label: "Tropical", top: "62%", left: "8%", w: "18%", ratio: "3/4", rotate: 2, scrollScale: [0.9, 1.08, 1], scrollRotate: [3, -2] },
-  { type: "video", src: "/landing/landing-11.mov", label: "Reel", top: "65%", left: "30%", w: "15%", ratio: "3/4", scrollScale: [0.94, 1, 1.04], scrollRotate: [-2, 2] },
-  { type: "image", src: "/landing/landing-03.jpg", label: "Interior", top: "60%", left: "50%", w: "20%", ratio: "3/4", rotate: -1, scrollScale: [0.88, 1.06, 0.94], scrollRotate: [2, -4] },
-  { type: "image", src: "/landing/landing-04.jpg", label: "Market", top: "66%", left: "74%", w: "22%", ratio: "4/5", rotate: 1, scrollScale: [0.92, 1, 1.08], scrollRotate: [-3, 3] },
+  { type: "image", src: "/landing/landing-02.jpg", label: "Garden", top: "1.4%", left: "44%", w: "18%", ratio: "3/4", rotate: 1, scrollScale: [1.2, 1, 0.4], scrollRotate: [2, -1], radius: "0" },
+  { type: "video", src: "/landing/landing-08.mp4", label: "Plants", top: "2.5%", left: "6.1%", w: "22%", ratio: "5/9", rotate: -1, scrollScale: [0.5, 1.3, 0.7], scrollRotate: [-3, 2], radius: "0" },
+  { type: "image", src: "/landing/landing-03.jpg", label: "Pool", top: "4.1%", left: "73.1%", w: "20%", ratio: "3/4", scrollScale: [0.4, 1.1, 1], scrollRotate: [0, 5], radius: "0" },
+  { type: "image", src: "/landing/landing-04.jpg", label: "Market", top: "27.1%", left: "33.7%", w: "28.1%", ratio: "5/9", rotate: 1, zIndex: 9, scrollScale: [0.92, 1, 1.08], scrollRotate: [-3, 3] },
+  { type: "image", src: "/landing/landing-07.jpg", label: "Workshop", top: "31.2%", left: "67.8%", w: "10.7%", ratio: "1/1", rotate: 0, scrollScale: [0.92, 1.06, 0.98], scrollRotate: [0, -100], radius: "50%" },
+  { type: "video", src: "/landing/landing-11.mov", label: "Reel", top: "33.8%", left: "38.9%", w: "19.1%", ratio: "5/9", zIndex: 10, scrollScale: [0.8, 1.3, 1], scrollRotate: [0, 0], radius: "0" },
+  { type: "image", src: "/landing/landing-05.jpg", label: "Nature", top: "43%", left: "9.9%", w: "16%", ratio: "3/4", rotate: -2, scrollScale: [0.95, 1.04, 0.92], scrollRotate: [-4, 1], radius: "0" },
+  { type: "video", src: "/landing/landing-09.mp4", label: "People", top: "43.4%", left: "76.2%", w: "18.4%", ratio: "5/9", rotate: -1, scrollScale: [0.96, 1, 0.88], scrollRotate: [-1, 4], radius: "0" },
+  { type: "image", src: "/landing/landing-06.jpg", label: "Studio", top: "68.1%", left: "7.7%", w: "22%", ratio: "3/4", rotate: 1, scrollScale: [1.1, 0.8, 1], scrollRotate: [1, -2], radius: "0" },
+  { type: "image", src: "/landing/landing-04.jpg", label: "Portrait", top: "76.5%", left: "41.2%", w: "15.3%", ratio: "3/4", rotate: 2, scrollScale: [0.92, 1.08, 0.94], scrollRotate: [4, -2], radius: "0" },
+  { type: "image", src: "/landing/landing-01.jpg", label: "Event", top: "78.2%", left: "68.7%", w: "16%", ratio: "3/4", scrollScale: [1, 1, 1], scrollRotate: [-2, 3], radius: "0" },
+  { type: "image", src: "/landing/landing-01.jpg", label: "Tropical", top: "79.5%", left: "69.5%", w: "14.3%", ratio: "3/4", rotate: 2, scrollScale: [1, 0.6, 0.8], scrollRotate: [3, -2], radius: "0" },
 ];
 
-// ── Mobile/Tablet layout (<1024px): fewer items, 2-col layout ──
+// ── Tablet layout (640px–1023px) ──
+const ASSETS_TABLET: Asset[] = [
+  { type: "video", src: "/landing/landing-08.mp4", label: "Event", top: "2.3%", left: "9.6%", w: "32.2%", ratio: "5/9", scrollScale: [0.4, 1.2, 0.95], scrollRotate: [-2, 1], radius: "0" },
+  { type: "image", src: "/landing/landing-03.jpg", label: "Pool", top: "4.6%", left: "58.2%", w: "45%", ratio: "1/1", rotate: 5, scrollScale: [1.05, 0.6, 0.96], scrollRotate: [0, 3], radius: "0" },
+  { type: "image", src: "/landing/landing-07.jpg", label: "Plants", top: "30.1%", left: "55.8%", w: "30%", ratio: "1/1", scrollScale: [0.9, 0.9, 1.06], scrollRotate: [0, 100], radius: "50%" },
+  { type: "image", src: "/landing/landing-04.jpg", label: "Portrait", top: "45.2%", left: "19.8%", w: "29.5%", ratio: "4/5", rotate: -1, scrollScale: [1, 0.8, 0.94], scrollRotate: [2, -1], radius: "0" },
+  { type: "image", src: "/landing/landing-05.jpg", label: "Nature", top: "52.6%", left: "73.7%", w: "24.2%", ratio: "1/1", rotate: 1, scrollScale: [0.95, 1.04, 0.92], scrollRotate: [-2, 1], radius: "0" },
+  { type: "image", src: "/landing/landing-06.jpg", label: "Studio", top: "75.5%", left: "7.4%", w: "20.8%", ratio: "3/4", rotate: 1, scrollScale: [0.8, 1, 0.8], scrollRotate: [1, -3], radius: "0" },
+  { type: "image", src: "/landing/landing-01.jpg", label: "Workshop", top: "72.5%", left: "58.6%", w: "27.2%", ratio: "4/5", scrollScale: [1, 0.8, 0.98], scrollRotate: [0, -2], radius: "0" },
+  { type: "video", src: "/landing/landing-09.mp4", label: "People", top: "50.8%", left: "36.2%", w: "31.8%", ratio: "5/9", rotate: -1, scrollScale: [0.4, 1.2, 1], scrollRotate: [-1, 2], radius: "0" },
+];
+
+// ── Mobile layout (<640px) ──
 const ASSETS_MOBILE: Asset[] = [
   { type: "video", src: "/landing/landing-08.mp4", label: "Event", top: "0%", left: "2%", w: "clamp(150px, 46%, 250px)", ratio: "5/9", scrollScale: [0.4, 1.2, 0.95], scrollRotate: [-2, 1], radius: "0" },
   { type: "image", src: "/landing/landing-03.jpg", label: "Pool", top: "2%", left: "55%", w: "46%", ratio: "1/1", scrollScale: [1.05, 0.6, 0.96], scrollRotate: [0, 3], radius: "0" },
@@ -48,7 +62,7 @@ const ASSETS_MOBILE: Asset[] = [
   { type: "image", src: "/landing/landing-04.jpg", label: "Portrait", top: "66%", left: "0%", w: "46%", ratio: "4/5", rotate: -1, scrollScale: [1, 0.8, 0.94], scrollRotate: [2, -1], radius: "0" },
   { type: "image", src: "/landing/landing-05.jpg", label: "Nature", top: "46%", left: "52%", w: "46%", ratio: "1/1", rotate: 1, scrollScale: [0.95, 1.04, 0.92], scrollRotate: [-2, 1], radius: "0" },
   { type: "image", src: "/landing/landing-01.jpg", label: "Workshop", top: "95%", left: "53%", w: "44%", ratio: "4/5", scrollScale: [1, 0.8, 0.98], scrollRotate: [0, -2], radius: "0" },
-  { type: "video", src: "/landing/landing-09.mp4", label: "People", top: "75%", left: "30%", w: "clamp(150px, 44%, 230px)", ratio: "5/9", rotate: -1, scrollScale: [0.4, 1.5, 1], scrollRotate: [-1, 2], radius: "0" },
+  { type: "video", src: "/landing/landing-09.mp4", label: "People", top: "75%", left: "30%", w: "clamp(150px, 44%, 230px)", ratio: "5/9", rotate: -1, scrollScale: [0.4, 1.3, 1], scrollRotate: [-1, 2], radius: "0" },
 ];
 
 function AssetItem({
@@ -111,6 +125,7 @@ function AssetItem({
           src={asset.src}
           alt={asset.label}
           fill
+          sizes="25vw"
           className="object-cover"
         />
       )}
@@ -118,10 +133,11 @@ function AssetItem({
   );
 }
 
-export default function AssetsSection() {
+function AssetsCollage() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
-  const assets = isDesktop ? ASSETS_DESKTOP : ASSETS_MOBILE;
+  const isTablet = useMediaQuery("(min-width: 640px)");
+  const assets = isDesktop ? ASSETS_DESKTOP : isTablet ? ASSETS_TABLET : ASSETS_MOBILE;
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -161,5 +177,28 @@ export default function AssetsSection() {
         ))}
       </div>
     </section>
+  );
+}
+
+function AssetsSectionInner() {
+  const searchParams = useSearchParams();
+  const isEditing = process.env.NODE_ENV === "development" && searchParams.get("edit") !== null;
+
+  if (isEditing && AssetEditor) {
+    return (
+      <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading editor...</div>}>
+        <AssetEditor desktopAssets={ASSETS_DESKTOP} tabletAssets={ASSETS_TABLET} mobileAssets={ASSETS_MOBILE} />
+      </Suspense>
+    );
+  }
+
+  return <AssetsCollage />;
+}
+
+export default function AssetsSection() {
+  return (
+    <Suspense>
+      <AssetsSectionInner />
+    </Suspense>
   );
 }

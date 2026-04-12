@@ -202,6 +202,15 @@ export const EVENT_VENUE_CARDS = [
   { name: "Venue 5", description: "Descrizione" },
 ] as const;
 
+export const EVENT_ARCHIVE = [
+  { name: "Evento 1", description: "Descrizione" },
+  { name: "Evento 2", description: "Descrizione" },
+  { name: "Evento 3", description: "Descrizione" },
+  { name: "Evento 4", description: "Descrizione" },
+  { name: "Evento 5", description: "Descrizione" },
+  { name: "Evento 6", description: "Descrizione" },
+] as const;
+
 export const PRODUCTS = [
   { name: "Bucket Hat", description: "Cappello bucket con logo Roma Tropicale ricamato." },
   { name: "Cappello Patch", description: "Baseball cap con patch tropicale in edizione limitata." },

@@ -78,6 +78,7 @@ export default function MembershipSection() {
               src="/membership/member-01.jpg"
               alt="Membership community"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
               priority
             />
