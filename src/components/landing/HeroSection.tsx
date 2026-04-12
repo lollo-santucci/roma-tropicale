@@ -148,12 +148,11 @@ export default function HeroSection() {
         <SocialIcons className="absolute top-24 right-24 z-10 flex flex-col gap-2.5" />
 
         {/* Center: Logo video */}
-        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none mix-blend-multiply">
           <motion.div
             initial={{ scale: 0.85, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
-            className="mix-blend-multiply"
           >
             <video
               src="/videos/logo-romatropicale-3d.mov"
@@ -179,16 +178,17 @@ export default function HeroSection() {
         </div>
 
         {/* Right: about description + email */}
-        <div className="absolute right-24 top-3/5 -translate-y-1/2 z-10 flex flex-col items-end max-w-[350px]">
-          <p className="text-lg text-roma-dark/90 leading-relaxed mb-6 text-right">
+        <div className="absolute right-24 top-3/5 -translate-y-1/2 z-10 flex flex-col items-end" style={{ width: "clamp(280px, 25vw, 400px)" }}>
+          <p className="text-roma-dark/90 leading-relaxed mb-6 text-right" style={{ fontSize: "clamp(12px, 1vw, 18px)" }}>
             {BRAND.about}
           </p>
-          <p className="text-lg font-semibold text-roma-dark/80 mb-0.5 text-right">
+          <p className="font-semibold text-roma-dark/80 mb-0.5 text-right" style={{ fontSize: "clamp(14px, 1.2vw, 18px)" }}>
             EMAIL US
           </p>
           <a
             href={`mailto:${BRAND.email}`}
-            className="text-4xl font-regular text-roma-dark hover:text-roma-purple transition-colors text-right"
+            className="font-regular text-roma-dark hover:text-roma-purple transition-colors text-right"
+            style={{ fontSize: "clamp(18px, 2vw, 36px)" }}
           >
             {BRAND.email}
           </a>
