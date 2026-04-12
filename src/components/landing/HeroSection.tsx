@@ -65,7 +65,7 @@ export default function HeroSection() {
       {/* ── Mobile/Tablet: vertical flow ── */}
       <div className="lg:hidden">
         {/* Top fold: fits in viewport */}
-        <div className="flex flex-col justify-between h-[92dvh] pt-[env(safe-area-inset-top)]">
+        <div className="flex flex-col justify-between min-h-[92dvh] pt-[env(safe-area-inset-top)]">
           {/* 1. Marquee */}
           <Marquee />
 
@@ -82,6 +82,7 @@ export default function HeroSection() {
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
+              className="mix-blend-multiply"
             >
               <video
                 src="/videos/logo-romatropicale-3d.mov"
@@ -90,8 +91,7 @@ export default function HeroSection() {
                 muted
                 playsInline
                 preload="auto"
-
-                className="w-[700px] sm:w-[500px] h-auto mix-blend-multiply"
+                className="w-[700px] sm:w-[500px] h-auto"
               />
             </motion.div>
           </div>
@@ -148,11 +148,12 @@ export default function HeroSection() {
         <SocialIcons className="absolute top-24 right-24 z-10 flex flex-col gap-2.5" />
 
         {/* Center: Logo video */}
-        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none mix-blend-multiply">
+        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
           <motion.div
             initial={{ scale: 0.85, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
+            className="mix-blend-multiply"
           >
             <video
               src="/videos/logo-romatropicale-3d.mov"
