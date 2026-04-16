@@ -184,7 +184,7 @@ function EventsActive() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="w-[280px] sm:w-[300px] lg:w-[430px] 2xl:w-[600px] shrink-0"
+            className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
           >
             <div className="w-full aspect-square overflow-hidden bg-[#d1d1d1]">
               {/* placeholder — sostituire con <Image> quando disponibili */}
@@ -212,7 +212,7 @@ function EventsActive() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="w-[280px] sm:w-[300px] lg:w-[430px] 2xl:w-[600px] shrink-0"
+            className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
           >
             <div className="w-full aspect-square overflow-hidden bg-[#d1d1d1]">
               {/* placeholder — sostituire con <Image> quando disponibili */}
@@ -241,7 +241,7 @@ function EventsActive() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="w-[280px] sm:w-[300px] lg:w-[430px] 2xl:w-[600px] shrink-0"
+            className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
           >
             <Link href={item.href} className="block group">
               <div className="relative w-full aspect-[3/4] overflow-hidden">
@@ -249,7 +249,7 @@ function EventsActive() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 300px, (max-width: 1536px) 430px, 600px"
+                  sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
                   className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </div>
@@ -339,7 +339,7 @@ function EventsComingSoon() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="w-[280px] sm:w-[300px] lg:w-[430px] 2xl:w-[600px] shrink-0"
+            className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
           >
             <Link href={item.href} className="block group">
               <div className="relative w-full aspect-[3/4] overflow-hidden">
@@ -347,7 +347,7 @@ function EventsComingSoon() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 300px, (max-width: 1536px) 430px, 600px"
+                  sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
                   className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </div>

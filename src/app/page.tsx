@@ -9,7 +9,9 @@ export default function Home() {
     <PageShell>
       <HeroSection />
       <AssetsSection />
-      <HighlightsSection />
+      <div className="pt-20 md:pt-0">
+        <HighlightsSection />
+      </div>
       <NewsletterSection />
     </PageShell>
   );

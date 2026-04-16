@@ -61,7 +61,7 @@ export default function LandingSection() {
         </ScrollReveal>
 
         {/* Highlights */}
-        <div className="flex gap-3 overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 sm:flex-wrap">
+        <div className="flex gap-3 overflow-x-auto py-4 -mx-6 px-6 sm:mx-0 sm:px-0 sm:flex-wrap">
           {highlights.map((h, i) => (
             <ScrollReveal key={h} delay={0.1 * i}>
               <div className="bg-roma-dark text-roma-white rounded-pill px-5 py-2.5 text-sm sm:text-base whitespace-nowrap">

@@ -63,24 +63,26 @@ export default function HorizontalScrollSection({
 
   return (
     <section id={id} ref={sectionRef} className="relative" style={{ height: sectionHeight }}>
-      <div ref={containerRef} className={`sticky top-0 h-screen flex flex-col justify-start pt-20 overflow-hidden px-10 sm:px-20 lg:px-32 z-10 ${transparent ? "" : "bg-roma-bg"}`}>
+      <div ref={containerRef} className={`sticky top-0 h-screen flex flex-col justify-start pt-14 sm:pt-16 lg:pt-20 overflow-hidden px-6 sm:px-10 lg:px-16 z-10 ${transparent ? "" : "bg-roma-bg"}`}>
         {/* Header */}
-        <div className="mb-6">
+        <div className="mb-6 sm:mb-8 lg:mb-10">
           <ScrollReveal direction="up">
-            <div className="flex flex-col lg:flex-row items-start justify-between w-full gap-4 lg:gap-8">
-              <h2 className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] text-roma-dark tracking-[-1.2px] leading-[34px] shrink-0">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-start w-full gap-3 lg:gap-12">
+              <h2 className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] lg:text-[44px] text-roma-dark tracking-[-1.2px] leading-[0.95] shrink-0">
                 {title}
               </h2>
-              <Image
-                src="/icons/arrow-right.svg"
-                alt=""
-                width={200}
-                height={61}
-                className="hidden lg:block shrink-0"
-              />
-              <p className="text-roma-dark text-base sm:text-lg lg:text-2xl">
-                {description}
-              </p>
+              <div className="flex items-end gap-6 lg:max-w-[52ch]">
+                <Image
+                  src="/icons/arrow-right.svg"
+                  alt=""
+                  width={120}
+                  height={36}
+                  className="hidden lg:block shrink-0 self-center"
+                />
+                <p className="text-roma-dark text-base sm:text-lg leading-snug text-pretty">
+                  {description}
+                </p>
+              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -89,7 +91,7 @@ export default function HorizontalScrollSection({
         <motion.div
           ref={trackRef}
           style={{ x }}
-          className="relative flex gap-5"
+          className="relative flex gap-4 sm:gap-5 items-start"
         >
           {children}
         </motion.div>
