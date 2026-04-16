@@ -63,7 +63,7 @@ export default function HorizontalScrollSection({
 
   return (
     <section id={id} ref={sectionRef} className="relative" style={{ height: sectionHeight }}>
-      <div ref={containerRef} className={`sticky top-0 h-screen flex flex-col justify-center overflow-hidden px-10 sm:px-20 lg:px-32 z-10 ${transparent ? "" : "bg-roma-bg"}`}>
+      <div ref={containerRef} className={`sticky top-0 h-screen flex flex-col justify-start pt-20 overflow-hidden px-10 sm:px-20 lg:px-32 z-10 ${transparent ? "" : "bg-roma-bg"}`}>
         {/* Header */}
         <div className="mb-6">
           <ScrollReveal direction="up">
