@@ -30,7 +30,7 @@ export default function AcademySection() {
       {/* ── Hero Image (full-width) ── */}
       <div className="-mx-6 sm:-mx-10 lg:mx-0 lg:w-full aspect-[1214/664] lg:aspect-auto lg:h-screen relative overflow-hidden">
         <Image
-          src="/academy/academy-hero.png"
+          src="/academy/academy-header.webp"
           alt="Academy Tropicale"
           fill
           sizes="100vw"
@@ -47,7 +47,8 @@ export default function AcademySection() {
             alt="Roma Tropicale — Torna alla home"
             width={100}
             height={107}
-            className="size-auto max-w-[80px] sm:max-w-[100px]"
+            loading="eager"
+            className="h-auto w-auto max-w-[80px] sm:max-w-[100px]"
           />
         </Link>
       </div>

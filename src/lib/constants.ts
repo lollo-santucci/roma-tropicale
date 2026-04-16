@@ -61,65 +61,49 @@ export const NAV_LINKS = [
 
 export const HIGHLIGHTS = [
   {
-    title: "I Vasi Found di Elho",
+    title: "Coltiva il tuo pollice verde",
     description:
-      "Una selezione curata dei nostri vasi preferiti per trasformare ogni angolo in un'oasi verde.",
+      "Un percorso formativo tra teoria e pratica per scoprire e prenderti cura delle piante.",
+    href: "/academy",
+    image: "/landing/highlights/highlight-academy.jpg",
   },
   {
-    title: "Il festival è alle porte",
+    title: "Spoiler: ci piacciono le cose fatte bene",
     description:
-      "Preparati al prossimo grande evento green della stagione. Musica, piante e community.",
+      "Per questo collaboriamo con Elho: vasi belli, sostenibili e pensati con cura.",
+    href: "/about/#collab",
+    image: "/landing/highlights/elho.jpg",
   },
   {
-    title: "Il nuovo merch di Roma Tropicale",
+    title: "Portiamo il green offline",
     description:
-      "Tee, tote bag e accessori pensati per chi vive il verde ogni giorno.",
+      "Scopri gli eventi passati e i prossimi appuntamenti della community.",
+    href: "/events/#archive",
+    image: "/landing/highlights/merch.jpg",
   },
   {
-    title: "Workshop di maggio",
+    title: "La tua tessera, sempre con te",
     description:
-      "Kokedama, terrari e composizioni floreali: il calendario dei prossimi laboratori.",
+      "Aggiungila al wallet e sblocca sconti e accessi in anticipo.",
+    href: "/membership",
+    image: "/landing/highlights/rinvasi.jpg",
   },
   {
-    title: "Community Swap Day",
+    title: "Perché non lo abbiamo scoperto prima?",
     description:
-      "Porta una pianta, scambiala con un'altra. Connessioni verdi tra persone.",
+      "Il palo “geniale” Plant Scraper che rivoluziona la cura delle piante rampicanti.",
+    href: "https://romatropicale.com/2024/11/06/palo-per-piante-plantscraper-e-il-kit-autoirrigante/",
+    image: "/landing/highlights/highlight-amazon.jpg",
   },
   {
-    title: "Roma Tropicale Zine Vol.3",
+    title: "Solo cose che useremmo di nuovo",
     description:
-      "La terza edizione della nostra rivista indipendente su cultura e natura urbana.",
+      "La nostra vetrina Amazon sempre aggiornata con i prodotti che usiamo davvero (o che non potevamo non avere!)",
+    href: "#",
+    image: "/landing/highlights/elefantino.jpg",
   },
 ] as const;
 
-export const ARCHIVE_EVENTS = [
-  {
-    title: "Tropical Night",
-    date: "15 Dic 2025",
-    location: "The Hoxton, Roma",
-    description: "Una serata di musica, cocktail plant-based e connessioni verdi.",
-  },
-  {
-    title: "Green Market",
-    date: "28 Nov 2025",
-    location: "Trastevere",
-    description: "Mercatino di prodotti sostenibili e workshop creativi.",
-  },
-  {
-    title: "Plant Swap",
-    date: "10 Ott 2025",
-    location: "Pigneto",
-    description: "Scambia le tue piante e incontra la community.",
-  },
-  {
-    title: "Rooftop Botanico",
-    date: "22 Set 2025",
-    location: "W Hotel, Roma",
-    description: "Aperitivo panoramico tra piante tropicali.",
-  },
-] as const;
-
-export type ArchiveEvent = (typeof ARCHIVE_EVENTS)[number];
 
 export const EVENT_TEXTS = {
   title: "Primavera Tropicale Festival",
@@ -139,6 +123,11 @@ export const EVENT_TEXTS = {
   activitiesIntro: "Scopri le attività della giornata e i corner esperenziali",
   venueIntro: "Humo è un'oasi tropicale a due passi da Roma, a mezz'ora dal centro storico. Indirizzo: Via dei Laghi, km 4 (ampio parcheggio)",
 } as const;
+
+// Toggle: true quando c'è un evento attivo da promuovere, false per "coming soon"
+export const EVENT_ACTIVE = false;
+
+export const COMING_SOON_HERO_TITLE = "Stiamo pianificando il prossimo evento";
 
 export const EVENT_WORKSHOPS = [
   {
@@ -203,12 +192,10 @@ export const EVENT_VENUE_CARDS = [
 ] as const;
 
 export const EVENT_ARCHIVE = [
-  { name: "Evento 1", description: "Descrizione" },
-  { name: "Evento 2", description: "Descrizione" },
-  { name: "Evento 3", description: "Descrizione" },
-  { name: "Evento 4", description: "Descrizione" },
-  { name: "Evento 5", description: "Descrizione" },
-  { name: "Evento 6", description: "Descrizione" },
+  { title: "No Roses, Just Plants ‘26 (The Hoxton Rome)", description: "Un format esperienziale durante San Valentino, che univa workshop, musica e momenti di socialità, invitando la community a scegliere le piante...", href: "#", image: "/events/archive/14.02 tropicale V2 (1).jpg" },
+  { title: "Urban Nature ‘25 (Orto Botanico di Roma)", description: "In collaborazione con WWF Italia, un evento dedicato alla riscoperta della natura in città, pensato per promuovere un rapporto più...", href: "#", image: "/events/archive/Posting WWF  - 2.png" },
+  { title: "Festival Tropicale ‘25 (Forte Trionfale, Roma)", description: "Forte Trionfale rappresenta uno dei forti storici di Roma e ha riaperto al pubblico in occasione del nostro evento, contribuendo al processo...", href: "#", image: "/events/archive/flyer-fest-scaled.webp" },
+  { title: "Festival Tropicale ‘24-’23 (Borgo Della Mistica)", description: "Le prime due edizioni del festival si sono svolte presso Borgo della Mistica, una location che rappresenta perfettamente il dialogo tra...", href: "#", image: "/events/archive/Fest Layout - 1.png" },
 ] as const;
 
 export const PRODUCTS = [
@@ -332,8 +319,8 @@ export const MERCH_TEXTS = [
 ] as const;
 
 export const MERCH_REF_CARDS = [
-  { label: "CONTATTACI", href: "mailto:romatropicale@gmail.com?subject=Richiesta%20Merch&body=Ciao%2C%20vorrei%20informazioni%20sul%20merch.", image: "/merch/2.png" },
-  { label: "CONTATTACI", href: "mailto:romatropicale@gmail.com?subject=Richiesta%20Merch&body=Ciao%2C%20vorrei%20informazioni%20sul%20merch.", image: "/merch/3.png" },
+  { label: "CONTATTACI", href: "mailto:romatropicale@gmail.com?subject=Richiesta%20Merch&body=Ciao%2C%20vorrei%20informazioni%20sul%20merch.", image: "/merch/2.jpg" },
+  { label: "CONTATTACI", href: "mailto:romatropicale@gmail.com?subject=Richiesta%20Merch&body=Ciao%2C%20vorrei%20informazioni%20sul%20merch.", image: "/merch/3.jpg" },
   { label: "CONTATTACI", href: "mailto:romatropicale@gmail.com?subject=Richiesta%20Merch&body=Ciao%2C%20vorrei%20informazioni%20sul%20merch.", image: "/merch/4.jpg" },
 ] as const;
 

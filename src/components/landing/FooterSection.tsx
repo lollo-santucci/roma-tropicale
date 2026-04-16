@@ -14,6 +14,7 @@ export default function FooterSection() {
         alt="Roma Tropicale"
         width={200}
         height={214}
+        loading="eager"
         className="w-[150px] sm:w-[200px] h-auto"
       />
 

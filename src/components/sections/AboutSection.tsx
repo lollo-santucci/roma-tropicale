@@ -25,7 +25,8 @@ export default function AboutSection() {
             alt="Roma Tropicale — Torna alla home"
             width={100}
             height={107}
-            className="size-auto max-w-[80px] sm:max-w-[100px]"
+            loading="eager"
+            className="h-auto w-auto max-w-[80px] sm:max-w-[100px]"
           />
         </Link>
       </div>
@@ -152,13 +153,13 @@ export default function AboutSection() {
       </div>
 
       {/* ── Brands Section ── */}
-      <div className="bg-roma-bg-alt -mx-6 sm:-mx-10 lg:-mx-24 px-6 sm:px-10 lg:px-24 py-12 sm:py-14 lg:py-16">
+      <div id="collab" className="bg-roma-bg-alt -mx-6 sm:-mx-10 lg:-mx-24 px-6 sm:px-10 lg:px-24 py-12 sm:py-14 lg:py-16">
         <div className="max-w-7xl mx-auto flex flex-col gap-5 sm:gap-6">
           {/* Horizontal divider line */}
           <hr className="border-roma-dark/10 w-full" />
 
           {/* Header row: title + arrow + description */}
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-4 sm:gap-6">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl lg:text-4xl text-roma-dark tracking-tight leading-snug w-full lg:w-72 shrink-0 text-balance">
               Brands we collaborate with
             </h2>
@@ -176,7 +177,7 @@ export default function AboutSection() {
 
           {/* Partner logo grid */}
           <ScrollReveal>
-            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 my-8 sm:my-12 lg:my-16">
               {BRAND.partners.map((partner) => (
                 <div
                   key={partner.name}

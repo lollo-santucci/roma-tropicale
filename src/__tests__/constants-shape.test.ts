@@ -3,7 +3,7 @@
 
 import { describe, it, expect } from "vitest";
 import {
-  ARCHIVE_EVENTS,
+  EVENT_ARCHIVE,
   PRODUCTS,
   EDUCATORS,
   MEMBERSHIP_BENEFITS,
@@ -12,21 +12,21 @@ import {
 } from "@/lib/constants";
 
 describe("Property 3: Constants data shape integrity", () => {
-  describe("ARCHIVE_EVENTS", () => {
-    it.each(ARCHIVE_EVENTS.map((e, i) => [i, e]))(
-      "entry %i (%o) has non-empty title, date, location, description",
+  describe("EVENT_ARCHIVE", () => {
+    it.each(EVENT_ARCHIVE.map((e, i) => [i, e] as const))(
+      "entry %i (%o) has non-empty title, description, href, image",
       (_index, event) => {
         expect(typeof event.title).toBe("string");
         expect(event.title.length).toBeGreaterThan(0);
 
-        expect(typeof event.date).toBe("string");
-        expect(event.date.length).toBeGreaterThan(0);
-
-        expect(typeof event.location).toBe("string");
-        expect(event.location.length).toBeGreaterThan(0);
-
         expect(typeof event.description).toBe("string");
         expect(event.description.length).toBeGreaterThan(0);
+
+        expect(typeof event.href).toBe("string");
+        expect(event.href.length).toBeGreaterThan(0);
+
+        expect(typeof event.image).toBe("string");
+        expect(event.image.length).toBeGreaterThan(0);
       }
     );
   });

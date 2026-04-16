@@ -29,7 +29,8 @@ export default function WorkshopSection({ workshop }: WorkshopSectionProps) {
             alt="Roma Tropicale — Torna alla home"
             width={100}
             height={107}
-            className="size-auto max-w-[80px] sm:max-w-[100px]"
+            loading="eager"
+            className="h-auto w-auto max-w-[80px] sm:max-w-[100px]"
           />
         </Link>
         <PillButton href="/events/#workshop">Workshop</PillButton>

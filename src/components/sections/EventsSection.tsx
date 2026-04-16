@@ -7,6 +7,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 import HorizontalScrollSection from "@/components/ui/HorizontalScrollSection";
 import PillButton from "@/components/ui/PillButton";
 import AnimatedText from "@/components/ui/AnimatedText";
+import NewsletterForm from "@/components/ui/NewsletterForm";
 import {
   BRAND,
   EVENT_TEXTS,
@@ -14,6 +15,8 @@ import {
   EVENT_ACTIVITIES,
   EVENT_VENUE_CARDS,
   EVENT_ARCHIVE,
+  EVENT_ACTIVE,
+  COMING_SOON_HERO_TITLE,
 } from "@/lib/constants";
 
 const SOCIALS = [
@@ -23,6 +26,10 @@ const SOCIALS = [
 ] as const;
 
 export default function EventsSection() {
+  return EVENT_ACTIVE ? <EventsActive /> : <EventsComingSoon />;
+}
+
+function EventsActive() {
   return (
     <>
     <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-0 overflow-x-hidden">
@@ -74,7 +81,8 @@ export default function EventsSection() {
             alt="Roma Tropicale — Torna alla home"
             width={100}
             height={107}
-            className="size-auto max-w-[80px] sm:max-w-[100px]"
+            loading="eager"
+            className="h-auto w-auto max-w-[80px] sm:max-w-[100px]"
           />
         </Link>
       </div>
@@ -222,31 +230,147 @@ export default function EventsSection() {
 
       {/* ── Section 5: From the archive (horizontal scroll) ── */}
       <HorizontalScrollSection
+        id="archive"
         title="From the archive"
         description="Una selezione dei nostri eventi preferiti del passato."
       >
         {EVENT_ARCHIVE.map((item, i) => (
           <motion.div
-            key={item.name}
+            key={item.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="w-[280px] sm:w-[300px] lg:w-[430px] 2xl:w-[600px] shrink-0"
           >
-            <div className="w-full aspect-square overflow-hidden bg-[#d1d1d1]">
-              {/* placeholder — sostituire con <Image> quando disponibili */}
-            </div>
-            <hr className="border-roma-dark/20 w-full my-3" />
-            <p className="text-sm font-bold text-roma-dark mb-1">
-              {item.name}
-            </p>
-            <p className="text-xs text-roma-dark/50 leading-relaxed">
-              {item.description}
-            </p>
+            <Link href={item.href} className="block group">
+              <div className="relative w-full aspect-[3/4] overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 300px, (max-width: 1536px) 430px, 600px"
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              <hr className="border-roma-dark/20 w-full my-3" />
+              <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-xs text-roma-dark/50 leading-relaxed">
+                {item.description}
+              </p>
+            </Link>
           </motion.div>
         ))}
       </HorizontalScrollSection>
+    </>
+  );
+}
+
+function EventsComingSoon() {
+  return (
+    <>
+      <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-0 overflow-x-hidden">
+        {/* ── Hero Image (full-width) ── */}
+        <div className="relative -mx-6 sm:-mx-10 lg:mx-0 lg:w-full h-[400px] sm:h-[600px] lg:h-screen overflow-hidden">
+          <Image
+            src="/events/coming-soon-header.jpg"
+            alt="Prossimo evento in arrivo"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+          {/* Title + social bottom-right */}
+          <div className="absolute bottom-10 md:bottom-12 right-6 sm:right-10 lg:right-[150px] flex gap-2 items-start">
+            <p className="font-semibold text-roma-white text-right text-xl sm:text-2xl lg:text-[36px] tracking-[2.88px] uppercase max-w-[487px] leading-tight">
+              {COMING_SOON_HERO_TITLE}
+            </p>
+            <div className="flex flex-col gap-2 items-center justify-center">
+              {SOCIALS.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="size-9 sm:size-10 rounded-full bg-roma-dark flex items-center justify-center hover:bg-roma-purple transition-colors"
+                  aria-label={social.name}
+                >
+                  <Image
+                    src={social.icon}
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="size-4 invert"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Logo Header ── */}
+        <div className="max-w-7xl mx-auto flex items-center pt-6 sm:pt-8">
+          <Link href="/">
+            <Image
+              src="/imgs/logo-romatropicale.svg"
+              alt="Roma Tropicale — Torna alla home"
+              width={100}
+              height={107}
+              loading="eager"
+              className="h-auto w-auto max-w-[80px] sm:max-w-[100px]"
+            />
+          </Link>
+        </div>
+
+      </section>
+
+      {/* ── From the archive ── */}
+      <HorizontalScrollSection
+        id="archive"
+        title="From the archive"
+        description="Una selezione dei nostri eventi preferiti del passato."
+      >
+        {EVENT_ARCHIVE.map((item, i) => (
+          <motion.div
+            key={item.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="w-[280px] sm:w-[300px] lg:w-[430px] 2xl:w-[600px] shrink-0"
+          >
+            <Link href={item.href} className="block group">
+              <div className="relative w-full aspect-[3/4] overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 300px, (max-width: 1536px) 430px, 600px"
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              <hr className="border-roma-dark/20 w-full my-3" />
+              <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-xs text-roma-dark/50 leading-relaxed">
+                {item.description}
+              </p>
+            </Link>
+          </motion.div>
+        ))}
+      </HorizontalScrollSection>
+
+      {/* ── Newsletter CTA ── */}
+      <div className="bg-roma-bg flex justify-center py-10 sm:py-14 px-6 sm:px-10">
+        <ScrollReveal>
+          <div className="bg-roma-dark rounded-[24px] px-6 sm:px-12 lg:px-[200px] py-10 sm:py-12 flex flex-col items-center gap-6">
+            <NewsletterForm variant="full" />
+          </div>
+        </ScrollReveal>
+      </div>
     </>
   );
 }
