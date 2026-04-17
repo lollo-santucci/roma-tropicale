@@ -47,7 +47,7 @@ export const MARQUEE_ITEMS = [
   { text: "NEW EVENT - COMING SOON", href: "/events" },
   { text: "sign up for our newsletters", href: "/#newsletter" },
   { text: "listen to our playlists", href: "https://open.spotify.com/user/j775s2cr1wn1f95xsx6fjes3d?si=4996c84c2bf24288&nd=1&dlsi=b85c280780fd454e" },
-  { text: "read our blog", href: "/blog" },
+  { text: "read our blog", href: "https://romatropicale.com" },
 ] as const;
 
 export const NAV_LINKS = [
@@ -99,7 +99,7 @@ export const HIGHLIGHTS = [
     title: "Solo cose che useremmo di nuovo",
     description:
       "La nostra vetrina Amazon sempre aggiornata con i prodotti che usiamo davvero (o che non potevamo non avere!)",
-    href: "#",
+    href: "https://romatropicale.com/category/botanical/",
     image: "/landing/highlights/elefantino.jpg",
   },
 ] as const;
@@ -192,10 +192,10 @@ export const EVENT_VENUE_CARDS = [
 ] as const;
 
 export const EVENT_ARCHIVE = [
-  { title: "No Roses, Just Plants ‘26 (The Hoxton Rome)", description: "Un format esperienziale durante San Valentino, che univa workshop, musica e momenti di socialità, invitando la community a scegliere le piante...", href: "#", image: "/events/archive/14.02 tropicale V2 (1).jpg" },
-  { title: "Urban Nature ‘25 (Orto Botanico di Roma)", description: "In collaborazione con WWF Italia, un evento dedicato alla riscoperta della natura in città, pensato per promuovere un rapporto più...", href: "#", image: "/events/archive/Posting WWF  - 2.png" },
-  { title: "Festival Tropicale ‘25 (Forte Trionfale, Roma)", description: "Forte Trionfale rappresenta uno dei forti storici di Roma e ha riaperto al pubblico in occasione del nostro evento, contribuendo al processo...", href: "#", image: "/events/archive/flyer-fest-scaled.webp" },
-  { title: "Festival Tropicale ‘24-’23 (Borgo Della Mistica)", description: "Le prime due edizioni del festival si sono svolte presso Borgo della Mistica, una location che rappresenta perfettamente il dialogo tra...", href: "#", image: "/events/archive/Fest Layout - 1.png" },
+  { title: "No Roses, Just Plants ‘26 (The Hoxton Rome)", description: "Un format esperienziale durante San Valentino, che univa workshop, musica e momenti di socialità, invitando la community a scegliere le piante...", href: "https://romatropicale.com/2026/01/20/14-02-26-no-roses-just-plants-the-hoxton-rome/", image: "/events/archive/14.02 tropicale V2 (1).jpg" },
+  { title: "Urban Nature ‘25 (Orto Botanico di Roma)", description: "In collaborazione con WWF Italia, un evento dedicato alla riscoperta della natura in città, pensato per promuovere un rapporto più...", href: "https://romatropicale.com/2025/09/09/urban-nature-orto-botanico/", image: "/events/archive/Posting WWF  - 2.png" },
+  { title: "Festival Tropicale ‘25 (Forte Trionfale, Roma)", description: "Forte Trionfale rappresenta uno dei forti storici di Roma e ha riaperto al pubblico in occasione del nostro evento, contribuendo al processo...", href: "https://romatropicale.com/2025/04/17/11-05-25-roma-tropicale-festival-%e2%98%bb-forte-trionfale/", image: "/events/archive/flyer-fest-scaled.webp" },
+  { title: "Festival Tropicale ‘24-’23 (Borgo Della Mistica)", description: "Le prime due edizioni del festival si sono svolte presso Borgo della Mistica, una location che rappresenta perfettamente il dialogo tra...", href: "https://romatropicale.com/2024/03/17/roma-tropicale-festival/", image: "/events/archive/Fest Layout - 1.png" },
 ] as const;
 
 export const PRODUCTS = [

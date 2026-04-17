@@ -59,7 +59,7 @@ export default function AboutSection() {
           <ScrollReveal>
             <div className="hidden sm:flex flex-col gap-10 py-8 items-start">
               <PillButton href="/" rotate={-13}>Home</PillButton>
-              <PillButton href="/about" rotate={15}>Blog</PillButton>
+              <PillButton href="https://romatropicale.com" rotate={15}>Blog</PillButton>
             </div>
           </ScrollReveal>
         </div>
