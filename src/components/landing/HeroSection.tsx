@@ -172,7 +172,7 @@ export default function HeroSection() {
             Ciao ✿
           </p>
           <div className="flex flex-col gap-10">
-            <PillButton href="/blog" rotate={-10}>Blog</PillButton>
+            <PillButton href="https://romatropicale.com" rotate={-10}>Blog</PillButton>
             <PillButton href="/membership" rotate={10}>Membership</PillButton>
           </div>
         </div>
