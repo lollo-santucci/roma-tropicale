@@ -24,7 +24,7 @@ export default function AnimatedText({
   return (
     <Tag ref={ref} className={cn("flex flex-wrap", className?.includes("text-right") && "justify-end", className)}>
       {words.map((word, i) => (
-        <span key={i} className="overflow-hidden inline-block mr-[0.3em]">
+        <span key={i} className="overflow-hidden inline-block mr-[0.3em] pb-[0.2em] -mb-[0.2em]">
           <motion.span
             className="inline-block"
             initial={{ y: "100%" }}
