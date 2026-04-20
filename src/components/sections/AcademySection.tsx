@@ -178,6 +178,14 @@ export default function AcademySection() {
               <p className="text-pretty">{ACADEMY_TEXTS.essentials.purchaseDetail}</p>
             </div>
           </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="flex flex-col items-start gap-10 py-8">
+              <PillButton href="https://www.paypal.com/ncp/payment/VMF3J8BGRD9RJ" rotate={0}>
+                Inizia il corso
+              </PillButton>
+            </div>
+          </ScrollReveal>
         </div>
 
         {/* Right column: image */}

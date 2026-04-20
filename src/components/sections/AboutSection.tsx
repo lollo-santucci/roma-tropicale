@@ -161,7 +161,7 @@ export default function AboutSection() {
           {/* Header row: title + arrow + description */}
           <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl lg:text-4xl text-roma-dark tracking-tight leading-snug w-full lg:w-72 shrink-0 text-balance">
-              Brands we collaborate with
+              brands we collaborate with
             </h2>
             <Image
               src="/icons/arrow-right.svg"
@@ -202,7 +202,7 @@ export default function AboutSection() {
 
           {/* Collaboration details */}
           <ScrollReveal>
-            <div className="text-roma-dark/40 text-xs sm:text-sm leading-relaxed max-w-lg flex flex-col gap-3 sm:gap-4">
+            <div className="text-roma-dark text-xs sm:text-sm leading-relaxed max-w-lg flex flex-col gap-3 sm:gap-4">
               <p className="text-pretty">{ABOUT_TEXTS.collaborationIntro}</p>
               <p className="text-pretty">{ABOUT_TEXTS.collaborationChannels}</p>
               <ul className="list-disc ml-5">

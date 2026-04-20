@@ -36,7 +36,7 @@ export default function MembershipSection() {
         {/* Left column */}
         <div className="flex flex-col gap-5 sm:gap-6 w-full lg:flex-1">
           <AnimatedText
-            text="Entra a far parte del club!"
+            text="entra a far parte del club!"
             as="h1"
             className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight text-balance"
           />

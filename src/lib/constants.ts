@@ -44,7 +44,7 @@ export const BRAND = {
 } as const;
 
 export const MARQUEE_ITEMS = [
-  { text: "NEW EVENT - COMING SOON", href: "/events" },
+  { text: "coming soon: our next event. Don't miss it!", href: "/events" },
   { text: "sign up for our newsletters", href: "/#newsletter" },
   { text: "listen to our playlists", href: "https://open.spotify.com/user/j775s2cr1wn1f95xsx6fjes3d?si=4996c84c2bf24288&nd=1&dlsi=b85c280780fd454e" },
   { text: "read our blog", href: "https://romatropicale.com" },
@@ -60,6 +60,13 @@ export const NAV_LINKS = [
 ] as const;
 
 export const HIGHLIGHTS = [
+  {
+    title: "La tua tessera, sempre con te",
+    description:
+      "Aggiungila al wallet e sblocca sconti e accessi in anticipo.",
+    href: "/membership",
+    image: "/landing/highlights/tessera.jpeg",
+  },
   {
     title: "Coltiva il tuo pollice verde",
     description:
@@ -82,13 +89,6 @@ export const HIGHLIGHTS = [
     image: "/landing/highlights/merch.jpg",
   },
   {
-    title: "La tua tessera, sempre con te",
-    description:
-      "Aggiungila al wallet e sblocca sconti e accessi in anticipo.",
-    href: "/membership",
-    image: "/landing/highlights/rinvasi.jpg",
-  },
-  {
     title: "Perché non lo abbiamo scoperto prima?",
     description:
       "Il palo “geniale” Plant Scraper che rivoluziona la cura delle piante rampicanti.",
@@ -99,7 +99,7 @@ export const HIGHLIGHTS = [
     title: "Solo cose che useremmo di nuovo",
     description:
       "La nostra vetrina Amazon sempre aggiornata con i prodotti che usiamo davvero (o che non potevamo non avere!)",
-    href: "https://romatropicale.com/category/botanical/",
+    href: "https://romatropicale.com/shopping-sconticini/",
     image: "/landing/highlights/elefantino.jpg",
   },
 ] as const;

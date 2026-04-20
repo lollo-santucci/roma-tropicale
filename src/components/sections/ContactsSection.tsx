@@ -5,7 +5,6 @@ import Image from "next/image";
 import AnimatedText from "@/components/ui/AnimatedText";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PillButton from "@/components/ui/PillButton";
-import NewsletterForm from "@/components/ui/NewsletterForm";
 import { BRAND } from "@/lib/constants";
 
 const SOCIALS = [
@@ -94,12 +93,12 @@ export default function ContactsSection() {
             <h2 className="font-[family-name:var(--font-display)] text-xl sm:text-2xl lg:text-[36px] text-white tracking-[-1.8px] text-center">
               Collaborazioni & Partnership
             </h2>
-            <p className="text-sm sm:text-base lg:text-[20px] text-white text-center tracking-[-1px] max-w-[479px]">
+            <p className="text-xs text-roma-white/40 leading-relaxed text-center max-w-sm">
               Scrivici se vuoi proporre un progetto, ospitare un evento o collaborare con la nostra community.
             </p>
             <PillButton
               href={`mailto:${BRAND.email}?subject=Collaborazione`}
-              className="bg-[#f3f0f0] text-black hover:bg-roma-purple hover:text-white text-base sm:text-[20px] tracking-[-1px] px-8 sm:px-[45px] py-4 sm:py-5"
+              className="bg-[#f3f0f0] text-black hover:bg-roma-purple hover:text-white px-10 py-3"
             >
               SCRIVICI!
             </PillButton>
@@ -151,14 +150,6 @@ export default function ContactsSection() {
         </div>
       </div>
 
-      {/* ── Newsletter ── */}
-      <div className="flex justify-center py-6 sm:py-10">
-        <ScrollReveal>
-          <div className="bg-roma-dark rounded-[24px] px-6 sm:px-12 lg:px-[200px] py-10 sm:py-12 flex flex-col items-center gap-6">
-            <NewsletterForm variant="full" />
-          </div>
-        </ScrollReveal>
-      </div>
     </section>
   );
 }

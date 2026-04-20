@@ -30,7 +30,6 @@ const ASSETS_DESKTOP: Asset[] = [
   { type: "image", src: "/landing/landing-02.jpg", label: "Garden", top: "1.4%", left: "44%", w: "18%", ratio: "3/4", rotate: 1, scrollScale: [1.2, 1, 0.4], scrollRotate: [2, -1], radius: "0" },
   { type: "video", src: "/landing/landing-08.mp4", label: "Plants", top: "2.5%", left: "6.1%", w: "22%", ratio: "5/9", rotate: -1, scrollScale: [0.5, 1.3, 0.7], scrollRotate: [-3, 2], radius: "0" },
   { type: "image", src: "/landing/landing-03.jpg", label: "Pool", top: "4.1%", left: "73.1%", w: "20%", ratio: "3/4", scrollScale: [0.4, 1.1, 1], scrollRotate: [0, 5], radius: "0" },
-  { type: "image", src: "/landing/landing-04.jpg", label: "Market", top: "27.1%", left: "33.7%", w: "28.1%", ratio: "5/9", rotate: 1, zIndex: 9, scrollScale: [0.92, 1, 1.08], scrollRotate: [-3, 3] },
   { type: "image", src: "/landing/landing-07.jpg", label: "Workshop", top: "31.2%", left: "67.8%", w: "10.7%", ratio: "1/1", rotate: 0, scrollScale: [0.92, 1.06, 0.98], scrollRotate: [0, -100], radius: "50%" },
   { type: "video", src: "/landing/landing-11.mp4", label: "Reel", top: "33.8%", left: "38.9%", w: "19.1%", ratio: "5/9", zIndex: 10, scrollScale: [0.8, 1.3, 1], scrollRotate: [0, 0], radius: "0" },
   { type: "image", src: "/landing/landing-05.jpg", label: "Nature", top: "43%", left: "9.9%", w: "16%", ratio: "3/4", rotate: -2, scrollScale: [0.95, 1.04, 0.92], scrollRotate: [-4, 1], radius: "0" },
@@ -38,7 +37,6 @@ const ASSETS_DESKTOP: Asset[] = [
   { type: "image", src: "/landing/landing-06.jpg", label: "Studio", top: "68.1%", left: "7.7%", w: "22%", ratio: "3/4", rotate: 1, scrollScale: [1.1, 0.8, 1], scrollRotate: [1, -2], radius: "0" },
   { type: "image", src: "/landing/landing-04.jpg", label: "Portrait", top: "76.5%", left: "41.2%", w: "15.3%", ratio: "3/4", rotate: 2, scrollScale: [0.92, 1.08, 0.94], scrollRotate: [4, -2], radius: "0" },
   { type: "image", src: "/landing/landing-01.jpg", label: "Event", top: "78.2%", left: "68.7%", w: "16%", ratio: "3/4", scrollScale: [1, 1, 1], scrollRotate: [-2, 3], radius: "0" },
-  { type: "image", src: "/landing/landing-01.jpg", label: "Tropical", top: "79.5%", left: "69.5%", w: "14.3%", ratio: "3/4", rotate: 2, scrollScale: [1, 0.6, 0.8], scrollRotate: [3, -2], radius: "0" },
 ];
 
 // ── Tablet layout (640px–1023px) ──

@@ -231,7 +231,7 @@ function EventsActive() {
       {/* ── Section 5: From the archive (horizontal scroll) ── */}
       <HorizontalScrollSection
         id="archive"
-        title="From the archive"
+        title="from the archive"
         description="Una selezione dei nostri eventi preferiti del passato."
       >
         {EVENT_ARCHIVE.map((item, i) => (
@@ -329,7 +329,7 @@ function EventsComingSoon() {
       {/* ── From the archive ── */}
       <HorizontalScrollSection
         id="archive"
-        title="From the archive"
+        title="from the archive"
         description="Una selezione dei nostri eventi preferiti del passato."
       >
         {EVENT_ARCHIVE.map((item, i) => (

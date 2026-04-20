@@ -51,7 +51,7 @@ export default function HighlightsSection() {
   return (
     <HorizontalScrollSection
       id="highlights"
-      title="Highlights"
+      title="highlights"
       description="i nostri articoli preferiti, i prossimi eventi, ispirazioni botaniche, workshop a cui non puoi mancare!"
       transparent
     >
