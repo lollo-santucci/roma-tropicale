@@ -65,7 +65,7 @@ export const HIGHLIGHTS = [
     description:
       "Aggiungila al wallet e sblocca sconti e accessi in anticipo.",
     href: "/membership",
-    image: "/landing/highlights/tessera.jpeg",
+    image: "/landing/highlights/tessera.webp",
   },
   {
     title: "Coltiva il tuo pollice verde",
