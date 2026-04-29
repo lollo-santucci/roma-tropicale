@@ -7,21 +7,28 @@ import PillButton from "@/components/ui/PillButton";
 import { MARQUEE_ITEMS, BRAND } from "@/lib/constants";
 
 function Marquee() {
-  const repeated = Array(10).fill(MARQUEE_ITEMS).flat();
-
   return (
     <div className="w-full z-20 overflow-hidden bg-roma-dark py-3.5 shrink-0 lg:absolute lg:top-0 lg:left-0 lg:right-0">
-      <div className="flex whitespace-nowrap animate-marquee-fast lg:animate-marquee">
-        {repeated.map((item, i) => (
-          <Link
-            key={i}
-            href={item.href}
-            className="mx-8 text-sm sm:text-base text-roma-white hover:text-roma-white/80 tracking-wider shrink-0"
-            {...(item.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
+      <div className="flex whitespace-nowrap animate-marquee-fast lg:animate-marquee will-change-transform">
+        {[0, 1].map((copy) => (
+          <ul
+            key={copy}
+            aria-hidden={copy === 1 ? "true" : undefined}
+            className="flex shrink-0 items-center gap-16 pr-16"
           >
-            {item.text}
-            <span className="ml-12 text-roma-white/40">•</span>
-          </Link>
+            {MARQUEE_ITEMS.map((item, i) => (
+              <li key={i} className="flex items-center gap-12 shrink-0">
+                <Link
+                  href={item.href}
+                  className="text-sm sm:text-base text-roma-white hover:text-roma-white/80 tracking-wider"
+                  {...(item.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
+                >
+                  {item.text}
+                </Link>
+                <span aria-hidden="true" className="text-roma-white/40">•</span>
+              </li>
+            ))}
+          </ul>
         ))}
       </div>
     </div>

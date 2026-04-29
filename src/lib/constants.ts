@@ -22,7 +22,7 @@ export const BRAND = {
     spotify: "https://open.spotify.com/user/j775s2cr1wn1f95xsx6fjes3d?si=4996c84c2bf24288&nd=1&dlsi=b85c280780fd454e",
     linkedin: "https://www.linkedin.com/company/roma-tropicale/?viewAsMember=true",
   },
-  membershipForm: "https://docs.google.com/forms/d/e/1FAIpQLSfs0XG3HmP47rt7jnmOAr2NgPA0UncCzpf9r24WWTw7koxwyg/viewform",
+  membershipForm: "https://wallyfor.com/iframepass/index.php?ref=9e5642208ca0876bf06ca041120c208c&fbclid=PARlRTSARerFlleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacrVd-po4fW_AqCHeSMCHytZrmYpPTivs-OSmWcfnuNQkifVBg_BGOzTzrgsQ_aem_CcYQ3wSGVbzlE59zUAdSeA",
   newsletterForm: "https://stats.sender.net/forms/e0RBL5/view",
   partners: [
     { name: "elho", logo: "/logos/elho.svg", size: "default" },
