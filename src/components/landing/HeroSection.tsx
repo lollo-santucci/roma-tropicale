@@ -5,8 +5,55 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import PillButton from "@/components/ui/PillButton";
 import { MARQUEE_ITEMS, BRAND } from "@/lib/constants";
+import Editable from "@/components/admin/Editable";
+import EditableList from "@/components/admin/EditableList";
+import { useAdmin } from "@/components/admin/AdminContext";
 
 function Marquee() {
+  const { enabled, slug } = useAdmin();
+  const isShared = enabled && slug === "shared";
+
+  if (enabled) {
+    return (
+      <div className="w-full z-20 overflow-hidden bg-roma-dark py-3.5 shrink-0 lg:absolute lg:top-0 lg:left-0 lg:right-0">
+        {!isShared ? (
+          <div className="px-6 text-xs text-roma-white/70 italic">
+            Marquee modificabile su{" "}
+            <a href="/admin-tropicale/shared" className="underline hover:text-roma-white">
+              /admin-tropicale/shared
+            </a>
+          </div>
+        ) : null}
+        <ul className="flex flex-wrap items-center gap-x-12 gap-y-3 px-6">
+          <EditableList
+            path="marquee"
+            items={MARQUEE_ITEMS}
+            template={{ text: "nuovo annuncio", href: "/" }}
+          >
+            {(item, i) => (
+              <li className="flex items-center gap-3">
+                <span className="text-sm sm:text-base text-roma-white tracking-wider">
+                  {isShared ? (
+                    <Editable path={`marquee[${i}].text`}>{item.text}</Editable>
+                  ) : (
+                    item.text
+                  )}
+                </span>
+                {isShared ? (
+                  <span className="flex items-center gap-1 text-[10px] text-roma-white/50">
+                    <span>→</span>
+                    <Editable path={`marquee[${i}].href`}>{item.href}</Editable>
+                  </span>
+                ) : null}
+                <span aria-hidden="true" className="text-roma-white/40">•</span>
+              </li>
+            )}
+          </EditableList>
+        </ul>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full z-20 overflow-hidden bg-roma-dark py-3.5 shrink-0 lg:absolute lg:top-0 lg:left-0 lg:right-0">
       <div className="flex whitespace-nowrap animate-marquee-fast lg:animate-marquee will-change-transform">

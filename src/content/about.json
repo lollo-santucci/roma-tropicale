@@ -1,0 +1,42 @@
+{
+  "headings": {
+    "aboutUs": "about us",
+    "teamNetwork": "team & network",
+    "brands": "brands we collaborate with"
+  },
+  "texts": {
+    "intro": [
+      "Roma Tropicale è un movimento urbano di giovani plant lovers che si muove tra digitale e territorio, dando vita a un progetto che unisce contenuti editoriali, eventi, workshop e festival dedicati alla cultura del verde.",
+      "Ripensiamo la città come un ecosistema creativo, dove ogni spazio può diventare occasione di incontro, scambio e sperimentazione intorno alla cultura green.",
+      "Coltiviamo piante, idee e relazioni: le piante sono il nostro linguaggio comune, un pretesto gentile per incontrarsi, condividere esperienze e far crescere nuove connessioni tra persone, comunità e luoghi."
+    ],
+    "mission": "Promuovere uno stile di vita più green e consapevole, condividendo conoscenze e buone pratiche per vivere il verde in modo accessibile e responsabile.",
+    "vision": "Contribuire a una città più umana e più verde, dove la cultura delle piante ispira scelte sostenibili nella vita quotidiana.",
+    "teamNetwork": [
+      "Il nostro team è composto da professionisti del marketing e dell'event management, che uniscono competenze strategiche, creative e organizzative per progettare esperienze coinvolgenti e curate in ogni dettaglio.",
+      "Attorno al progetto cresce una rete di collaborazioni multidisciplinari: lavoriamo quotidianamente con botanici, agronomi, designer e creativi che contribuiscono allo sviluppo di workshop, eventi e nuovi format dedicati alla community.",
+      "Questo scambio continuo di competenze ci permette di sperimentare, innovare e portare nuove idee nella cultura del verde urbano."
+    ],
+    "brandsDescription": "Selezioniamo con grande attenzione le realtà con cui collaboriamo: ogni progetto deve essere in linea con i valori di sostenibilità, creatività e cultura del verde che guidano Roma Tropicale.",
+    "collaborationIntro": "Sviluppiamo collaborazioni su misura, progettate insieme ai partner in base agli obiettivi e al tipo di pubblico che desiderano raggiungere.",
+    "collaborationChannels": "Attraverso i canali online e offline di Roma Tropicale è possibile:",
+    "collaborationItems": [
+      "promuovere prodotti e servizi",
+      "valorizzare location, shop e ristoranti",
+      "sviluppare strategie di lancio prodotto",
+      "realizzare content creation e storytelling",
+      "organizzare eventi e attivazioni per la community"
+    ],
+    "collaborationFooter": "L'unico requisito: condividere i nostri valori e la nostra visione."
+  },
+  "team": [
+    { "name": "Member 1", "role": "Founder & Creative Director" },
+    { "name": "Member 2", "role": "Community Manager" },
+    { "name": "Member 3", "role": "Events Coordinator" }
+  ],
+  "refCards": [
+    { "label": "SCOPRI IL MERCH", "href": "/merch", "image": "/about/3.jpg" },
+    { "label": "ASCOLTA LE PLAYLIST", "href": "https://open.spotify.com/user/j775s2cr1wn1f95xsx6fjes3d?si=4996c84c2bf24288&nd=1&dlsi=b85c280780fd454e", "image": "/about/4.jpg" },
+    { "label": "BECOME A MEMBER", "href": "/membership", "image": "/about/5.jpg" }
+  ]
+}

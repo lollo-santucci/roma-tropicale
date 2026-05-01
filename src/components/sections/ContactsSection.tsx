@@ -5,7 +5,8 @@ import Image from "next/image";
 import AnimatedText from "@/components/ui/AnimatedText";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PillButton from "@/components/ui/PillButton";
-import { BRAND } from "@/lib/constants";
+import { BRAND, CONTACTS_TEXTS } from "@/lib/constants";
+import Editable from "@/components/admin/Editable";
 
 const SOCIALS = [
   { name: "Instagram", icon: "/icons/instagram.svg", href: BRAND.socials.instagram },
@@ -36,7 +37,7 @@ export default function ContactsSection() {
         <div className="flex flex-col gap-5 sm:gap-6 w-full lg:max-w-[480px]">
           <div className="flex flex-col gap-1">
             <AnimatedText
-              text="say hi (:"
+              text={CONTACTS_TEXTS.sayHi}
               as="h1"
               className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl lg:text-[36px] text-roma-dark tracking-[-1.8px]"
             />
@@ -52,7 +53,7 @@ export default function ContactsSection() {
 
           <ScrollReveal delay={0.2}>
             <div className="text-sm leading-relaxed text-roma-dark">
-              <p>Non abbiamo una sede fisica: puoi incontrarci ai nostri eventi itineranti, tra piante, workshop e momenti di incontro.</p>
+              <p><Editable path="texts.intro" multiline>{CONTACTS_TEXTS.intro}</Editable></p>
               <p className="mt-4">
                 <a
                   href={BRAND.socials.instagram}
@@ -62,7 +63,7 @@ export default function ContactsSection() {
                 >
                   Seguici su Instagram
                 </a>
-                {" per scoprire dove saremo e partecipare ai prossimi eventi!"}
+                <Editable path="texts.instagramSuffix">{CONTACTS_TEXTS.instagramSuffix}</Editable>
               </p>
             </div>
           </ScrollReveal>
@@ -91,16 +92,16 @@ export default function ContactsSection() {
         <ScrollReveal>
           <div className="bg-roma-dark rounded-[24px] flex flex-col gap-8 sm:gap-12 items-center justify-center px-6 sm:px-12 lg:px-[200px] py-10 sm:py-[50px]">
             <h2 className="font-[family-name:var(--font-display)] text-xl sm:text-2xl lg:text-[36px] text-white tracking-[-1.8px] text-center">
-              Collaborazioni & Partnership
+              <Editable path="texts.collabTitle">{CONTACTS_TEXTS.collabTitle}</Editable>
             </h2>
             <p className="text-xs text-roma-white/40 leading-relaxed text-center max-w-sm">
-              Scrivici se vuoi proporre un progetto, ospitare un evento o collaborare con la nostra community.
+              <Editable path="texts.collabBody" multiline>{CONTACTS_TEXTS.collabBody}</Editable>
             </p>
             <PillButton
               href={`mailto:${BRAND.email}?subject=Collaborazione`}
               className="bg-[#f3f0f0] text-black hover:bg-roma-purple hover:text-white px-10 py-3"
             >
-              SCRIVICI!
+              <Editable path="texts.collabCta">{CONTACTS_TEXTS.collabCta}</Editable>
             </PillButton>
           </div>
         </ScrollReveal>

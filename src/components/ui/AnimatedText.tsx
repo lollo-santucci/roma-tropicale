@@ -1,14 +1,16 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useAdmin, useEditableValue } from "@/components/admin/AdminContext";
 
 interface AnimatedTextProps {
   text: string;
   className?: string;
   as?: "h1" | "h2" | "h3" | "p" | "span";
   delay?: number;
+  editablePath?: string;
 }
 
 export default function AnimatedText({
@@ -16,10 +18,45 @@ export default function AnimatedText({
   className,
   as: Tag = "h2",
   delay = 0,
+  editablePath,
 }: AnimatedTextProps) {
   const ref = useRef<HTMLHeadingElement & HTMLParagraphElement & HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const words = text.split(" ");
+  const { enabled, update } = useAdmin();
+  const editableValue = useEditableValue<string>(editablePath ?? "", text);
+  const effective = editablePath ? editableValue : text;
+  const words = effective.split(" ");
+
+  useEffect(() => {
+    if (!enabled || !editablePath) return;
+    const el = ref.current;
+    if (!el) return;
+    if (el.innerText !== effective) el.innerText = effective;
+  }, [enabled, editablePath, effective]);
+
+  if (enabled && editablePath) {
+    return (
+      <Tag
+        ref={ref as never}
+        className={cn(
+          className,
+          "outline-dashed outline-1 outline-yellow-500/60 hover:outline-yellow-500 focus:outline-blue-500 focus:outline-2 rounded-sm"
+        )}
+        contentEditable
+        suppressContentEditableWarning
+        data-admin-path={editablePath}
+        onBlur={(e) => update(editablePath, (e.currentTarget as HTMLElement).innerText)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            (e.currentTarget as HTMLElement).blur();
+          }
+        }}
+      >
+        {effective}
+      </Tag>
+    );
+  }
 
   return (
     <Tag ref={ref} className={cn("flex flex-wrap", className?.includes("text-right") && "justify-end", className)}>

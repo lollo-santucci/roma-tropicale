@@ -1,0 +1,62 @@
+{
+  "brand": {
+    "name": "Roma Tropicale",
+    "tagline": "rooted in Rome, creating green connections around",
+    "email": "ciao@romatropicale.com",
+    "description": "A plant based creative studio & community",
+    "about": "Roma Tropicale è un movimento urbano di plant lovers che coltiva piante, idee e relazioni. Ripensiamo la città come un ecosistema creativo fatto di eventi, workshop e incontri dove la cultura del verde diventa occasione di connessione e comunità.",
+    "socials": {
+      "instagram": "https://www.instagram.com/roma_tropicale/",
+      "spotify": "https://open.spotify.com/user/j775s2cr1wn1f95xsx6fjes3d?si=4996c84c2bf24288&nd=1&dlsi=b85c280780fd454e",
+      "linkedin": "https://www.linkedin.com/company/roma-tropicale/?viewAsMember=true"
+    },
+    "membershipForm": "https://wallyfor.com/iframepass/index.php?ref=9e5642208ca0876bf06ca041120c208c&fbclid=PARlRTSARerFlleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacrVd-po4fW_AqCHeSMCHytZrmYpPTivs-OSmWcfnuNQkifVBg_BGOzTzrgsQ_aem_CcYQ3wSGVbzlE59zUAdSeA",
+    "newsletterForm": "https://stats.sender.net/forms/e0RBL5/view",
+    "partners": [
+      { "name": "elho", "logo": "/logos/elho.svg", "size": "default" },
+      { "name": "compo", "logo": "/logos/compo.svg", "size": "default" },
+      { "name": "evo", "logo": "/logos/evo.svg", "size": "default" },
+      { "name": "hiro", "logo": "/logos/hiro.svg", "size": "default" },
+      { "name": "instruo", "logo": "/logos/instruo.svg", "size": "default" },
+      { "name": "peppermint", "logo": "/logos/peppermint.svg", "size": "default" },
+      { "name": "plant scraper", "logo": "/logos/plant scraper.svg", "size": "default" },
+      { "name": "polo del 900", "logo": "/logos/polo del 900.svg", "size": "small" },
+      { "name": "sansi", "logo": "/logos/sansi.svg", "size": "default" },
+      { "name": "tera", "logo": "/logos/tera.svg", "size": "default" },
+      { "name": "the hoxton", "logo": "/logos/the hoxton.svg", "size": "default" },
+      { "name": "uniqlo", "logo": "/logos/uniqlo.svg", "size": "small" },
+      { "name": "w", "logo": "/logos/w.svg", "size": "default" },
+      { "name": "wwf", "logo": "/logos/wwf.svg", "size": "default" },
+      { "name": "xister", "logo": "/logos/xister.svg", "size": "default" }
+    ]
+  },
+  "sections": [
+    { "id": "landing", "label": "Home" },
+    { "id": "about", "label": "About" },
+    { "id": "events", "label": "Events" },
+    { "id": "academy", "label": "Academy" },
+    { "id": "merch", "label": "Merch" },
+    { "id": "membership", "label": "Membership" },
+    { "id": "contacts", "label": "Contact" }
+  ],
+  "navLinks": [
+    { "label": "About", "href": "/about" },
+    { "label": "Events", "href": "/events" },
+    { "label": "Academy", "href": "/academy" },
+    { "label": "Merch", "href": "/merch" },
+    { "label": "Membership", "href": "/membership" },
+    { "label": "Contact", "href": "/contacts" }
+  ],
+  "footerLinks": [
+    { "label": "About", "href": "/about" },
+    { "label": "Events", "href": "/events" },
+    { "label": "Academy", "href": "/academy" },
+    { "label": "Contact", "href": "/contacts" }
+  ],
+  "marquee": [
+    { "text": "coming soon: our next event. Don't miss it!", "href": "/events" },
+    { "text": "sign up for our newsletters", "href": "/#newsletter" },
+    { "text": "listen to our playlists", "href": "https://open.spotify.com/user/j775s2cr1wn1f95xsx6fjes3d?si=4996c84c2bf24288&nd=1&dlsi=b85c280780fd454e" },
+    { "text": "read our blog", "href": "https://romatropicale.com" }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "headings": {
+    "main": "cos'è l'Academy Tropicale",
+    "essentials": "il corso Essentials"
+  },
+  "texts": {
+    "intro": [
+      "L'Academy Tropicale è la piattaforma formativa di Roma Tropicale dedicata a chi vuole orientarsi nel mondo delle piante e del green design in modo semplice ma approfondito.",
+      "Un luogo di apprendimento contemporaneo dove teoria e pratica si incontrano, grazie al contributo di botanici, esperti e professionisti del settore che condividono conoscenze, tecniche e soluzioni creative legate alla cultura del verde.",
+      "Attraverso le lezioni dell'Academy esploriamo il mondo delle piante a 360°: dalla botanica alla cura quotidiana, dalla propagazione al design dei vasi e degli spazi verdi.",
+      "Ogni lezione include una parte teorica e tutorial pratici pensati per essere replicati facilmente anche a casa."
+    ],
+    "audience": {
+      "question": "A chi è dedicata",
+      "intro": "L'Academy Tropicale è pensata per:",
+      "items": [
+        "aspiranti pollici verdi",
+        "plant lovers curiosi e appassionati",
+        "tutti i membri della nostra community che desiderano approfondire la cultura delle piante."
+      ]
+    },
+    "essentials": {
+      "intro": "Il primo corso dell'Academy è composto da 5 lezioni video (da 10 a 45 minuti) registrate all'interno di splendide serre botaniche.",
+      "program": [
+        { "title": "Indoor Plants: tropicali e subtropicali", "educator": "Luca Recchiuti" },
+        { "title": "Outdoor Gardening: cura ed esposizione", "educator": "Elisabetta Margheriti" },
+        { "title": "Propagazione delle piante, metodi tradizionali e innovativi", "educator": "Andrea Limitone" },
+        { "title": "Cura delle piante, malattie, prevenzione e rimedi", "educator": "Leonardo Romeo" },
+        { "title": "Piante carnivore, tips & tricks", "educator": "Lorenzo Liguori" }
+      ],
+      "tera": "L'Academy Tropicale è un progetto ideato da Roma Tropicale e realizzato in collaborazione con Tera, azienda italiana che produce vasi sostenibili unendo etica, design e rispetto per l'ambiente, con l'obiettivo di trasformare gli spazi che ospitano le piante in ambienti vivi, spontanei e naturali.",
+      "purchase": "Il corso Essentials è disponibile al prezzo lancio di €14,99*.",
+      "purchaseDetail": "Una volta completato il pagamento tramite PayPal, riceverai via email le istruzioni per accedere alla piattaforma e iniziare subito le lezioni."
+    }
+  },
+  "educators": [
+    { "name": "Luca Recchiuti", "description": "Indoor Plants: tropicali e subtropicali" },
+    { "name": "Elisabetta Margheriti", "description": "Outdoor Gardening: cura ed esposizione" },
+    { "name": "Andrea Limitone", "description": "Propagazione delle piante, metodi tradizionali e innovativi" },
+    { "name": "Leonardo Romeo", "description": "Cura delle piante, malattie, prevenzione e rimedi" },
+    { "name": "Lorenzo Liguori", "description": "Piante carnivore, tips & tricks" }
+  ]
+}

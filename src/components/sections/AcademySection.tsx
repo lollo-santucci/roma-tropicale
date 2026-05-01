@@ -6,7 +6,9 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PillButton from "@/components/ui/PillButton";
 import AnimatedText from "@/components/ui/AnimatedText";
-import { BRAND, ACADEMY_TEXTS, EDUCATORS } from "@/lib/constants";
+import { BRAND, ACADEMY_TEXTS, ACADEMY_HEADINGS, EDUCATORS } from "@/lib/constants";
+import Editable from "@/components/admin/Editable";
+import EditableList from "@/components/admin/EditableList";
 
 const SOCIALS = [
   { name: "Instagram", icon: "/icons/instagram.svg", href: BRAND.socials.instagram },
@@ -58,22 +60,31 @@ export default function AcademySection() {
         {/* Left column */}
         <div className="flex flex-col gap-5 sm:gap-6 w-full lg:flex-1">
           <AnimatedText
-            text="cos'è l'Academy Tropicale"
+            text={ACADEMY_HEADINGS.main}
+            editablePath="headings.main"
             as="h1"
             className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight text-balance"
           />
 
           <ScrollReveal>
             <div className="flex flex-col gap-4 sm:gap-5 text-sm leading-relaxed text-roma-dark">
-              {ACADEMY_TEXTS.intro.map((p, i) => (
-                <p key={i} className="text-pretty">{p}</p>
-              ))}
+              <EditableList path="texts.intro" items={ACADEMY_TEXTS.intro} template="Nuovo paragrafo">
+                {(p, i) => (
+                  <p className="text-pretty">
+                    <Editable path={`texts.intro[${i}]`} multiline>{p}</Editable>
+                  </p>
+                )}
+              </EditableList>
 
-              <p className="text-pretty">{ACADEMY_TEXTS.audience.intro}</p>
+              <p className="text-pretty">
+                <Editable path="texts.audience.intro" multiline>{ACADEMY_TEXTS.audience.intro}</Editable>
+              </p>
               <ul className="list-disc ml-5">
-                {ACADEMY_TEXTS.audience.items.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
+                <EditableList path="texts.audience.items" items={ACADEMY_TEXTS.audience.items} template="nuovo item">
+                  {(item, i) => (
+                    <li><Editable path={`texts.audience.items[${i}]`}>{item}</Editable></li>
+                  )}
+                </EditableList>
               </ul>
             </div>
           </ScrollReveal>
@@ -151,31 +162,49 @@ export default function AcademySection() {
         {/* Left column */}
         <div className="flex flex-col gap-5 sm:gap-6 w-full lg:flex-1">
           <AnimatedText
-            text="il corso Essentials"
+            text={ACADEMY_HEADINGS.essentials}
+            editablePath="headings.essentials"
             as="h2"
             className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight text-balance"
           />
 
           <ScrollReveal>
             <div className="flex flex-col gap-4 sm:gap-5 text-sm leading-relaxed text-roma-dark">
-              <p className="text-pretty">{ACADEMY_TEXTS.essentials.intro}</p>
+              <p className="text-pretty">
+                <Editable path="texts.essentials.intro" multiline>{ACADEMY_TEXTS.essentials.intro}</Editable>
+              </p>
 
               <p className="font-medium">Programma</p>
               <ul className="list-disc ml-5">
-                {ACADEMY_TEXTS.essentials.program.map((lesson, i) => (
-                  <li key={i}>
-                    <span className="font-medium text-roma-purple">{lesson.title}</span>
-                    {` – a cura di ${lesson.educator}`}
-                  </li>
-                ))}
+                <EditableList
+                  path="texts.essentials.program"
+                  items={ACADEMY_TEXTS.essentials.program}
+                  template={{ title: "Titolo lezione", educator: "Educator" }}
+                >
+                  {(lesson, i) => (
+                    <li>
+                      <span className="font-medium text-roma-purple">
+                        <Editable path={`texts.essentials.program[${i}].title`}>{lesson.title}</Editable>
+                      </span>
+                      {" – a cura di "}
+                      <Editable path={`texts.essentials.program[${i}].educator`}>{lesson.educator}</Editable>
+                    </li>
+                  )}
+                </EditableList>
               </ul>
 
               <p className="font-medium">La collaborazione con Tera</p>
-              <p className="text-pretty">{ACADEMY_TEXTS.essentials.tera}</p>
+              <p className="text-pretty">
+                <Editable path="texts.essentials.tera" multiline>{ACADEMY_TEXTS.essentials.tera}</Editable>
+              </p>
 
               <p className="font-medium">Come acquistare il corso</p>
-              <p className="text-pretty">{ACADEMY_TEXTS.essentials.purchase}</p>
-              <p className="text-pretty">{ACADEMY_TEXTS.essentials.purchaseDetail}</p>
+              <p className="text-pretty">
+                <Editable path="texts.essentials.purchase" multiline>{ACADEMY_TEXTS.essentials.purchase}</Editable>
+              </p>
+              <p className="text-pretty">
+                <Editable path="texts.essentials.purchaseDetail" multiline>{ACADEMY_TEXTS.essentials.purchaseDetail}</Editable>
+              </p>
             </div>
           </ScrollReveal>
 

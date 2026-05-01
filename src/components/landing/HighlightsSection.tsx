@@ -5,19 +5,23 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import HorizontalScrollSection from "@/components/ui/HorizontalScrollSection";
 import { HIGHLIGHTS } from "@/lib/constants";
+import Editable from "@/components/admin/Editable";
+import EditableImage from "@/components/admin/EditableImage";
+import EditableList from "@/components/admin/EditableList";
+
+const EMPTY_HIGHLIGHT = {
+  title: "Nuovo highlight",
+  description: "Descrizione",
+  href: "/",
+  image: "/landing/highlights/tessera.webp",
+};
 
 function HighlightCard({
-  title,
-  description,
-  href,
-  image,
   index,
+  item,
 }: {
-  title: string;
-  description: string;
-  href: string;
-  image: string;
   index: number;
+  item: { title: string; description: string; href: string; image: string };
 }) {
   return (
     <motion.div
@@ -27,20 +31,29 @@ function HighlightCard({
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
     >
-      <Link href={href} className="block group">
+      <Link href={item.href} className="block group">
         <div className="relative w-full aspect-[3/4] overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
+          <EditableImage
+            path={`highlights[${index}].image`}
+            src={item.image}
+            alt={item.title}
             fill
-            sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
-            className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
-          />
+          >
+            <Image
+              src={item.image}
+              alt={item.title}
+              fill
+              sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </EditableImage>
         </div>
         <div className="w-full h-px bg-roma-dark/20 my-3" />
-        <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors">{title}</h3>
+        <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors">
+          <Editable path={`highlights[${index}].title`}>{item.title}</Editable>
+        </h3>
         <p className="text-xs text-roma-dark/50 leading-relaxed">
-          {description}
+          <Editable path={`highlights[${index}].description`} multiline>{item.description}</Editable>
         </p>
       </Link>
     </motion.div>
@@ -55,16 +68,9 @@ export default function HighlightsSection() {
       description="i nostri articoli preferiti, i prossimi eventi, ispirazioni botaniche, workshop a cui non puoi mancare!"
       transparent
     >
-      {HIGHLIGHTS.map((item, i) => (
-        <HighlightCard
-          key={i}
-          title={item.title}
-          description={item.description}
-          href={item.href}
-          image={item.image}
-          index={i}
-        />
-      ))}
+      <EditableList path="highlights" items={HIGHLIGHTS} template={EMPTY_HIGHLIGHT}>
+        {(item, i) => <HighlightCard index={i} item={item} />}
+      </EditableList>
     </HorizontalScrollSection>
   );
 }

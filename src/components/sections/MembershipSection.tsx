@@ -5,7 +5,9 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PillButton from "@/components/ui/PillButton";
 import AnimatedText from "@/components/ui/AnimatedText";
-import { BRAND, MEMBERSHIP_TEXTS } from "@/lib/constants";
+import { BRAND, MEMBERSHIP_TEXTS, MEMBERSHIP_HEADINGS } from "@/lib/constants";
+import Editable from "@/components/admin/Editable";
+import EditableList from "@/components/admin/EditableList";
 
 const SOCIALS = [
   { name: "Instagram", icon: "/icons/instagram.svg", href: BRAND.socials.instagram },
@@ -36,30 +38,47 @@ export default function MembershipSection() {
         {/* Left column */}
         <div className="flex flex-col gap-5 sm:gap-6 w-full lg:flex-1">
           <AnimatedText
-            text="entra a far parte del club!"
+            text={MEMBERSHIP_HEADINGS.main}
+            editablePath="headings.main"
             as="h1"
             className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight text-balance"
           />
 
           <ScrollReveal>
             <div className="flex flex-col gap-4 sm:gap-5 text-sm leading-relaxed text-roma-dark">
-              {MEMBERSHIP_TEXTS.intro.map((p, i) => (
-                <p key={i} className="text-pretty">{p}</p>
-              ))}
+              <EditableList path="texts.intro" items={MEMBERSHIP_TEXTS.intro} template="Nuovo paragrafo">
+                {(p, i) => (
+                  <p className="text-pretty">
+                    <Editable path={`texts.intro[${i}]`} multiline>{p}</Editable>
+                  </p>
+                )}
+              </EditableList>
 
-              {MEMBERSHIP_TEXTS.body.map((p, i) => (
-                <p key={`body-${i}`} className="text-pretty">{p}</p>
-              ))}
+              <EditableList path="texts.body" items={MEMBERSHIP_TEXTS.body} template="Nuovo paragrafo">
+                {(p, i) => (
+                  <p className="text-pretty">
+                    <Editable path={`texts.body[${i}]`} multiline>{p}</Editable>
+                  </p>
+                )}
+              </EditableList>
 
-              <p>{MEMBERSHIP_TEXTS.question}</p>
+              <p>
+                <Editable path="texts.question">{MEMBERSHIP_TEXTS.question}</Editable>
+              </p>
               <ul className="list-disc ml-5">
-                {MEMBERSHIP_TEXTS.benefits.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
+                <EditableList path="texts.benefits" items={MEMBERSHIP_TEXTS.benefits} template="nuovo benefit">
+                  {(b, i) => (
+                    <li><Editable path={`texts.benefits[${i}]`}>{b}</Editable></li>
+                  )}
+                </EditableList>
               </ul>
 
-              <p>{MEMBERSHIP_TEXTS.pricing}</p>
-              <p>{MEMBERSHIP_TEXTS.pricingDetail}</p>
+              <p>
+                <Editable path="texts.pricing" multiline>{MEMBERSHIP_TEXTS.pricing}</Editable>
+              </p>
+              <p>
+                <Editable path="texts.pricingDetail" multiline>{MEMBERSHIP_TEXTS.pricingDetail}</Editable>
+              </p>
             </div>
           </ScrollReveal>
 

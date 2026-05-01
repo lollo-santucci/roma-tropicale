@@ -5,14 +5,20 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PillButton from "@/components/ui/PillButton";
 import AnimatedText from "@/components/ui/AnimatedText";
-import { BRAND, ABOUT_TEXTS, ABOUT_REF_CARDS } from "@/lib/constants";
+import { BRAND, ABOUT_TEXTS, ABOUT_HEADINGS, ABOUT_REF_CARDS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import Editable from "@/components/admin/Editable";
+import EditableImage from "@/components/admin/EditableImage";
+import EditableList from "@/components/admin/EditableList";
 
 const SOCIALS = [
   { name: "Instagram", icon: "/icons/instagram.svg", href: BRAND.socials.instagram },
   { name: "Spotify", icon: "/icons/spotify.svg", href: BRAND.socials.spotify },
   { name: "LinkedIn", icon: "/icons/linkedin.svg", href: BRAND.socials.linkedin },
 ] as const;
+
+const EMPTY_INTRO = "Nuovo paragrafo";
+const EMPTY_REF_CARD = { label: "ETICHETTA", href: "/", image: "/about/3.jpg" };
 
 export default function AboutSection() {
   return (
@@ -35,23 +41,32 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-8 sm:gap-12 lg:gap-16 py-10 sm:py-14 lg:py-16">
         <div className="flex flex-col gap-5 sm:gap-6 w-full lg:flex-1">
           <AnimatedText
-            text="about us"
+            text={ABOUT_HEADINGS.aboutUs}
+            editablePath="headings.aboutUs"
             as="h1"
             className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight text-balance"
           />
 
           <ScrollReveal>
             <div className="flex flex-col gap-4 sm:gap-5 text-sm leading-relaxed text-roma-dark">
-              {ABOUT_TEXTS.intro.map((p, i) => (
-                <p key={i} className="text-pretty">{p}</p>
-              ))}
+              <EditableList path="texts.intro" items={ABOUT_TEXTS.intro} template={EMPTY_INTRO}>
+                {(p, i) => (
+                  <p className="text-pretty">
+                    <Editable path={`texts.intro[${i}]`} multiline>{p}</Editable>
+                  </p>
+                )}
+              </EditableList>
               <div>
                 <p className="font-medium text-roma-purple">Mission</p>
-                <p className="text-pretty">{ABOUT_TEXTS.mission}</p>
+                <p className="text-pretty">
+                  <Editable path="texts.mission" multiline>{ABOUT_TEXTS.mission}</Editable>
+                </p>
               </div>
               <div>
                 <p className="font-medium text-roma-purple">Vision</p>
-                <p className="text-pretty">{ABOUT_TEXTS.vision}</p>
+                <p className="text-pretty">
+                  <Editable path="texts.vision" multiline>{ABOUT_TEXTS.vision}</Editable>
+                </p>
               </div>
             </div>
           </ScrollReveal>
@@ -66,14 +81,16 @@ export default function AboutSection() {
 
         <div className="flex gap-4 sm:gap-5 items-end w-full lg:flex-1">
           <div className="relative flex-1 w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[552px] overflow-hidden">
-            <Image
-              src="/about/1.jpg"
-              alt="Roma Tropicale community"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-              priority
-            />
+            <EditableImage path="heroImage" src="/about/1.jpg" alt="Roma Tropicale community" fill>
+              <Image
+                src="/about/1.jpg"
+                alt="Roma Tropicale community"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
+            </EditableImage>
           </div>
           <div className="flex flex-col gap-2 items-center">
             {SOCIALS.map((social) => (
@@ -102,29 +119,34 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-start gap-8 sm:gap-12 lg:gap-16 py-10 sm:py-14 lg:py-16">
         <ScrollReveal direction="left" className="w-full lg:flex-1">
           <div className="relative w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[552px] overflow-hidden">
-            <Image
-              src="/about/2.jpg"
-              alt="Team & Network Roma Tropicale"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-top"
-            />
+            <EditableImage path="teamImage" src="/about/2.jpg" alt="Team & Network Roma Tropicale" fill>
+              <Image
+                src="/about/2.jpg"
+                alt="Team & Network Roma Tropicale"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-top"
+              />
+            </EditableImage>
           </div>
         </ScrollReveal>
 
         <div className="flex flex-col gap-5 sm:gap-6 items-start sm:items-end w-full lg:flex-1">
           <AnimatedText
-            text="team & network"
+            text={ABOUT_HEADINGS.teamNetwork}
+            editablePath="headings.teamNetwork"
             as="h2"
             className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight sm:text-right w-full text-balance"
           />
           <ScrollReveal>
             <div className="text-sm leading-relaxed text-roma-dark sm:text-right">
-              {ABOUT_TEXTS.teamNetwork.map((p, i) => (
-                <p key={i} className={cn("text-pretty", i < ABOUT_TEXTS.teamNetwork.length - 1 && "mb-4 sm:mb-5")}>
-                  {p}
-                </p>
-              ))}
+              <EditableList path="texts.teamNetwork" items={ABOUT_TEXTS.teamNetwork} template={EMPTY_INTRO}>
+                {(p, i, arr) => (
+                  <p className={cn("text-pretty", !arr.isLast && "mb-4 sm:mb-5")}>
+                    <Editable path={`texts.teamNetwork[${i}]`} multiline>{p}</Editable>
+                  </p>
+                )}
+              </EditableList>
             </div>
           </ScrollReveal>
         </div>
@@ -132,24 +154,28 @@ export default function AboutSection() {
 
       {/* ── Reference Cards Section ── */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 px-6 sm:px-10 lg:px-[60px] py-10 sm:py-14 lg:py-16">
-        {ABOUT_REF_CARDS.map((card, i) => (
-          <ScrollReveal key={card.label} delay={i * 0.1}>
-            <div className="flex flex-col gap-4 items-center">
-              <div className="relative w-full aspect-[3/4] overflow-hidden">
-                <Image
-                  src={card.image}
-                  alt={card.label}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                  className="object-cover"
-                />
+        <EditableList path="refCards" items={ABOUT_REF_CARDS} template={EMPTY_REF_CARD}>
+          {(card, i) => (
+            <ScrollReveal delay={i * 0.1}>
+              <div className="flex flex-col gap-4 items-center">
+                <div className="relative w-full aspect-[3/4] overflow-hidden">
+                  <EditableImage path={`refCards[${i}].image`} src={card.image} alt={card.label} fill>
+                    <Image
+                      src={card.image}
+                      alt={card.label}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                  </EditableImage>
+                </div>
+                <PillButton href={card.href} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
+                  <Editable path={`refCards[${i}].label`}>{card.label}</Editable>
+                </PillButton>
               </div>
-              <PillButton href={card.href} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
-                {card.label}
-              </PillButton>
-            </div>
-          </ScrollReveal>
-        ))}
+            </ScrollReveal>
+          )}
+        </EditableList>
       </div>
 
       {/* ── Brands Section ── */}
@@ -161,7 +187,7 @@ export default function AboutSection() {
           {/* Header row: title + arrow + description */}
           <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
             <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl lg:text-4xl text-roma-dark tracking-tight leading-snug w-full lg:w-72 shrink-0 text-balance">
-              brands we collaborate with
+              <Editable path="headings.brands">{ABOUT_HEADINGS.brands}</Editable>
             </h2>
             <Image
               src="/icons/arrow-right.svg"
@@ -171,7 +197,7 @@ export default function AboutSection() {
               className="hidden lg:block shrink-0"
             />
             <p className="text-roma-dark text-sm sm:text-base lg:text-2xl text-pretty">
-              {ABOUT_TEXTS.brandsDescription}
+              <Editable path="texts.brandsDescription" multiline>{ABOUT_TEXTS.brandsDescription}</Editable>
             </p>
           </div>
 
@@ -203,14 +229,22 @@ export default function AboutSection() {
           {/* Collaboration details */}
           <ScrollReveal>
             <div className="text-roma-dark text-xs sm:text-sm leading-relaxed max-w-lg flex flex-col gap-3 sm:gap-4">
-              <p className="text-pretty">{ABOUT_TEXTS.collaborationIntro}</p>
-              <p className="text-pretty">{ABOUT_TEXTS.collaborationChannels}</p>
+              <p className="text-pretty">
+                <Editable path="texts.collaborationIntro" multiline>{ABOUT_TEXTS.collaborationIntro}</Editable>
+              </p>
+              <p className="text-pretty">
+                <Editable path="texts.collaborationChannels" multiline>{ABOUT_TEXTS.collaborationChannels}</Editable>
+              </p>
               <ul className="list-disc ml-5">
-                {ABOUT_TEXTS.collaborationItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
+                <EditableList path="texts.collaborationItems" items={ABOUT_TEXTS.collaborationItems} template="nuovo elemento">
+                  {(item, i) => (
+                    <li><Editable path={`texts.collaborationItems[${i}]`}>{item}</Editable></li>
+                  )}
+                </EditableList>
               </ul>
-              <p className="text-pretty">{ABOUT_TEXTS.collaborationFooter}</p>
+              <p className="text-pretty">
+                <Editable path="texts.collaborationFooter" multiline>{ABOUT_TEXTS.collaborationFooter}</Editable>
+              </p>
             </div>
           </ScrollReveal>
         </div>

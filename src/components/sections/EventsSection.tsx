@@ -17,7 +17,15 @@ import {
   EVENT_ARCHIVE,
   EVENT_ACTIVE,
   COMING_SOON_HERO_TITLE,
+  COMING_SOON_HERO_IMAGE,
+  EVENT_HERO_IMAGE,
+  EVENT_FESTIVAL_IMAGE,
 } from "@/lib/constants";
+import Editable from "@/components/admin/Editable";
+import EditableList from "@/components/admin/EditableList";
+import EditableImage from "@/components/admin/EditableImage";
+import EditableToggle from "@/components/admin/EditableToggle";
+import { useAdmin, useEditableValue } from "@/components/admin/AdminContext";
 
 const SOCIALS = [
   { name: "Instagram", icon: "/icons/instagram.svg", href: BRAND.socials.instagram },
@@ -26,30 +34,91 @@ const SOCIALS = [
 ] as const;
 
 export default function EventsSection() {
-  return EVENT_ACTIVE ? <EventsActive /> : <EventsComingSoon />;
+  const { enabled } = useAdmin();
+  const isActive = useEditableValue<boolean>("active", EVENT_ACTIVE);
+  return (
+    <>
+      {enabled ? <EditableToggle path="active" value={EVENT_ACTIVE} /> : null}
+      {isActive ? <EventsActive /> : <EventsComingSoon />}
+    </>
+  );
+}
+
+function OutroBlock() {
+  const { enabled } = useAdmin();
+  const value = useEditableValue<string>("texts.outro", EVENT_TEXTS.outro);
+  if (!enabled && !value.trim()) return null;
+  return (
+    <p className="mt-5">
+      <Editable path="texts.outro" multiline>{EVENT_TEXTS.outro || "Scrivi un outro…"}</Editable>
+    </p>
+  );
+}
+
+function HighlightsBlock() {
+  const { enabled } = useAdmin();
+  const items = useEditableValue<typeof EVENT_TEXTS.highlights>(
+    "texts.highlights",
+    EVENT_TEXTS.highlights
+  );
+  if (!enabled && items.length === 0) return null;
+  return (
+    <>
+      <p>Cosa ti aspetta?</p>
+      <EditableList
+        path="texts.highlights"
+        items={EVENT_TEXTS.highlights}
+        template={{ title: "Titolo", description: "Descrizione" }}
+      >
+        {(h, i) => (
+          <p className="mb-0">
+            <span className="font-medium text-roma-purple">
+              • <Editable path={`texts.highlights[${i}].title`}>{h.title}</Editable>
+            </span>
+            {" | "}
+            <Editable path={`texts.highlights[${i}].description`} multiline>{h.description}</Editable>
+          </p>
+        )}
+      </EditableList>
+    </>
+  );
 }
 
 function EventsActive() {
+  const { enabled: adminEnabled } = useAdmin();
   return (
     <>
-    <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-0 overflow-x-hidden">
+    <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-24 overflow-x-hidden">
       {/* ── Hero Image (full-width) ── */}
-      <div className="relative -mx-6 sm:-mx-10 lg:mx-0 lg:w-full h-[400px] sm:h-[600px] lg:h-screen overflow-hidden">
-        <div
-          className="absolute inset-0 bg-roma-dark"
-          role="img"
-          aria-label="Event hero placeholder"
-        />
+      <div className="relative -mx-6 sm:-mx-10 lg:-mx-24 h-[400px] sm:h-[600px] lg:h-screen overflow-hidden">
+        <div className="absolute inset-0 bg-roma-dark" />
+        <EditableImage path="heroImage" src={EVENT_HERO_IMAGE} alt="Evento hero" fill>
+          {EVENT_HERO_IMAGE ? (
+            <Image
+              src={EVENT_HERO_IMAGE}
+              alt="Evento hero"
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
+          ) : null}
+        </EditableImage>
         {/* Pill buttons top-right */}
-        <div className="absolute top-[69px] right-6 sm:right-10 lg:right-[100px] flex flex-col items-start gap-6">
+        <div className="absolute top-[69px] right-6 sm:right-10 lg:right-[100px] flex flex-col items-start gap-10">
           <PillButton href="/" rotate={-13}>HOME</PillButton>
           <PillButton href="/events/#workshop" rotate={15}>workshop</PillButton>
         </div>
         {/* Title + social bottom-right */}
         <div className="absolute bottom-10 right-6 sm:right-10 lg:right-[100px] flex gap-2 items-start">
-          <p className="font-semibold text-roma-bg text-right text-xl sm:text-2xl lg:text-[36px] tracking-[2.88px] uppercase max-w-[487px] leading-tight">
-            {EVENT_TEXTS.heroTitle}
-          </p>
+          <Image
+            src="/events/event-logo.png"
+            alt={EVENT_TEXTS.heroTitle}
+            width={2160}
+            height={896}
+            priority
+            className="h-auto w-[260px] sm:w-[320px] lg:w-[400px]"
+          />
           <div className="flex flex-col gap-2 items-center justify-center">
             {SOCIALS.map((social) => (
               <a
@@ -93,34 +162,35 @@ function EventsActive() {
         <div className="flex flex-col gap-5 sm:gap-6 w-full lg:flex-1">
           <AnimatedText
             text={EVENT_TEXTS.title}
+            editablePath="texts.title"
             as="h1"
-            className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight text-balance"
+            className="font-[family-name:var(--font-display)] text-[clamp(1.875rem,3.5vw,3rem)] text-roma-dark tracking-tight text-balance"
           />
 
           <ScrollReveal>
             <div className="flex flex-col gap-4 sm:gap-5 text-sm leading-relaxed text-roma-dark">
-              {EVENT_TEXTS.intro.map((p, i) => (
-                <p key={i} className="text-pretty">{p}</p>
-              ))}
+              <EditableList path="texts.intro" items={EVENT_TEXTS.intro} template="Nuovo paragrafo">
+                {(p, i) => (
+                  <p className="text-pretty">
+                    <Editable path={`texts.intro[${i}]`} multiline>{p}</Editable>
+                  </p>
+                )}
+              </EditableList>
 
-              <p>Cosa ti aspetta?</p>
-              {EVENT_TEXTS.highlights.map((h, i) => (
-                <p key={i} className="mb-0">
-                  <span className="font-medium text-roma-purple">• {h.title}</span>
-                  {` | ${h.description}`}
-                </p>
-              ))}
+              <HighlightsBlock />
 
-              <p className="mt-5">{EVENT_TEXTS.outro}</p>
+
+              <OutroBlock />
+
             </div>
           </ScrollReveal>
 
           <ScrollReveal>
             <div className="flex flex-col items-start gap-10 py-8">
-              <PillButton href="/contacts" rotate={-13}>
+              <PillButton href="https://www.eventbrite.com/cc/primavera-tropicale-2026-4838249?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=odclsxcollection&utm-source=cp&aff=odclsxcollection" rotate={-13}>
                 Partecipa
               </PillButton>
-              <PillButton href="/contacts" rotate={15}>
+              <PillButton href="https://forms.gle/gEathYpYqjohQU8n8" rotate={15}>
                 prenota un <br/> workshop
               </PillButton>
             </div>
@@ -129,18 +199,26 @@ function EventsActive() {
 
         {/* Right column: image */}
         <div className="flex items-end w-full lg:flex-1">
-          <div
-            className="bg-roma-bg-alt w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[552px]"
-            role="img"
-            aria-label="Festival photo placeholder"
-          />
+          <div className="relative bg-roma-bg-alt w-full max-w-[560px] lg:max-w-[440px] 2xl:max-w-[560px] aspect-[4/5]">
+            <EditableImage path="festivalImage" src={EVENT_FESTIVAL_IMAGE} alt="Festival" fill>
+              {EVENT_FESTIVAL_IMAGE ? (
+                <Image
+                  src={EVENT_FESTIVAL_IMAGE}
+                  alt="Festival"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              ) : null}
+            </EditableImage>
+          </div>
         </div>
       </div>
 
       {/* ── Section 2: Workshop ── */}
-      <div id="workshop" className="flex flex-col gap-[10px] items-start px-6 sm:px-10 lg:px-[60px] py-[35px]">
+      <div id="workshop" className="flex flex-col gap-[10px] items-start py-[35px]">
         <div className="flex flex-col lg:flex-row items-start justify-between w-full gap-4 lg:gap-8">
-          <h2 className="font-[family-name:var(--font-display)] text-[32px] sm:text-[40px] text-roma-dark tracking-[-1.2px] leading-[34px] shrink-0">
+          <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.75rem,3vw,2.5rem)] text-roma-dark tracking-[-1.2px] leading-tight shrink-0">
             Workshop
           </h2>
           <Image
@@ -155,17 +233,44 @@ function EventsActive() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full py-10 sm:py-[60px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 w-full py-10 sm:py-[60px]">
           {EVENT_WORKSHOPS.map((ws, i) => (
-            <ScrollReveal key={ws.slug} delay={i * 0.1}>
-              <div className="flex flex-col gap-4 items-center">
+            <ScrollReveal key={ws.slug} delay={i * 0.05}>
+              <article className="flex flex-col gap-4 h-full">
                 <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#d1d1d1]">
-                  {/* placeholder — sostituire con <Image> quando disponibili */}
+                  <EditableImage path={`workshops[${i}].image`} src={ws.image} alt={ws.title} fill>
+                    {ws.image ? (
+                      <Image src={ws.image} alt={ws.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
+                    ) : null}
+                  </EditableImage>
                 </div>
-                <PillButton href={`/events/${ws.slug}`} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
-                  partecipa
-                </PillButton>
-              </div>
+                <div className="flex flex-col gap-2 flex-1">
+                  <h3 className="font-[family-name:var(--font-display)] text-[clamp(1.125rem,1.4vw,1.5rem)] text-roma-dark tracking-tight leading-tight text-balance">
+                    <Editable path={`workshops[${i}].title`}>{ws.title}</Editable>
+                  </h3>
+                  <p className="text-sm text-roma-purple font-medium">
+                    <Editable path={`workshops[${i}].timing`}>{ws.timing}</Editable>
+                    {" · "}
+                    <Editable path={`workshops[${i}].price`}>{ws.price}</Editable>
+                  </p>
+                  <p className="text-xs text-roma-dark/70">
+                    A cura di <Editable path={`workshops[${i}].educator`}>{ws.educator}</Editable>
+                  </p>
+                  {(ws.place || adminEnabled) && (
+                    <p className="text-xs text-roma-dark/50 leading-relaxed">
+                      <Editable path={`workshops[${i}].place`}>{ws.place || "Aggiungi luogo…"}</Editable>
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <PillButton href={`/events/${ws.slug}`} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
+                    scopri di più
+                  </PillButton>
+                  <PillButton href={ws.registrationUrl} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
+                    iscriviti
+                  </PillButton>
+                </div>
+              </article>
             </ScrollReveal>
           ))}
         </div>
@@ -173,7 +278,7 @@ function EventsActive() {
     </section>
 
       {/* ── Section 3: Le attività (horizontal scroll) ── */}
-      <HorizontalScrollSection
+      {/*<HorizontalScrollSection
         title="Le attività"
         description={EVENT_TEXTS.activitiesIntro}
       >
@@ -186,23 +291,27 @@ function EventsActive() {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
           >
-            <div className="w-full aspect-square overflow-hidden bg-[#d1d1d1]">
-              {/* placeholder — sostituire con <Image> quando disponibili */}
+            <div className="relative w-full aspect-square overflow-hidden bg-[#d1d1d1]">
+              <EditableImage path={`activities[${i}].image`} src={activity.image} alt={activity.name} fill>
+                {activity.image ? (
+                  <Image src={activity.image} alt={activity.name} fill sizes="320px" className="object-cover" />
+                ) : null}
+              </EditableImage>
             </div>
             <hr className="border-roma-dark/20 w-full my-3" />
             <p className="text-sm font-bold text-roma-dark mb-1">
-              {activity.name}
+              <Editable path={`activities[${i}].name`}>{activity.name}</Editable>
             </p>
             <p className="text-xs text-roma-dark/50 leading-relaxed">
-              {activity.description}
+              <Editable path={`activities[${i}].description`} multiline>{activity.description}</Editable>
             </p>
           </motion.div>
         ))}
-      </HorizontalScrollSection>
+      </HorizontalScrollSection>*/}
 
       {/* ── Section 4: La Venue (horizontal scroll) ── */}
       <HorizontalScrollSection
-        title="La Venue"
+        title="Le Venues"
         description={EVENT_TEXTS.venueIntro}
       >
         {EVENT_VENUE_CARDS.map((card, i) => (
@@ -214,15 +323,19 @@ function EventsActive() {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
           >
-            <div className="w-full aspect-square overflow-hidden bg-[#d1d1d1]">
-              {/* placeholder — sostituire con <Image> quando disponibili */}
+            <div className="relative w-full aspect-square overflow-hidden bg-[#d1d1d1]">
+              <EditableImage path={`venueCards[${i}].image`} src={card.image} alt={card.name} fill>
+                {card.image ? (
+                  <Image src={card.image} alt={card.name} fill sizes="320px" className="object-cover" />
+                ) : null}
+              </EditableImage>
             </div>
             <hr className="border-roma-dark/20 w-full my-3" />
             <p className="text-sm font-bold text-roma-dark mb-1">
-              {card.name}
+              <Editable path={`venueCards[${i}].name`}>{card.name}</Editable>
             </p>
             <p className="text-xs text-roma-dark/50 leading-relaxed">
-              {card.description}
+              <Editable path={`venueCards[${i}].description`} multiline>{card.description}</Editable>
             </p>
           </motion.div>
         ))}
@@ -245,20 +358,22 @@ function EventsActive() {
           >
             <Link href={item.href} className="block group">
               <div className="relative w-full aspect-[3/4] overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
-                  className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
-                />
+                <EditableImage path={`archive[${i}].image`} src={item.image} alt={item.title} fill>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                </EditableImage>
               </div>
               <hr className="border-roma-dark/20 w-full my-3" />
               <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors">
-                {item.title}
+                <Editable path={`archive[${i}].title`}>{item.title}</Editable>
               </h3>
               <p className="text-xs text-roma-dark/50 leading-relaxed">
-                {item.description}
+                <Editable path={`archive[${i}].description`} multiline>{item.description}</Editable>
               </p>
             </Link>
           </motion.div>
@@ -271,21 +386,23 @@ function EventsActive() {
 function EventsComingSoon() {
   return (
     <>
-      <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-0 overflow-x-hidden">
+      <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-24 overflow-x-hidden">
         {/* ── Hero Image (full-width) ── */}
-        <div className="relative -mx-6 sm:-mx-10 lg:mx-0 lg:w-full h-[400px] sm:h-[600px] lg:h-screen overflow-hidden">
-          <Image
-            src="/events/coming-soon-header.jpg"
-            alt="Prossimo evento in arrivo"
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
-          />
+        <div className="relative -mx-6 sm:-mx-10 lg:-mx-24 h-[400px] sm:h-[600px] lg:h-screen overflow-hidden">
+          <EditableImage path="comingSoonHeroImage" src={COMING_SOON_HERO_IMAGE} alt="Prossimo evento in arrivo" fill>
+            <Image
+              src={COMING_SOON_HERO_IMAGE}
+              alt="Prossimo evento in arrivo"
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
+          </EditableImage>
           {/* Title + social bottom-right */}
           <div className="absolute bottom-10 md:bottom-12 right-6 sm:right-10 lg:right-[150px] flex gap-2 items-start">
             <p className="font-semibold text-roma-white text-right text-xl sm:text-2xl lg:text-[36px] tracking-[2.88px] uppercase max-w-[487px] leading-tight">
-              {COMING_SOON_HERO_TITLE}
+              <Editable path="comingSoonHeroTitle" multiline>{COMING_SOON_HERO_TITLE}</Editable>
             </p>
             <div className="flex flex-col gap-2 items-center justify-center">
               {SOCIALS.map((social) => (
@@ -343,20 +460,22 @@ function EventsComingSoon() {
           >
             <Link href={item.href} className="block group">
               <div className="relative w-full aspect-[3/4] overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
-                  className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
-                />
+                <EditableImage path={`archive[${i}].image`} src={item.image} alt={item.title} fill>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                </EditableImage>
               </div>
               <hr className="border-roma-dark/20 w-full my-3" />
               <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors">
-                {item.title}
+                <Editable path={`archive[${i}].title`}>{item.title}</Editable>
               </h3>
               <p className="text-xs text-roma-dark/50 leading-relaxed">
-                {item.description}
+                <Editable path={`archive[${i}].description`} multiline>{item.description}</Editable>
               </p>
             </Link>
           </motion.div>

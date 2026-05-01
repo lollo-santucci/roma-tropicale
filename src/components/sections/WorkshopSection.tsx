@@ -20,7 +20,7 @@ interface WorkshopSectionProps {
 
 export default function WorkshopSection({ workshop }: WorkshopSectionProps) {
   return (
-    <section id="workshop" className="bg-roma-bg px-6 sm:px-10 lg:px-0">
+    <section id="workshop" className="bg-roma-bg px-6 sm:px-10 lg:px-24">
       {/* ── Logo Header ── */}
       <div className="max-w-7xl mx-auto flex items-center justify-between pt-6 sm:pt-8">
         <Link href="/">
@@ -43,12 +43,12 @@ export default function WorkshopSection({ workshop }: WorkshopSectionProps) {
           <AnimatedText
             text={workshop.title}
             as="h1"
-            className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight text-balance"
+            className="font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.2vw,3rem)] text-roma-dark tracking-tight text-balance"
           />
 
           <ScrollReveal>
             <p className="font-medium text-lg sm:text-xl text-roma-purple">
-              Timing: {workshop.timing} | Costo: {workshop.price}
+              {workshop.timing} · {workshop.price}
             </p>
           </ScrollReveal>
 
@@ -57,6 +57,14 @@ export default function WorkshopSection({ workshop }: WorkshopSectionProps) {
               A cura di {workshop.educator}
             </p>
           </ScrollReveal>
+
+          {workshop.place ? (
+            <ScrollReveal>
+              <p className="text-sm sm:text-base text-roma-dark/70">
+                📍 {workshop.place}
+              </p>
+            </ScrollReveal>
+          ) : null}
 
           <ScrollReveal>
             <div className="flex flex-col gap-4 sm:gap-5 text-sm leading-relaxed text-roma-dark">
@@ -85,11 +93,18 @@ export default function WorkshopSection({ workshop }: WorkshopSectionProps) {
 
         {/* Right column: hero image + social icons */}
         <div className="flex gap-4 sm:gap-5 items-end w-full lg:flex-1">
-          <div
-            className="bg-roma-bg-alt flex-1 w-full max-w-[560px] aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[625px]"
-            role="img"
-            aria-label={`${workshop.title} photo placeholder`}
-          />
+          <div className="relative bg-roma-bg-alt flex-1 w-full max-w-[560px] lg:max-w-[440px] 2xl:max-w-[560px] aspect-[4/5] overflow-hidden">
+            {workshop.image ? (
+              <Image
+                src={workshop.image}
+                alt={workshop.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 440px"
+                className="object-cover"
+                priority
+              />
+            ) : null}
+          </div>
           <div className="flex flex-col gap-2 items-center">
             {SOCIALS.map((social) => (
               <a

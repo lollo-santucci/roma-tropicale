@@ -5,7 +5,10 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PillButton from "@/components/ui/PillButton";
 import AnimatedText from "@/components/ui/AnimatedText";
-import { BRAND, MERCH_TEXTS, MERCH_REF_CARDS } from "@/lib/constants";
+import { BRAND, MERCH_TEXTS, MERCH_HEADINGS, MERCH_REF_CARDS } from "@/lib/constants";
+import Editable from "@/components/admin/Editable";
+import EditableImage from "@/components/admin/EditableImage";
+import EditableList from "@/components/admin/EditableList";
 
 const SOCIALS = [
   { name: "Instagram", icon: "/icons/instagram.svg", href: BRAND.socials.instagram },
@@ -36,16 +39,21 @@ export default function MerchSection() {
         {/* Left column */}
         <div className="flex flex-col gap-5 sm:gap-6 w-full lg:flex-1">
           <AnimatedText
-            text="il merch di Roma Tropicale"
+            text={MERCH_HEADINGS.main}
+            editablePath="headings.main"
             as="h1"
             className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl lg:text-5xl text-roma-dark tracking-tight text-balance"
           />
 
           <ScrollReveal>
             <div className="flex flex-col gap-4 sm:gap-5 text-sm leading-relaxed text-roma-dark">
-              {MERCH_TEXTS.map((p, i) => (
-                <p key={i} className="text-pretty">{p}</p>
-              ))}
+              <EditableList path="texts" items={MERCH_TEXTS} template="Nuovo paragrafo">
+                {(p, i) => (
+                  <p className="text-pretty">
+                    <Editable path={`texts[${i}]`} multiline>{p}</Editable>
+                  </p>
+                )}
+              </EditableList>
             </div>
           </ScrollReveal>
         </div>
@@ -87,24 +95,32 @@ export default function MerchSection() {
 
       {/* ── Reference Cards Section ── */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 px-6 sm:px-10 lg:px-[60px] py-10 sm:py-14 lg:py-16">
-        {MERCH_REF_CARDS.map((card, i) => (
-          <ScrollReveal key={i} delay={i * 0.1}>
-            <div className="flex flex-col gap-4 items-center">
-              <div className="relative w-full aspect-[3/4] overflow-hidden">
-                <Image
-                  src={card.image}
-                  alt={card.label}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                  className="object-cover"
-                />
+        <EditableList
+          path="refCards"
+          items={MERCH_REF_CARDS}
+          template={{ label: "ETICHETTA", href: "mailto:romatropicale@gmail.com", image: "/merch/2.jpg" }}
+        >
+          {(card, i) => (
+            <ScrollReveal delay={i * 0.1}>
+              <div className="flex flex-col gap-4 items-center">
+                <div className="relative w-full aspect-[3/4] overflow-hidden">
+                  <EditableImage path={`refCards[${i}].image`} src={card.image} alt={card.label} fill>
+                    <Image
+                      src={card.image}
+                      alt={card.label}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                  </EditableImage>
+                </div>
+                <PillButton href={card.href} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
+                  <Editable path={`refCards[${i}].label`}>{card.label}</Editable>
+                </PillButton>
               </div>
-              <PillButton href={card.href} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
-                {card.label}
-              </PillButton>
-            </div>
-          </ScrollReveal>
-        ))}
+            </ScrollReveal>
+          )}
+        </EditableList>
       </div>
     </section>
   );

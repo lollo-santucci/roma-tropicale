@@ -1,0 +1,40 @@
+{
+  "highlights": [
+    {
+      "title": "La tua tessera, sempre con te",
+      "description": "Aggiungila al wallet e sblocca sconti e accessi in anticipo.",
+      "href": "/membership",
+      "image": "/landing/highlights/tessera.webp"
+    },
+    {
+      "title": "Coltiva il tuo pollice verde",
+      "description": "Un percorso formativo tra teoria e pratica per scoprire e prenderti cura delle piante.",
+      "href": "/academy",
+      "image": "/landing/highlights/highlight-academy.jpg"
+    },
+    {
+      "title": "Spoiler: ci piacciono le cose fatte bene",
+      "description": "Per questo collaboriamo con Elho: vasi belli, sostenibili e pensati con cura.",
+      "href": "/about/#collab",
+      "image": "/landing/highlights/elho.jpg"
+    },
+    {
+      "title": "Portiamo il green offline",
+      "description": "Scopri gli eventi passati e i prossimi appuntamenti della community.",
+      "href": "/events/#archive",
+      "image": "/landing/highlights/merch.jpg"
+    },
+    {
+      "title": "Perché non lo abbiamo scoperto prima?",
+      "description": "Il palo “geniale” Plant Scraper che rivoluziona la cura delle piante rampicanti.",
+      "href": "https://romatropicale.com/2024/11/06/palo-per-piante-plantscraper-e-il-kit-autoirrigante/",
+      "image": "/landing/highlights/highlight-amazon.jpg"
+    },
+    {
+      "title": "Solo cose che useremmo di nuovo",
+      "description": "La nostra vetrina Amazon sempre aggiornata con i prodotti che usiamo davvero (o che non potevamo non avere!)",
+      "href": "https://romatropicale.com/shopping-sconticini/",
+      "image": "/landing/highlights/elefantino.jpg"
+    }
+  ]
+}
