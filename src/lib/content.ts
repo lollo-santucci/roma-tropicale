@@ -43,6 +43,7 @@ export const COMING_SOON_HERO_TITLE = events.comingSoonHeroTitle;
 export const COMING_SOON_HERO_IMAGE = events.comingSoonHeroImage;
 export const EVENT_HERO_IMAGE = events.heroImage;
 export const EVENT_FESTIVAL_IMAGE = events.festivalImage;
+export const EVENT_DATES = events.dates;
 export const EVENT_WORKSHOPS = events.workshops;
 export type EventWorkshop = (typeof EVENT_WORKSHOPS)[number];
 export const EVENT_ACTIVITIES = events.activities;

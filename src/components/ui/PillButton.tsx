@@ -10,8 +10,12 @@ interface PillButtonProps {
   rotate?: number;
 }
 
-const base =
-  "inline-flex items-center justify-center rounded-pill min-h-[44px] min-w-[150px] px-6 py-2.5 text-sm tracking-widest font-medium uppercase transition-all text-center";
+const base = cn(
+  "inline-flex items-center justify-center rounded-pill min-h-[44px] min-w-[150px] px-6 py-2.5 text-sm tracking-widest font-medium uppercase text-center",
+  "transition-[transform,scale,background-color,color,border-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]",
+  "motion-safe:active:scale-[0.97] active:duration-[160ms]",
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-roma-purple"
+);
 
 const variants = {
   primary: "bg-roma-dark text-roma-white hover:bg-roma-purple",
@@ -30,14 +34,18 @@ export default function PillButton({
 }: PillButtonProps) {
   const classes = cn(base, variants[variant], className);
   const style = rotate
-    ? { transform: `rotate(${rotate}deg)`, transition: "all 0.3s ease" }
+    ? { transform: `rotate(${rotate}deg)` }
     : undefined;
 
   const onEnter = rotate
-    ? (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.transform = "rotate(0deg)"; }
+    ? (e: React.MouseEvent<HTMLElement>) => {
+        e.currentTarget.style.transform = "rotate(0deg)";
+      }
     : undefined;
   const onLeave = rotate
-    ? (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.transform = `rotate(${rotate}deg)`; }
+    ? (e: React.MouseEvent<HTMLElement>) => {
+        e.currentTarget.style.transform = `rotate(${rotate}deg)`;
+      }
     : undefined;
 
   if (href) {
@@ -57,7 +65,14 @@ export default function PillButton({
   }
 
   return (
-    <button type="button" onClick={onClick} className={classes} style={style} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+    <button
+      type="button"
+      onClick={onClick}
+      className={classes}
+      style={style}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+    >
       {children}
     </button>
   );

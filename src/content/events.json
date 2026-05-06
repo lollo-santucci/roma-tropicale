@@ -4,6 +4,11 @@
   "comingSoonHeroImage": "/events/coming-soon-header.jpg",
   "heroImage": "/events/event-header.png",
   "festivalImage": "/events/event-flyer.jpg",
+  "dates": [
+    { "image": "/events/events-flyers/mostro.png", "registrationUrl": "https://www.eventbrite.com/e/primavera-tropicale-a-green-block-party-for-plants-people-music-by-rom-tickets-1988617984925?aff=odcleoeventsincollection&_gl=1*7k3qnv*_up*MQ..*_ga*MTI0NTQ2ODMyMC4xNzc4MDk5NTg3*_ga_TQVES5V6SH*czE3NzgwOTk1ODckbzEkZzAkdDE3NzgwOTk1ODckajYwJGwwJGgw" },
+    { "image": "/events/events-flyers/latta.png", "registrationUrl": "https://www.eventbrite.com/e/primavera-tropicale-a-green-block-party-for-plants-people-music-tickets-1988570143831?aff=odcleoeventsincollection&_gl=1*7k3qnv*_up*MQ..*_ga*MTI0NTQ2ODMyMC4xNzc4MDk5NTg3*_ga_TQVES5V6SH*czE3NzgwOTk1ODckbzEkZzAkdDE3NzgwOTk1ODckajYwJGwwJGgw" },
+    { "image": "/events/events-flyers/forno-ritorno.png", "registrationUrl": "https://www.eventbrite.com/e/primavera-tropicale-a-green-block-party-for-plants-people-music-tickets-1988621548584?aff=odcleoeventsincollection&_gl=1*lc6ctv*_up*MQ..*_ga*MTI0NTQ2ODMyMC4xNzc4MDk5NTg3*_ga_TQVES5V6SH*czE3NzgwOTk1ODckbzEkZzAkdDE3NzgwOTk1ODckajYwJGwwJGgw" }
+  ],
   "texts": {
     "title": "Primavera Tropicale",
     "heroTitle": "PRIMAVERA TROPICALE 2026",
@@ -103,7 +108,7 @@
       "slug": "rinvasi-tropicali",
       "title": "RINVASI TROPICALI WITH ELHO",
       "timing": "Sabato 16.05 · 17:00 – 18:00",
-      "price": "30€",
+      "price": "25€",
       "educator": "Andrea Pranno (Hempirico Store)",
       "place": "Latta — Via Antonio Pacinotti, 83",
       "image": "/events/workshops/6.png",
@@ -117,18 +122,17 @@
     }
   ],
   "activities": [
-    { "name": "Attività 1", "description": "Descrizione", "image": "" },
-    { "name": "Attività 2", "description": "Descrizione", "image": "" },
-    { "name": "Attività 3", "description": "Descrizione", "image": "" },
-    { "name": "Attività 4", "description": "Descrizione", "image": "" },
-    { "name": "Attività 5", "description": "Descrizione", "image": "" }
+    { "name": "Il Plant Market da Latta (sabato 11:30-20:00)", "description": "Una selezione curata delle migliori realtà vivaistiche, artigianali e di design - tra piante, accessori e prodotti decisamente cool.", "image": "/events/activities/1 plant market.png" },
+    { "name": "La Plant Lottery da Mostro (venerdì 18:00-20:00)", "description": "Sfida la sorte e prova a vincere una tropical plant “segreta” by Palma, accompagnata da un coprivaso Elho,  della linea Colour Gradient Round.", "image": "/events/activities/2 lottery.png" },
+    { "name": "Il flower bar da Forno Ritorno (domenica 10:00-12:00)", "description": "La domenica ha il suo rituale: risveglio lento, musica e un flower bar per scegliere i fiori freschi da portare con te per tutta la settimana.", "image": "/events/activities/3 flower bar.png" },
+    { "name": "Plant Swap da Latta (sabato 18:00)", "description": "Il momento preferito di ogni plant lover: il plant swap, dove scambiare piantine, talee e semi e far crescere la propria home jungle.", "image": "/events/activities/4 plant swap.png" }
   ],
   "venueCards": [
-    { "name": "Latta", "description": "Sabato la primavera sprigiona tutta la sua essenza: dalle 11:30 alle 20:00 green market · workshops · plant swap · brunch · merenda · aperitivo · dj set", "image": "/events/venues/latta.png" },
-    { "name": "Mostro", "description": "Il venerdì si aprono le danze! Dalle 18:00 alle 20:00 aperitif · dj set · plant lottery", "image": "/events/venues/mostro.png" },
-    { "name": "Forno Ritorno", "description": "La domenica mattina si prende con calma! Dalle 10:00 alle 12:00 colazione · dj set · flower bar", "image": "/events/venues/fornoritorno.png" },
-    { "name": "MOB Studios", "description": "Un hub creativo, dove lasciarti ispirare da musica e recitazione. La Session di Yoga è doverosa!", "image": "/events/venues/mob.png" },
-    { "name": "Industrie Fluviali", "description": "Uno spazio tutto da scoprire, dove le connessioni vengono spontanee. Workshop & Tour!", "image": "/events/venues/industriefluviali.png" }
+    { "name": "Latta", "description": "All’interno del complesso industriale dell’Ex Mulino Biondi, Latta è un luogo moderno che si ispira ai soda bar americani degli anni ’50, reinterpretati in chiave contemporanea. Qui protagonisti sono fermentati, miscele, sidri, birre e vini naturali, tutti rigorosamente alla spina. Da provare in combinazione con le proposte golose del menu.", "image": "/events/venues/latta.png" },
+    { "name": "Mostro", "description": "Accanto alla Piramide Cestia, negli spazi di quello che era il Cafè du Parc, Mostro è un chiosco diventato rapidamente punto d’incontro e simbolo di un nuovo modo di concepire il bar. Tra influenze internazionali e radici romane, propone un mix di vini naturali locali, birre artigianali e opzioni low-alcohol come il kombucha.", "image": "/events/venues/mostro.png" },
+    { "name": "Forno Ritorno", "description": "In controtendenza rispetto alle bakery internazionali, Forno Ritorno riporta in auge il concetto di forno all’italiana, capace di evocare i sapori e le sensazioni degli anni in cui siamo cresciuti, con un tocco di contemporaneità. Qui la tradizione è protagonista, reinterpretata con cura e qualità. Preferisci la colazione dolce o salata? Ce n’è per tutti i gusti!", "image": "/events/venues/fornoritorno.png" },
+    { "name": "MOB Studios", "description": "Mob Studios è uno spazio di produzione artistica dedicato a musica e recitazione, un hub creativo dove arte e tecnologia si incontrano in modo naturale. Un luogo dove imparare, sperimentare e lasciarsi ispirare: da cui prende forma anche la nostra session di yoga!", "image": "/events/venues/mob.png" },
+    { "name": "Industrie Fluviali", "description": "Nate all’interno di un ex complesso industriale dei primi del ’900 oggi rigenerato, Industie Fluviali sono uno spazio poliedrico dedicato all’innovazione sociale, culturale e tecnologica. Tra coworking, workshop ed eventi, si configura come un punto d’incontro aperto alla città, dove professionist*, artist* e comunità si incontrano e collaborano. Un luogo dinamico e inclusivo, pensato per far circolare idee e visioni contemporanee.", "image": "/events/venues/industriefluviali.png" }
   ],
   "archive": [
     { "title": "No Roses, Just Plants ‘26 (The Hoxton Rome)", "description": "Un format esperienziale durante San Valentino, che univa workshop, musica e momenti di socialità, invitando la community a scegliere le piante...", "href": "https://romatropicale.com/2026/01/20/14-02-26-no-roses-just-plants-the-hoxton-rome/", "image": "/events/archive/14.02 tropicale V2 (1).jpg" },

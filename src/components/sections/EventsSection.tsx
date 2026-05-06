@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import HorizontalScrollSection from "@/components/ui/HorizontalScrollSection";
+import DatesSection from "@/components/sections/DatesSection";
 import PillButton from "@/components/ui/PillButton";
 import AnimatedText from "@/components/ui/AnimatedText";
 import NewsletterForm from "@/components/ui/NewsletterForm";
@@ -215,6 +216,9 @@ function EventsActive() {
         </div>
       </div>
 
+      {/* ── Section 1.5: Le date (3 flyers) ── */}
+      <DatesSection />
+
       {/* ── Section 2: Workshop ── */}
       <div id="workshop" className="flex flex-col gap-[10px] items-start py-[35px]">
         <div className="flex flex-col lg:flex-row items-start justify-between w-full gap-4 lg:gap-8">
@@ -278,7 +282,7 @@ function EventsActive() {
     </section>
 
       {/* ── Section 3: Le attività (horizontal scroll) ── */}
-      {/*<HorizontalScrollSection
+      <HorizontalScrollSection
         title="Le attività"
         description={EVENT_TEXTS.activitiesIntro}
       >
@@ -291,7 +295,7 @@ function EventsActive() {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
           >
-            <div className="relative w-full aspect-square overflow-hidden bg-[#d1d1d1]">
+            <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#d1d1d1]">
               <EditableImage path={`activities[${i}].image`} src={activity.image} alt={activity.name} fill>
                 {activity.image ? (
                   <Image src={activity.image} alt={activity.name} fill sizes="320px" className="object-cover" />
@@ -307,7 +311,7 @@ function EventsActive() {
             </p>
           </motion.div>
         ))}
-      </HorizontalScrollSection>*/}
+      </HorizontalScrollSection>
 
       {/* ── Section 4: La Venue (horizontal scroll) ── */}
       <HorizontalScrollSection
@@ -323,7 +327,7 @@ function EventsActive() {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
           >
-            <div className="relative w-full aspect-square overflow-hidden bg-[#d1d1d1]">
+            <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#d1d1d1]">
               <EditableImage path={`venueCards[${i}].image`} src={card.image} alt={card.name} fill>
                 {card.image ? (
                   <Image src={card.image} alt={card.name} fill sizes="320px" className="object-cover" />
@@ -356,7 +360,10 @@ function EventsActive() {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
           >
-            <Link href={item.href} className="block group">
+            <Link
+              href={item.href}
+              className="block group transform-gpu transition-[scale] duration-200 ease-out motion-safe:active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-roma-purple"
+            >
               <div className="relative w-full aspect-[3/4] overflow-hidden">
                 <EditableImage path={`archive[${i}].image`} src={item.image} alt={item.title} fill>
                   <Image
@@ -364,12 +371,12 @@ function EventsActive() {
                     alt={item.title}
                     fill
                     sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
-                    className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.04]"
                   />
                 </EditableImage>
               </div>
               <hr className="border-roma-dark/20 w-full my-3" />
-              <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors">
+              <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors duration-300">
                 <Editable path={`archive[${i}].title`}>{item.title}</Editable>
               </h3>
               <p className="text-xs text-roma-dark/50 leading-relaxed">
@@ -458,7 +465,10 @@ function EventsComingSoon() {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
           >
-            <Link href={item.href} className="block group">
+            <Link
+              href={item.href}
+              className="block group transform-gpu transition-[scale] duration-200 ease-out motion-safe:active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-roma-purple"
+            >
               <div className="relative w-full aspect-[3/4] overflow-hidden">
                 <EditableImage path={`archive[${i}].image`} src={item.image} alt={item.title} fill>
                   <Image
@@ -466,12 +476,12 @@ function EventsComingSoon() {
                     alt={item.title}
                     fill
                     sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
-                    className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.04]"
                   />
                 </EditableImage>
               </div>
               <hr className="border-roma-dark/20 w-full my-3" />
-              <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors">
+              <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors duration-300">
                 <Editable path={`archive[${i}].title`}>{item.title}</Editable>
               </h3>
               <p className="text-xs text-roma-dark/50 leading-relaxed">

@@ -80,12 +80,18 @@ const archiveCardSchema = z.object({
   image: z.string(),
 });
 
+const dateCardSchema = z.object({
+  image: z.string().default(""),
+  registrationUrl: z.string().default(""),
+});
+
 export const eventsSchema = z.object({
   active: z.boolean(),
   comingSoonHeroTitle: z.string(),
   comingSoonHeroImage: z.string().default("/events/coming-soon-header.jpg"),
   heroImage: z.string().default("/events/coming-soon-header.jpg"),
   festivalImage: z.string().default("/events/coming-soon-header.jpg"),
+  dates: z.array(dateCardSchema).default([]),
   texts: z.object({
     title: z.string(),
     heroTitle: z.string(),
