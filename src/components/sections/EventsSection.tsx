@@ -188,7 +188,7 @@ function EventsActive() {
 
           <ScrollReveal>
             <div className="flex flex-col items-start gap-10 py-8">
-              <PillButton href="https://www.eventbrite.com/cc/primavera-tropicale-2026-4838249?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=odclsxcollection&utm-source=cp&aff=odclsxcollection" rotate={-13}>
+              <PillButton href="https://www.eventbrite.com/cc/primavera-tropicale-26-a-green-block-party-4839739?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=odclsxcollection&utm-source=cp&aff=odclsxcollection" rotate={-13}>
                 Partecipa
               </PillButton>
               <PillButton href="https://forms.gle/gEathYpYqjohQU8n8" rotate={15}>

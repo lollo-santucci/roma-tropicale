@@ -5,9 +5,9 @@
   "heroImage": "/events/event-header.png",
   "festivalImage": "/events/event-flyer.jpg",
   "dates": [
-    { "image": "/events/events-flyers/mostro.png", "registrationUrl": "https://www.eventbrite.com/e/primavera-tropicale-a-green-block-party-for-plants-people-music-by-rom-tickets-1988617984925?aff=odcleoeventsincollection&_gl=1*7k3qnv*_up*MQ..*_ga*MTI0NTQ2ODMyMC4xNzc4MDk5NTg3*_ga_TQVES5V6SH*czE3NzgwOTk1ODckbzEkZzAkdDE3NzgwOTk1ODckajYwJGwwJGgw" },
-    { "image": "/events/events-flyers/latta.png", "registrationUrl": "https://www.eventbrite.com/e/primavera-tropicale-a-green-block-party-for-plants-people-music-tickets-1988570143831?aff=odcleoeventsincollection&_gl=1*7k3qnv*_up*MQ..*_ga*MTI0NTQ2ODMyMC4xNzc4MDk5NTg3*_ga_TQVES5V6SH*czE3NzgwOTk1ODckbzEkZzAkdDE3NzgwOTk1ODckajYwJGwwJGgw" },
-    { "image": "/events/events-flyers/forno-ritorno.png", "registrationUrl": "https://www.eventbrite.com/e/primavera-tropicale-a-green-block-party-for-plants-people-music-tickets-1988621548584?aff=odcleoeventsincollection&_gl=1*lc6ctv*_up*MQ..*_ga*MTI0NTQ2ODMyMC4xNzc4MDk5NTg3*_ga_TQVES5V6SH*czE3NzgwOTk1ODckbzEkZzAkdDE3NzgwOTk1ODckajYwJGwwJGgw" }
+    { "image": "/events/events-flyers/mostro.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-1-tickets-1988983648635" },
+    { "image": "/events/events-flyers/latta.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-2-tickets-1988494149530" },
+    { "image": "/events/events-flyers/forno-ritorno.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-3-tickets-1988985785025" }
   ],
   "texts": {
     "title": "Primavera Tropicale",
@@ -116,6 +116,22 @@
         "Lab teorico e pratico per imparare a rinvasare correttamente le piante tropicali: preparazione del substrato, scelta del vaso, drenaggio, areazione e nutrizione.",
         "Durante la sessione rinvaserai una pianta che ti verrà fornita, da portare a casa con te.",
         "Materiali inclusi: pianta tropicale, substrati, vaso da coltivazione, coprivaso di design firmato Elho."
+      ],
+      "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfckuCzuf3LQTb_b1usxjPbNhk1cxPTBCPwRySBzvOBlJEUVg/viewform",
+      "registrationNote": "La quota include tesseramento a Roma Tropicale e tutti i materiali. Rimborso garantito fino a 10 giorni prima dell'evento."
+    },
+    {
+      "slug": "flower-bar",
+      "title": "FLOWER BAR • PEONY STYLING CLUB",
+      "timing": "Sabato 17.05 · 10:00 – 12:00",
+      "price": "35€",
+      "educator": "Anthea Studio",
+      "place": "Forno Ritorno — Via Amerigo Vespucci, 20",
+      "image": "/events/workshops/7.jpeg",
+      "description": [
+        "Un corner esperienziale dove fermarti, scegliere e creare: componi il tuo bouquet di peonie insieme ad Anthea Studio, giocando con forme, volumi e sfumature.",
+        "Entra nel nostro Peony Club e lasciati guidare nella composizione, tra profumi delicati e accostamenti stagionali. Porterai a casa il tuo bouquet, insieme a piccoli consigli e gesti semplici per prenderti cura delle tue peonie e farle durare più a lungo.",
+        "Un momento leggero e creativo, da vivere e condividere. Prenota il tuo slot!"
       ],
       "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfckuCzuf3LQTb_b1usxjPbNhk1cxPTBCPwRySBzvOBlJEUVg/viewform",
       "registrationNote": "La quota include tesseramento a Roma Tropicale e tutti i materiali. Rimborso garantito fino a 10 giorni prima dell'evento."

@@ -22,6 +22,39 @@ function supportsHover() {
   return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 }
 
+function TicketBadge({ active = false }: { active?: boolean }) {
+  return (
+    <div className="pointer-events-none absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3">
+      <span
+        className={cn(
+          "inline-flex items-center gap-1 rounded-pill bg-roma-purple px-2.5 py-1",
+          "text-[9px] sm:text-[10px] tracking-[0.6px] font-medium uppercase text-roma-white",
+          "shadow-[0_3px_12px_-4px_rgba(0,0,0,0.3)]"
+        )}
+      >
+        Biglietto
+        <svg
+          aria-hidden
+          viewBox="0 0 12 12"
+          width="9"
+          height="9"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={cn(
+            "motion-safe:transition-transform motion-safe:duration-[500ms] motion-safe:ease-[cubic-bezier(0.16,1,0.3,1)]",
+            active && "motion-safe:translate-x-[2px]"
+          )}
+        >
+          <path d="M2.75 6h6.5M6.5 3.25 9.25 6 6.5 8.75" />
+        </svg>
+      </span>
+    </div>
+  );
+}
+
 export default function DatesSection() {
   const [hovered, setHovered] = useState<number | null>(null);
   const [pressed, setPressed] = useState<number | null>(null);
@@ -137,6 +170,7 @@ export default function DatesSection() {
                       transition: "opacity 650ms ease-out",
                     }}
                   />
+                  {d.registrationUrl && <TicketBadge active={isHovered} />}
                 </Tag>
               </motion.div>
             );
@@ -190,6 +224,7 @@ export default function DatesSection() {
                       />
                     ) : null}
                   </EditableImage>
+                  {d.registrationUrl && <TicketBadge />}
                 </Tag>
               </motion.div>
             );
