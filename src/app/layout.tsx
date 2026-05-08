@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,6 +15,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ilsitodi.romatropicale.com"),
   title: "Roma Tropicale — Plant-Based Creative Studio & Community",
   description:
     "Rooted in Rome, creating green connections around. Events, workshops, academy, and merch.",
@@ -46,6 +48,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "Y5p-k-dv0Tr5sFbvrrxd3ePHBtn6C8SLFZvsaz_zqXA",
+  },
 };
 
 export default function RootLayout({
@@ -57,6 +62,7 @@ export default function RootLayout({
     <html lang="it" className={inter.variable} data-scroll-behavior="smooth">
       <body className="min-h-screen antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );
