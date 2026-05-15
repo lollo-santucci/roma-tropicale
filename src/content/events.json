@@ -5,9 +5,9 @@
   "heroImage": "/events/event-header.png",
   "festivalImage": "/events/event-flyer.jpg",
   "dates": [
-    { "image": "/events/events-flyers/mostro.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-1-tickets-1988983648635" },
     { "image": "/events/events-flyers/latta.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-2-tickets-1988494149530" },
-    { "image": "/events/events-flyers/forno-ritorno.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-3-tickets-1988985785025" }
+    { "image": "/events/events-flyers/forno-ritorno.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-3-tickets-1988985785025" },
+    { "image": "/events/events-flyers/mostro.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-1-tickets-1988983648635" }
   ],
   "texts": {
     "title": "Primavera Tropicale",
