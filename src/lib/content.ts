@@ -37,6 +37,7 @@ export const MARQUEE_ITEMS = shared.marquee;
 
 export const HIGHLIGHTS = landing.highlights;
 
+export const EVENT = events;
 export const EVENT_TEXTS = events.texts;
 export const EVENT_ACTIVE = events.active;
 export const COMING_SOON_HERO_TITLE = events.comingSoonHeroTitle;

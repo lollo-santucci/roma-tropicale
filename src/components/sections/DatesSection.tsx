@@ -6,6 +6,7 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import EditableImage from "@/components/admin/EditableImage";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { EVENT_DATES } from "@/lib/constants";
+import type { EventsContent } from "@/lib/content-schema";
 import { cn } from "@/lib/utils";
 
 const HOVER_TRANSITION =
@@ -55,12 +56,18 @@ function TicketBadge({ active = false }: { active?: boolean }) {
   );
 }
 
-export default function DatesSection() {
+export default function DatesSection({
+  dates = EVENT_DATES,
+  archived = false,
+}: {
+  dates?: EventsContent["dates"];
+  archived?: boolean;
+}) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [pressed, setPressed] = useState<number | null>(null);
   const reduceMotion = useReducedMotion();
 
-  if (EVENT_DATES.length === 0) return null;
+  if (dates.length === 0) return null;
 
   const containerVariants: Variants = {
     hidden: {},
@@ -99,11 +106,12 @@ export default function DatesSection() {
           className="hidden lg:grid grid-cols-3 gap-6"
           onMouseLeave={() => setHovered(null)}
         >
-          {EVENT_DATES.map((d, i) => {
+          {dates.map((d, i) => {
             const isHovered = hovered === i;
             const isOther = hovered !== null && !isHovered;
             const isPressed = pressed === i;
-            const Tag = d.registrationUrl ? "a" : "div";
+            const url = archived ? "" : d.registrationUrl;
+            const Tag = url ? "a" : "div";
 
             const scaleClass = isPressed
               ? "scale-[0.97]"
@@ -116,9 +124,9 @@ export default function DatesSection() {
             return (
               <motion.div key={i} variants={itemVariants}>
                 <Tag
-                  {...(d.registrationUrl
+                  {...(url
                     ? {
-                        href: d.registrationUrl,
+                        href: url,
                         target: "_blank",
                         rel: "noopener noreferrer",
                       }
@@ -133,7 +141,7 @@ export default function DatesSection() {
                   className={cn(
                     "relative aspect-[4/5] overflow-hidden bg-[#d1d1d1] block transform-gpu",
                     "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-roma-purple",
-                    d.registrationUrl && "cursor-pointer",
+                    url && "cursor-pointer",
                     scaleClass,
                     isHovered && "z-10",
                     isOther && "opacity-80"
@@ -170,7 +178,7 @@ export default function DatesSection() {
                       transition: "opacity 650ms ease-out",
                     }}
                   />
-                  {d.registrationUrl && <TicketBadge active={isHovered} />}
+                  {url && <TicketBadge active={isHovered} />}
                 </Tag>
               </motion.div>
             );
@@ -185,8 +193,9 @@ export default function DatesSection() {
           variants={containerVariants}
           className="lg:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-6 sm:-mx-10 px-6 sm:px-10 scroll-pl-6 sm:scroll-pl-10 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {EVENT_DATES.map((d, i) => {
-            const Tag = d.registrationUrl ? "a" : "div";
+          {dates.map((d, i) => {
+            const url = archived ? "" : d.registrationUrl;
+            const Tag = url ? "a" : "div";
             return (
               <motion.div
                 key={i}
@@ -194,9 +203,9 @@ export default function DatesSection() {
                 className="snap-start shrink-0 w-[82%] sm:w-[68%]"
               >
                 <Tag
-                  {...(d.registrationUrl
+                  {...(url
                     ? {
-                        href: d.registrationUrl,
+                        href: url,
                         target: "_blank",
                         rel: "noopener noreferrer",
                       }
@@ -224,7 +233,7 @@ export default function DatesSection() {
                       />
                     ) : null}
                   </EditableImage>
-                  {d.registrationUrl && <TicketBadge />}
+                  {url && <TicketBadge />}
                 </Tag>
               </motion.div>
             );

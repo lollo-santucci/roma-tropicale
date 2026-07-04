@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -11,17 +12,13 @@ import AnimatedText from "@/components/ui/AnimatedText";
 import NewsletterForm from "@/components/ui/NewsletterForm";
 import {
   BRAND,
-  EVENT_TEXTS,
-  EVENT_WORKSHOPS,
-  EVENT_ACTIVITIES,
-  EVENT_VENUE_CARDS,
+  EVENT,
   EVENT_ARCHIVE,
   EVENT_ACTIVE,
   COMING_SOON_HERO_TITLE,
   COMING_SOON_HERO_IMAGE,
-  EVENT_HERO_IMAGE,
-  EVENT_FESTIVAL_IMAGE,
 } from "@/lib/constants";
+import type { EventsContent } from "@/lib/content-schema";
 import Editable from "@/components/admin/Editable";
 import EditableList from "@/components/admin/EditableList";
 import EditableImage from "@/components/admin/EditableImage";
@@ -45,22 +42,22 @@ export default function EventsSection() {
   );
 }
 
-function OutroBlock() {
+function OutroBlock({ texts }: { texts: EventsContent["texts"] }) {
   const { enabled } = useAdmin();
-  const value = useEditableValue<string>("texts.outro", EVENT_TEXTS.outro);
+  const value = useEditableValue<string>("texts.outro", texts.outro);
   if (!enabled && !value.trim()) return null;
   return (
     <p className="mt-5">
-      <Editable path="texts.outro" multiline>{EVENT_TEXTS.outro || "Scrivi un outro…"}</Editable>
+      <Editable path="texts.outro" multiline>{texts.outro || "Scrivi un outro…"}</Editable>
     </p>
   );
 }
 
-function HighlightsBlock() {
+function HighlightsBlock({ texts }: { texts: EventsContent["texts"] }) {
   const { enabled } = useAdmin();
-  const items = useEditableValue<typeof EVENT_TEXTS.highlights>(
+  const items = useEditableValue<typeof texts.highlights>(
     "texts.highlights",
-    EVENT_TEXTS.highlights
+    texts.highlights
   );
   if (!enabled && items.length === 0) return null;
   return (
@@ -68,7 +65,7 @@ function HighlightsBlock() {
       <p>Cosa ti aspetta?</p>
       <EditableList
         path="texts.highlights"
-        items={EVENT_TEXTS.highlights}
+        items={texts.highlights}
         template={{ title: "Titolo", description: "Descrizione" }}
       >
         {(h, i) => (
@@ -85,22 +82,35 @@ function HighlightsBlock() {
   );
 }
 
-function EventsActive() {
+export function EventsActive({
+  event = EVENT,
+  archived = false,
+}: {
+  event?: EventsContent;
+  archived?: boolean;
+}) {
   const { enabled: adminEnabled } = useAdmin();
+  const texts = event.texts;
   return (
     <>
     <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-24 overflow-x-hidden">
       {/* ── Hero Image (full-width) ── */}
       <div className="relative -mx-6 sm:-mx-10 lg:-mx-24 h-[400px] sm:h-[600px] lg:h-screen overflow-hidden">
         <div className="absolute inset-0 bg-roma-dark" />
-        <EditableImage path="heroImage" src={EVENT_HERO_IMAGE} alt="Evento hero" fill>
-          {EVENT_HERO_IMAGE ? (
+        <EditableImage path="heroImage" src={event.heroImage} alt="Evento hero" fill>
+          {event.heroImage ? (
             <Image
-              src={EVENT_HERO_IMAGE}
+              src={event.heroImage}
               alt="Evento hero"
               fill
               sizes="100vw"
-              className="object-cover"
+              // heroMobilePosition: sposta il crop solo su mobile (desktop resta centrato)
+              className={`object-cover${event.heroMobilePosition ? " object-[var(--hero-mp)] lg:object-center" : ""}`}
+              style={
+                event.heroMobilePosition
+                  ? ({ "--hero-mp": event.heroMobilePosition } as CSSProperties)
+                  : undefined
+              }
               priority
             />
           ) : null}
@@ -108,18 +118,22 @@ function EventsActive() {
         {/* Pill buttons top-right */}
         <div className="absolute top-[69px] right-6 sm:right-10 lg:right-[100px] flex flex-col items-start gap-10">
           <PillButton href="/" rotate={-13}>HOME</PillButton>
-          <PillButton href="/events/#workshop" rotate={15}>workshop</PillButton>
+          {event.workshops.length > 0 && (
+            <PillButton href="#workshop" rotate={15}>workshop</PillButton>
+          )}
         </div>
         {/* Title + social bottom-right */}
         <div className="absolute bottom-10 right-6 sm:right-10 lg:right-[100px] flex gap-2 items-start">
-          <Image
-            src="/events/event-logo.png"
-            alt={EVENT_TEXTS.heroTitle}
-            width={2160}
-            height={896}
-            priority
-            className="h-auto w-[260px] sm:w-[320px] lg:w-[400px]"
-          />
+          {event.logoImage ? (
+            <Image
+              src={event.logoImage}
+              alt={texts.heroTitle}
+              width={2160}
+              height={896}
+              priority
+              className="h-auto w-[260px] sm:w-[320px] lg:w-[400px]"
+            />
+          ) : null}
           <div className="flex flex-col gap-2 items-center justify-center">
             {SOCIALS.map((social) => (
               <a
@@ -162,7 +176,7 @@ function EventsActive() {
         {/* Left column */}
         <div className="flex flex-col gap-5 sm:gap-6 w-full lg:flex-1">
           <AnimatedText
-            text={EVENT_TEXTS.title}
+            text={texts.title}
             editablePath="texts.title"
             as="h1"
             className="font-[family-name:var(--font-display)] text-[clamp(1.875rem,3.5vw,3rem)] text-roma-dark tracking-tight text-balance"
@@ -170,7 +184,7 @@ function EventsActive() {
 
           <ScrollReveal>
             <div className="flex flex-col gap-4 sm:gap-5 text-sm leading-relaxed text-roma-dark">
-              <EditableList path="texts.intro" items={EVENT_TEXTS.intro} template="Nuovo paragrafo">
+              <EditableList path="texts.intro" items={texts.intro} template="Nuovo paragrafo">
                 {(p, i) => (
                   <p className="text-pretty">
                     <Editable path={`texts.intro[${i}]`} multiline>{p}</Editable>
@@ -178,33 +192,39 @@ function EventsActive() {
                 )}
               </EditableList>
 
-              <HighlightsBlock />
+              <HighlightsBlock texts={texts} />
 
 
-              <OutroBlock />
+              <OutroBlock texts={texts} />
 
             </div>
           </ScrollReveal>
 
-          <ScrollReveal>
-            <div className="flex flex-col items-start gap-10 py-8">
-              <PillButton href="https://www.eventbrite.com/cc/primavera-tropicale-26-a-green-block-party-4839739?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=odclsxcollection&utm-source=cp&aff=odclsxcollection" rotate={-13}>
-                Partecipa
-              </PillButton>
-              <PillButton href="https://forms.gle/gEathYpYqjohQU8n8" rotate={15}>
-                prenota un <br/> workshop
-              </PillButton>
-            </div>
-          </ScrollReveal>
+          {!archived && (event.registrationUrl || event.workshops.length > 0) && (
+            <ScrollReveal>
+              <div className="flex flex-col items-start gap-10 py-8">
+                {event.registrationUrl && (
+                  <PillButton href={event.registrationUrl} rotate={-13}>
+                    Partecipa
+                  </PillButton>
+                )}
+                {event.workshops.length > 0 && (
+                  <PillButton href="https://forms.gle/gEathYpYqjohQU8n8" rotate={15}>
+                    prenota un <br/> workshop
+                  </PillButton>
+                )}
+              </div>
+            </ScrollReveal>
+          )}
         </div>
 
         {/* Right column: image */}
         <div className="flex items-end w-full lg:flex-1">
           <div className="relative bg-roma-bg-alt w-full max-w-[560px] lg:max-w-[440px] 2xl:max-w-[560px] aspect-[4/5]">
-            <EditableImage path="festivalImage" src={EVENT_FESTIVAL_IMAGE} alt="Festival" fill>
-              {EVENT_FESTIVAL_IMAGE ? (
+            <EditableImage path="festivalImage" src={event.festivalImage} alt="Festival" fill>
+              {event.festivalImage ? (
                 <Image
-                  src={EVENT_FESTIVAL_IMAGE}
+                  src={event.festivalImage}
                   alt="Festival"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -217,9 +237,10 @@ function EventsActive() {
       </div>
 
       {/* ── Section 1.5: Le date (3 flyers) ── */}
-      <DatesSection />
+      <DatesSection dates={event.dates} archived={archived} />
 
       {/* ── Section 2: Workshop ── */}
+      {event.workshops.length > 0 && (
       <div id="workshop" className="flex flex-col gap-[10px] items-start py-[35px]">
         <div className="flex flex-col lg:flex-row items-start justify-between w-full gap-4 lg:gap-8">
           <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.75rem,3vw,2.5rem)] text-roma-dark tracking-[-1.2px] leading-tight shrink-0">
@@ -233,12 +254,12 @@ function EventsActive() {
             className="hidden lg:block shrink-0"
           />
           <p className="text-roma-dark text-base sm:text-lg lg:text-2xl">
-            {EVENT_TEXTS.workshopIntro}
+            {texts.workshopIntro}
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 w-full py-10 sm:py-[60px]">
-          {EVENT_WORKSHOPS.map((ws, i) => (
+          {event.workshops.map((ws, i) => (
             <ScrollReveal key={ws.slug} delay={i * 0.05}>
               <article className="flex flex-col gap-4 h-full">
                 <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#d1d1d1]">
@@ -266,27 +287,30 @@ function EventsActive() {
                     </p>
                   )}
                 </div>
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <PillButton href={`/events/${ws.slug}`} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
-                    scopri di più
-                  </PillButton>
-                  <PillButton href={ws.registrationUrl} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
-                    iscriviti
-                  </PillButton>
-                </div>
+                {!archived && (
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    <PillButton href={`/events/${ws.slug}`} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
+                      scopri di più
+                    </PillButton>
+                    <PillButton href={ws.registrationUrl} className="text-[11px] tracking-[0.66px] font-semibold h-10 px-5">
+                      iscriviti
+                    </PillButton>
+                  </div>
+                )}
               </article>
             </ScrollReveal>
           ))}
         </div>
       </div>
+      )}
     </section>
 
       {/* ── Section 3: Le attività (horizontal scroll) ── */}
       <HorizontalScrollSection
         title="Le attività"
-        description={EVENT_TEXTS.activitiesIntro}
+        description={texts.activitiesIntro}
       >
-        {EVENT_ACTIVITIES.map((activity, i) => (
+        {event.activities.map((activity, i) => (
           <motion.div
             key={activity.name}
             initial={{ opacity: 0, y: 20 }}
@@ -316,11 +340,11 @@ function EventsActive() {
       {/* ── Section 4: La Venue (horizontal scroll) ── */}
       <HorizontalScrollSection
         title="Le Venues"
-        description={EVENT_TEXTS.venueIntro}
+        description={texts.venueIntro}
       >
-        {EVENT_VENUE_CARDS.map((card, i) => (
+        {event.venueCards.map((card, i) => (
           <motion.div
-            key={card.name}
+            key={i}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -346,46 +370,48 @@ function EventsActive() {
       </HorizontalScrollSection>
 
       {/* ── Section 5: From the archive (horizontal scroll) ── */}
-      <HorizontalScrollSection
-        id="archive"
-        title="from the archive"
-        description="Una selezione dei nostri eventi preferiti del passato."
-      >
-        {EVENT_ARCHIVE.map((item, i) => (
-          <motion.div
-            key={item.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
-          >
-            <Link
-              href={item.href}
-              className="block group transform-gpu transition-[scale] duration-200 ease-out motion-safe:active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-roma-purple"
+      {!archived && (
+        <HorizontalScrollSection
+          id="archive"
+          title="from the archive"
+          description="Una selezione dei nostri eventi preferiti del passato."
+        >
+          {event.archive.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="w-[240px] sm:w-[260px] lg:w-[320px] 2xl:w-[400px] shrink-0"
             >
-              <div className="relative w-full aspect-[3/4] overflow-hidden">
-                <EditableImage path={`archive[${i}].image`} src={item.image} alt={item.title} fill>
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
-                    className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.04]"
-                  />
-                </EditableImage>
-              </div>
-              <hr className="border-roma-dark/20 w-full my-3" />
-              <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors duration-300">
-                <Editable path={`archive[${i}].title`}>{item.title}</Editable>
-              </h3>
-              <p className="text-xs text-roma-dark/50 leading-relaxed">
-                <Editable path={`archive[${i}].description`} multiline>{item.description}</Editable>
-              </p>
-            </Link>
-          </motion.div>
-        ))}
-      </HorizontalScrollSection>
+              <Link
+                href={item.href}
+                className="block group transform-gpu transition-[scale] duration-200 ease-out motion-safe:active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-roma-purple"
+              >
+                <div className="relative w-full aspect-[3/4] overflow-hidden">
+                  <EditableImage path={`archive[${i}].image`} src={item.image} alt={item.title} fill>
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 640px) 240px, (max-width: 1024px) 260px, (max-width: 1536px) 320px, 400px"
+                      className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.04]"
+                    />
+                  </EditableImage>
+                </div>
+                <hr className="border-roma-dark/20 w-full my-3" />
+                <h3 className="text-sm font-bold text-roma-dark mb-1 group-hover:text-roma-purple transition-colors duration-300">
+                  <Editable path={`archive[${i}].title`}>{item.title}</Editable>
+                </h3>
+                <p className="text-xs text-roma-dark/50 leading-relaxed">
+                  <Editable path={`archive[${i}].description`} multiline>{item.description}</Editable>
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </HorizontalScrollSection>
+      )}
     </>
   );
 }

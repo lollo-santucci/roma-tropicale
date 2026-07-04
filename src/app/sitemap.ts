@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { EVENT_WORKSHOPS } from "@/lib/content";
+import { ARCHIVED_SLUGS } from "@/content/events-archive";
 
 const BASE_URL = "https://ilsitodi.romatropicale.com";
 
@@ -23,5 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...workshopRoutes];
+  const archiveRoutes: MetadataRoute.Sitemap = ARCHIVED_SLUGS.map((slug) => ({
+    url: `${BASE_URL}/events/archive/${slug}`,
+    lastModified: now,
+    changeFrequency: "yearly",
+    priority: 0.5,
+  }));
+
+  return [...staticRoutes, ...workshopRoutes, ...archiveRoutes];
 }

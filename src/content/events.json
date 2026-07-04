@@ -2,155 +2,43 @@
   "active": true,
   "comingSoonHeroTitle": "Stiamo pianificando il prossimo evento",
   "comingSoonHeroImage": "/events/coming-soon-header.jpg",
-  "heroImage": "/events/event-header.png",
-  "festivalImage": "/events/event-flyer.jpg",
-  "dates": [
-    { "image": "/events/events-flyers/latta.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-2-tickets-1988494149530" },
-    { "image": "/events/events-flyers/forno-ritorno.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-3-tickets-1988985785025" },
-    { "image": "/events/events-flyers/mostro.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-1-tickets-1988983648635" }
-  ],
+  "heroImage": "/events/nuovo-evento-2026/header.webp",
+  "festivalImage": "/events/nuovo-evento-2026/flyer.jpeg",
+  "logoImage": "",
+  "registrationUrl": "https://www.eventbrite.it/e/estate-tropicale-tickets-1992762709909",
+  "heroMobilePosition": "left top",
+  "dates": [],
   "texts": {
-    "title": "Primavera Tropicale",
-    "heroTitle": "PRIMAVERA TROPICALE 2026",
+    "title": "Estate Tropicale",
+    "heroTitle": "Estate Tropicale",
     "intro": [
-      "Roma Tropicale trasforma il quartiere in un ecosistema urbano temporaneo, dove natura, comunità e cultura si intrecciano.",
-      "Per tre giorni, strade e spazi quotidiani si attivano in una costellazione di momenti: dalla colazione ai dj set serali, passando per workshop, incontri e un market botanico. Un flusso continuo che invita a rallentare, abitare lo spazio pubblico e riscoprire una relazione più diretta con il verde. 'Tropicale' non è solo un’estetica, ma un’attitudine: spontanea, vitale, collettiva. Un modo di vivere la città più aperto, vibrante e condiviso.",
-      "Un block party in movimento, dove piante, persone e musica ridisegnano il paesaggio urbano.",
-      "Everyone is welcome."
+      "Estate Tropicale è l'ultimo appuntamento di Roma Tropicale prima della pausa estiva: un aperitivo tra piante, musica e good vibes per salutare la città prima delle vacanze.",
+      "Venerdì 17 luglio, dalle 18:00 alle 21:00, Chiosco Vittorio si trasforma in una giungla urbana. Tra le palme di Piazza Vittorio, nel cuore di una Roma sempre più vibrante e contemporanea, prende vita un pomeriggio dedicato allo scambio di piante, agli incontri, a nuove esperienze green e a un brindisi collettivo all'estate.",
+      "Un'occasione per ritrovarsi, chiacchierare e condividere la passione per il verde in uno degli angoli più tropicali della città.",
+      "See you in the jungle! Everyone is welcome."
     ],
     "highlights": [],
     "outro": "",
-    "workshopIntro": "Prenota il tuo posto ai laboratori previsti durante il Festival: posti limitatissimi! Cosa aspetti?",
-    "activitiesIntro": "Scopri le attività della giornata e i corner esperenziali",
-    "venueIntro": "5 luoghi tutti da scoprire"
+    "workshopIntro": "Prenota il tuo posto ai laboratori del prossimo evento.",
+    "activitiesIntro": "Scopri le attività della giornata",
+    "venueIntro": "Il luogo dell'evento"
   },
-  "workshops": [
-    {
-      "slug": "materia-circolare",
-      "title": "MATERIA CIRCOLARE & DIY BIOMATERIALI",
-      "timing": "Sabato 16.05 · 10:00 – 13:00",
-      "price": "70€",
-      "educator": "Davide Viggiano",
-      "place": "Industrie Fluviali — Via del Porto Fluviale, 35 (Ostiense)",
-      "image": "/events/workshops/1.png",
-      "description": [
-        "Un laboratorio immersivo tra natura e trasformazione per scoprire come lo scarto può diventare nuova materia. Attraverso pratiche DIY esplorerai i principi dell'economia circolare lavorando con alghe, amidi e materiali naturali o di recupero.",
-        "Il workshop si articola in due momenti: una fase teorico-tattile di esplorazione dei materiali, e una fase pratica in cui realizzerai il tuo campionario sperimentando ricette e tecniche.",
-        "Utilizzeremo ingredienti e scarti comuni — spezie, fondi di caffè, foglie, bucce e fibre naturali — trasformandoli in superfici e piccoli oggetti dall'estetica organica, tra arte, design e moda.",
-        "Materiali inclusi: alghe e amidi, scarti naturali e pigmenti, strumenti e supporti."
-      ],
-      "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfckuCzuf3LQTb_b1usxjPbNhk1cxPTBCPwRySBzvOBlJEUVg/viewform",
-      "registrationNote": "La quota include tesseramento a Roma Tropicale e tutti i materiali. Rimborso garantito fino a 10 giorni prima dell'evento."
-    },
-    {
-      "slug": "botanical-charms",
-      "title": "BOTANICAL CHARMS",
-      "timing": "Sabato 16.05 · 11:30 – 12:30",
-      "price": "35€",
-      "educator": "Mmimmi Studio",
-      "place": "Latta — Via Antonio Pacinotti, 83",
-      "image": "/events/workshops/2.png",
-      "description": [
-        "Workshop creativo per realizzare un accessorio personalizzato a mano. Scegli forme e colori primaverili e crea un portachiavi o una calamita con un piccolo animale all'interno.",
-        "Durante il lab impari le tecniche di lavorazione del feltro: taglio, cucitura e decorazione. Adatto ai principianti, dai 13 anni in su.",
-        "Materiali inclusi: feltro e decorazioni, animaletto, magnete o moschettone, strumenti di cucito."
-      ],
-      "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfckuCzuf3LQTb_b1usxjPbNhk1cxPTBCPwRySBzvOBlJEUVg/viewform",
-      "registrationNote": "La quota include tesseramento a Roma Tropicale e tutti i materiali. Rimborso garantito fino a 10 giorni prima dell'evento."
-    },
-    {
-      "slug": "terrarium-deep-forest",
-      "title": "TERRARIUM \"DEEP FOREST\"",
-      "timing": "Sabato 16.05 · 15:00 – 16:00",
-      "price": "48€",
-      "educator": "Leonardo Romeo (Live Bubbles)",
-      "place": "Latta — Via Antonio Pacinotti, 83",
-      "image": "/events/workshops/3.png",
-      "description": [
-        "Workshop pratico alla scoperta dei terrarium: creerai il tuo ecosistema chiuso in vetro che vive e respira autonomamente.",
-        "Imparerai a scegliere il substrato giusto, abbinare le piante, gestire drenaggio e nutrizione, dando vita a una composizione personale ispirata alla foresta.",
-        "Materiali inclusi: contenitore in vetro, piante tropicali, substrati ed elementi decorativi."
-      ],
-      "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfckuCzuf3LQTb_b1usxjPbNhk1cxPTBCPwRySBzvOBlJEUVg/viewform",
-      "registrationNote": "La quota include tesseramento a Roma Tropicale e tutti i materiali. Rimborso garantito fino a 10 giorni prima dell'evento."
-    },
-    {
-      "slug": "candele-floreali",
-      "title": "CANDELE FLOREALI · SPRING EDITION",
-      "timing": "Sabato 16.05 · 16:00 – 17:00",
-      "price": "35€",
-      "educator": "Valentina Galati",
-      "place": "Latta — Via Antonio Pacinotti, 83",
-      "image": "/events/workshops/4.png",
-      "description": [
-        "Lab olfattivo e creativo per realizzare candele profumate naturali. Tra cera di soia, oli essenziali ed elementi botanici, esplorerai l'intero processo: dalla scelta dell'aroma alla personalizzazione finale.",
-        "Materiali inclusi: cera di soia naturale, oli essenziali, decorazioni botaniche, contenitore e strumenti."
-      ],
-      "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfckuCzuf3LQTb_b1usxjPbNhk1cxPTBCPwRySBzvOBlJEUVg/viewform",
-      "registrationNote": "La quota include tesseramento a Roma Tropicale e tutti i materiali. Rimborso garantito fino a 10 giorni prima dell'evento."
-    },
-    {
-      "slug": "yoga-balance",
-      "title": "YOGA SESSION · BALANCE & SPIRITUALITÀ URBANA",
-      "timing": "Sabato 16.05 · 16:30 – 18:45",
-      "price": "30€",
-      "educator": "Corinna Capponi",
-      "place": "MOB Studios — Via delle Conce, 14 (Ostiense)",
-      "image": "/events/workshops/5.png",
-      "description": [
-        "Una pratica dedicata al ritrovare equilibrio e presenza nella vita urbana, attraverso movimento consapevole, respiro e tecniche di regolazione del sistema nervoso, ispirate alla resilienza delle piante.",
-        "La quota include tesseramento a Roma Tropicale."
-      ],
-      "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfckuCzuf3LQTb_b1usxjPbNhk1cxPTBCPwRySBzvOBlJEUVg/viewform",
-      "registrationNote": "Rimborso garantito fino a 10 giorni prima dell'evento."
-    },
-    {
-      "slug": "rinvasi-tropicali",
-      "title": "RINVASI TROPICALI WITH ELHO",
-      "timing": "Sabato 16.05 · 17:00 – 18:00",
-      "price": "25€",
-      "educator": "Andrea Pranno (Hempirico Store)",
-      "place": "Latta — Via Antonio Pacinotti, 83",
-      "image": "/events/workshops/6.png",
-      "description": [
-        "Lab teorico e pratico per imparare a rinvasare correttamente le piante tropicali: preparazione del substrato, scelta del vaso, drenaggio, areazione e nutrizione.",
-        "Durante la sessione rinvaserai una pianta che ti verrà fornita, da portare a casa con te.",
-        "Materiali inclusi: pianta tropicale, substrati, vaso da coltivazione, coprivaso di design firmato Elho."
-      ],
-      "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfckuCzuf3LQTb_b1usxjPbNhk1cxPTBCPwRySBzvOBlJEUVg/viewform",
-      "registrationNote": "La quota include tesseramento a Roma Tropicale e tutti i materiali. Rimborso garantito fino a 10 giorni prima dell'evento."
-    },
-    {
-      "slug": "flower-bar",
-      "title": "FLOWER BAR • PEONY STYLING CLUB",
-      "timing": "Sabato 17.05 · 10:00 – 12:00",
-      "price": "25€",
-      "educator": "Anthea Studio",
-      "place": "Forno Ritorno — Via Amerigo Vespucci, 20",
-      "image": "/events/workshops/7.jpeg",
-      "description": [
-        "Un corner esperienziale dove fermarti, scegliere e creare: componi il tuo bouquet di peonie insieme ad Anthea Studio, giocando con forme, volumi e sfumature.",
-        "Entra nel nostro Peony Club e lasciati guidare nella composizione, tra profumi delicati e accostamenti stagionali. Porterai a casa il tuo bouquet, insieme a piccoli consigli e gesti semplici per prenderti cura delle tue peonie e farle durare più a lungo.",
-        "Un momento leggero e creativo, da vivere e condividere. Prenota il tuo slot!"
-      ],
-      "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLScKrOALfpTaui2m7i9Pnm8LmMfBPL93jxHVwbrvMDk9KaD7VA/viewform?usp=dialog",
-      "registrationNote": "La quota include tesseramento a Roma Tropicale e tutti i materiali. Rimborso garantito fino a 10 giorni prima dell'evento."
-    }
-  ],
+  "workshops": [],
   "activities": [
-    { "name": "Il Plant Market da Latta (sabato 11:30-20:00)", "description": "Una selezione curata delle migliori realtà vivaistiche, artigianali e di design - tra piante, accessori e prodotti decisamente cool.", "image": "/events/activities/1 plant market.png" },
-    { "name": "La Plant Lottery da Mostro (venerdì 18:00-20:00)", "description": "Sfida la sorte e prova a vincere una tropical plant “segreta” by Palma, accompagnata da un coprivaso Elho,  della linea Colour Gradient Round.", "image": "/events/activities/2 lottery.png" },
-    { "name": "Il flower bar da Forno Ritorno (domenica 10:00-12:00)", "description": "La domenica ha il suo rituale: risveglio lento, musica e un flower bar per scegliere i fiori freschi da portare con te per tutta la settimana.", "image": "/events/activities/3 flower bar.png" },
-    { "name": "Plant Swap da Latta (sabato 18:00)", "description": "Il momento preferito di ogni plant lover: il plant swap, dove scambiare piantine, talee e semi e far crescere la propria home jungle.", "image": "/events/activities/4 plant swap.png" }
+    { "name": "Il plant swap (19:00-20:00)", "description": "Il momento preferito di ogni plant lover: il plant swap, dove scambiare piantine, talee e semi e far crescere la propria home jungle.", "image": "/events/nuovo-evento-2026/activities/plant swap.webp" },
+    { "name": "Tarocchi botanici (18:00-21:00)", "description": "Un momento di ascolto tra simboli e natura: i Tarocchi Botanici accompagnano un viaggio tra intuizioni, cambiamenti e nuovi germogli.", "image": "/events/nuovo-evento-2026/activities/tarocchi botanici.webp" },
+    { "name": "La plant lottery by Palma (19:00 e 20:30)", "description": "Sfida la sorte e prova a vincere una tropical plant “segreta” by Palma, non una ma ben due volte!", "image": "/events/nuovo-evento-2026/activities/plant lottery.webp" },
+    { "name": "Olimpiadi botaniche: Rivasi Challenge (18:30-19:00)", "description": "Sai riconoscere una pianta e rinvasarla alla perfezione? Mettiti in gioco e vinci un ricco premio per la tua giungla domestica.", "image": "/events/nuovo-evento-2026/activities/rinvasi challenge.webp" },
+    { "name": "Dj Set by Bi Disc (18:00-21:00)", "description": "3 ore di selezioni musicali a cura di Bi Disc", "image": "/events/nuovo-evento-2026/activities/dj set.webp" }
   ],
   "venueCards": [
-    { "name": "Latta", "description": "All’interno del complesso industriale dell’Ex Mulino Biondi, Latta è un luogo moderno che si ispira ai soda bar americani degli anni ’50, reinterpretati in chiave contemporanea. Qui protagonisti sono fermentati, miscele, sidri, birre e vini naturali, tutti rigorosamente alla spina. Da provare in combinazione con le proposte golose del menu.", "image": "/events/venues/latta.png" },
-    { "name": "Mostro", "description": "Accanto alla Piramide Cestia, negli spazi di quello che era il Cafè du Parc, Mostro è un chiosco diventato rapidamente punto d’incontro e simbolo di un nuovo modo di concepire il bar. Tra influenze internazionali e radici romane, propone un mix di vini naturali locali, birre artigianali e opzioni low-alcohol come il kombucha.", "image": "/events/venues/mostro.png" },
-    { "name": "Forno Ritorno", "description": "In controtendenza rispetto alle bakery internazionali, Forno Ritorno riporta in auge il concetto di forno all’italiana, capace di evocare i sapori e le sensazioni degli anni in cui siamo cresciuti, con un tocco di contemporaneità. Qui la tradizione è protagonista, reinterpretata con cura e qualità. Preferisci la colazione dolce o salata? Ce n’è per tutti i gusti!", "image": "/events/venues/fornoritorno.png" },
-    { "name": "MOB Studios", "description": "Mob Studios è uno spazio di produzione artistica dedicato a musica e recitazione, un hub creativo dove arte e tecnologia si incontrano in modo naturale. Un luogo dove imparare, sperimentare e lasciarsi ispirare: da cui prende forma anche la nostra session di yoga!", "image": "/events/venues/mob.png" },
-    { "name": "Industrie Fluviali", "description": "Nate all’interno di un ex complesso industriale dei primi del ’900 oggi rigenerato, Industie Fluviali sono uno spazio poliedrico dedicato all’innovazione sociale, culturale e tecnologica. Tra coworking, workshop ed eventi, si configura come un punto d’incontro aperto alla città, dove professionist*, artist* e comunità si incontrano e collaborano. Un luogo dinamico e inclusivo, pensato per far circolare idee e visioni contemporanee.", "image": "/events/venues/industriefluviali.png" }
+    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/nuovo-evento-2026/venues/9.webp" },
+    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/nuovo-evento-2026/venues/10.webp" },
+    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/nuovo-evento-2026/venues/11.webp" },
+    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/nuovo-evento-2026/venues/12.webp" }
   ],
   "archive": [
+    { "title": "Primavera Tropicale ’26", "description": "Tre giorni di block party green tra workshop, market botanico e dj set nel quartiere Ostiense.", "href": "/events/archive/primavera-tropicale-2026", "image": "/events/primavera-tropicale-2026/flyer.jpg" },
     { "title": "No Roses, Just Plants ‘26 (The Hoxton Rome)", "description": "Un format esperienziale durante San Valentino, che univa workshop, musica e momenti di socialità, invitando la community a scegliere le piante...", "href": "https://romatropicale.com/2026/01/20/14-02-26-no-roses-just-plants-the-hoxton-rome/", "image": "/events/archive/14.02 tropicale V2 (1).jpg" },
     { "title": "Urban Nature ‘25 (Orto Botanico di Roma)", "description": "In collaborazione con WWF Italia, un evento dedicato alla riscoperta della natura in città, pensato per promuovere un rapporto più...", "href": "https://romatropicale.com/2025/09/09/urban-nature-orto-botanico/", "image": "/events/archive/Posting WWF  - 2.png" },
     { "title": "Festival Tropicale ‘25 (Forte Trionfale, Roma)", "description": "Forte Trionfale rappresenta uno dei forti storici di Roma e ha riaperto al pubblico in occasione del nostro evento, contribuendo al processo...", "href": "https://romatropicale.com/2025/04/17/11-05-25-roma-tropicale-festival-%e2%98%bb-forte-trionfale/", "image": "/events/archive/flyer-fest-scaled.webp" },

@@ -91,6 +91,9 @@ export const eventsSchema = z.object({
   comingSoonHeroImage: z.string().default("/events/coming-soon-header.jpg"),
   heroImage: z.string().default("/events/coming-soon-header.jpg"),
   festivalImage: z.string().default("/events/coming-soon-header.jpg"),
+  logoImage: z.string().default(""),
+  registrationUrl: z.string().default(""),
+  heroMobilePosition: z.string().default(""),
   dates: z.array(dateCardSchema).default([]),
   texts: z.object({
     title: z.string(),
