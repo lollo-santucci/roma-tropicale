@@ -25,11 +25,12 @@
   },
   "workshops": [],
   "activities": [
-    { "name": "Il plant swap (19:00-20:00)", "description": "Il momento preferito di ogni plant lover: il plant swap, dove scambiare piantine, talee e semi e far crescere la propria home jungle.", "image": "/events/nuovo-evento-2026/activities/plant swap.webp" },
     { "name": "Tarocchi botanici (18:00-21:00)", "description": "Un momento di ascolto tra simboli e natura: i Tarocchi Botanici accompagnano un viaggio tra intuizioni, cambiamenti e nuovi germogli.", "image": "/events/nuovo-evento-2026/activities/tarocchi botanici.webp" },
-    { "name": "La plant lottery by Palma (19:00 e 20:30)", "description": "Sfida la sorte e prova a vincere una tropical plant “segreta” by Palma, non una ma ben due volte!", "image": "/events/nuovo-evento-2026/activities/plant lottery.webp" },
+    { "name": "Dj Set by Bi Disc (18:00-21:00)", "description": "3 ore di selezioni musicali a cura di Bi Disc", "image": "/events/nuovo-evento-2026/activities/dj set.webp" },
+    { "name": "Visita botanica guidata (18:15-19:00)", "description": "Un viaggio tra gli alberi monumentali e le palme secolari dei Giardini di Piazza Vittorio, alla scoperta del loro valore storico, botanico e ambientale.", "image": "/events/nuovo-evento-2026/activities/alberi.jpeg" },
     { "name": "Olimpiadi botaniche: Rivasi Challenge (18:30-19:00)", "description": "Sai riconoscere una pianta e rinvasarla alla perfezione? Mettiti in gioco e vinci un ricco premio per la tua giungla domestica.", "image": "/events/nuovo-evento-2026/activities/rinvasi challenge.webp" },
-    { "name": "Dj Set by Bi Disc (18:00-21:00)", "description": "3 ore di selezioni musicali a cura di Bi Disc", "image": "/events/nuovo-evento-2026/activities/dj set.webp" }
+    { "name": "Il plant swap (19:00-20:00)", "description": "Il momento preferito di ogni plant lover: il plant swap, dove scambiare piantine, talee e semi e far crescere la propria home jungle.", "image": "/events/nuovo-evento-2026/activities/plant swap.webp" },
+    { "name": "La plant lottery by Palma (19:00 e 20:30)", "description": "Sfida la sorte e prova a vincere una tropical plant “segreta” by Palma, non una ma ben due volte!", "image": "/events/nuovo-evento-2026/activities/plant lottery.webp" }
   ],
   "venueCards": [
     { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/nuovo-evento-2026/venues/9.webp" },
