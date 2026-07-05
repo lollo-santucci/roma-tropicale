@@ -91,6 +91,12 @@ export function EventsActive({
 }) {
   const { enabled: adminEnabled } = useAdmin();
   const texts = event.texts;
+  const bookingEnabled = useEditableValue<boolean>(
+    "activitiesBookingEnabled",
+    event.activitiesBookingEnabled
+  );
+  const showActivityBooking =
+    !archived && bookingEnabled && Boolean(event.activitiesBookingUrl);
   return (
     <>
     <section id="events" className="bg-roma-bg px-6 sm:px-10 lg:px-24 overflow-x-hidden">
@@ -116,10 +122,10 @@ export function EventsActive({
           ) : null}
         </EditableImage>
         {/* Pill buttons top-right */}
-        <div className="absolute top-[69px] right-6 sm:right-10 lg:right-[100px] flex flex-col items-start gap-10">
-          <PillButton href="/" rotate={-13}>HOME</PillButton>
+        <div className="absolute top-[69px] right-6 sm:right-10 lg:right-[100px] flex flex-col items-end sm:items-start gap-10">
+          <PillButton href="/" rotate={-13} className="min-w-0 px-4 sm:min-w-[150px] sm:px-6">HOME</PillButton>
           {event.workshops.length > 0 && (
-            <PillButton href="#workshop" rotate={15}>workshop</PillButton>
+            <PillButton href="#workshop" rotate={15} className="min-w-0 px-4 sm:min-w-[150px] sm:px-6">workshop</PillButton>
           )}
         </div>
         {/* Title + social bottom-right */}
@@ -306,6 +312,17 @@ export function EventsActive({
     </section>
 
       {/* ── Section 3: Le attività (horizontal scroll) ── */}
+      {!archived && adminEnabled ? (
+        <EditableToggle
+          path="activitiesBookingEnabled"
+          value={event.activitiesBookingEnabled}
+          title="Prenotazioni attività"
+          labelOn="Attive"
+          labelOff="Disattivate"
+          hintOn="Il pulsante «prenotati!» è visibile"
+          hintOff="Il pulsante «prenotati!» è nascosto"
+        />
+      ) : null}
       <HorizontalScrollSection
         title="Le attività"
         description={texts.activitiesIntro}
@@ -333,6 +350,14 @@ export function EventsActive({
             <p className="text-xs text-roma-dark/50 leading-relaxed">
               <Editable path={`activities[${i}].description`} multiline>{activity.description}</Editable>
             </p>
+            {showActivityBooking && (
+              <PillButton
+                href={event.activitiesBookingUrl}
+                className="mt-4 text-[11px] tracking-[0.66px] font-semibold h-10 px-5"
+              >
+                prenotati!
+              </PillButton>
+            )}
           </motion.div>
         ))}
       </HorizontalScrollSection>

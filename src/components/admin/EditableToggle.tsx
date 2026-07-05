@@ -5,11 +5,22 @@ import { useAdmin, useEditableValue } from "./AdminContext";
 type Props = {
   path: string;
   value: boolean;
+  title?: string;
   labelOn?: string;
   labelOff?: string;
+  hintOn?: string;
+  hintOff?: string;
 };
 
-export default function EditableToggle({ path, value, labelOn = "Attivo", labelOff = "Coming soon" }: Props) {
+export default function EditableToggle({
+  path,
+  value,
+  title = "Stato evento",
+  labelOn = "Attivo",
+  labelOff = "Coming soon",
+  hintOn = "La pagina pubblica mostra l’evento attivo",
+  hintOff = "La pagina pubblica mostra il messaggio coming soon",
+}: Props) {
   const { enabled, update } = useAdmin();
   const current = useEditableValue<boolean>(path, value);
 
@@ -17,7 +28,7 @@ export default function EditableToggle({ path, value, labelOn = "Attivo", labelO
 
   return (
     <div className="sticky top-10 z-[800] mx-auto flex max-w-7xl items-center gap-3 rounded-full border border-yellow-500/40 bg-yellow-50/95 px-4 py-2 text-xs text-yellow-900 shadow-sm backdrop-blur">
-      <span className="font-medium uppercase tracking-wide">Stato evento</span>
+      <span className="font-medium uppercase tracking-wide">{title}</span>
       <button
         type="button"
         onClick={() => update(path, !current)}
@@ -36,9 +47,7 @@ export default function EditableToggle({ path, value, labelOn = "Attivo", labelO
       </button>
       <span className="font-medium">{current ? labelOn : labelOff}</span>
       <span className="ml-auto text-yellow-900/60">
-        {current
-          ? "La pagina pubblica mostra l’evento attivo"
-          : "La pagina pubblica mostra il messaggio coming soon"}
+        {current ? hintOn : hintOff}
       </span>
     </div>
   );

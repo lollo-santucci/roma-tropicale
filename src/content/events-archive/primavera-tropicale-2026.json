@@ -6,6 +6,8 @@
   "festivalImage": "/events/primavera-tropicale-2026/flyer.jpg",
   "logoImage": "/events/primavera-tropicale-2026/logo.png",
   "registrationUrl": "https://www.eventbrite.com/cc/primavera-tropicale-26-a-green-block-party-4839739?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=odclsxcollection&utm-source=cp&aff=odclsxcollection",
+  "activitiesBookingEnabled": false,
+  "activitiesBookingUrl": "",
   "heroMobilePosition": "",
   "dates": [
     { "image": "/events/primavera-tropicale-2026/dates/latta.png", "registrationUrl": "https://www.eventbrite.it/e/primavera-tropicale-2026-day-2-tickets-1988494149530" },

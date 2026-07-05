@@ -6,6 +6,8 @@
   "festivalImage": "/events/nuovo-evento-2026/flyer.jpeg",
   "logoImage": "",
   "registrationUrl": "https://www.eventbrite.it/e/estate-tropicale-tickets-1992762709909",
+  "activitiesBookingEnabled": true,
+  "activitiesBookingUrl": "https://forms.gle/i1Nqw4v4rfHT76YUA",
   "heroMobilePosition": "left top",
   "dates": [],
   "texts": {
