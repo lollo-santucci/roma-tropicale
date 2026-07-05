@@ -71,6 +71,7 @@ const activitySchema = z.object({
   name: z.string(),
   description: z.string(),
   image: z.string().default(""),
+  bookable: z.boolean().optional(),
 });
 
 const archiveCardSchema = z.object({

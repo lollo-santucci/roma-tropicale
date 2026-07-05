@@ -350,7 +350,7 @@ export function EventsActive({
             <p className="text-xs text-roma-dark/50 leading-relaxed">
               <Editable path={`activities[${i}].description`} multiline>{activity.description}</Editable>
             </p>
-            {showActivityBooking && (
+            {showActivityBooking && activity.bookable && (
               <PillButton
                 href={event.activitiesBookingUrl}
                 className="mt-4 text-[11px] tracking-[0.66px] font-semibold h-10 px-5"
