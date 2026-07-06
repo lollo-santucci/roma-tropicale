@@ -364,7 +364,7 @@ export function EventsActive({
 
       {/* ── Section 4: La Venue (horizontal scroll) ── */}
       <HorizontalScrollSection
-        title="Le Venues"
+        title="La Venue"
         description={texts.venueIntro}
       >
         {event.venueCards.map((card, i) => (
