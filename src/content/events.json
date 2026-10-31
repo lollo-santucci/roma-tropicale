@@ -33,14 +33,14 @@
   "activities": [
     { "name": "Plant Swap & Merenda (17:00–18:00)", "description": "Sfobbo porterà piante e talee da scambiare. E voi? Portate le vostre e preparatevi a tornare a casa con qualche nuova ossessione botanica! Plant reminder: solo talee già radicate, per dare a ogni piantina le migliori possibilità di crescere.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/plant swap.webp" },
     { "name": "Book Presentation & Aperitivo (18:00–18:30)", "description": "Basta piante “facili” o “difficili”, regole universali e falsi miti sulla plant care! Una chiacchierata con Sfobbo per scoprire Botanica da appartamento, approfondire i temi del libro e imparare a guardare le piante con una nuova consapevolezza.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/sfobbo.webp" },
-    { "name": "Firmacopie (18:30–19:00)", "description": "Un'occasione per incontrare Sfobbo e portarsi a casa una dedica speciale! Durante l'evento sarà possibile acquistare Botanica da appartamento oppure portare la propria copia per farla firmare.", "image": "/events/aperitivo-tropicale-sfobbo-2026/flyer.webp" },
+    { "name": "Firmacopie (18:30–19:00)", "description": "Un'occasione per incontrare Sfobbo e portarsi a casa una dedica speciale! Durante l'evento sarà possibile acquistare Botanica da appartamento oppure portare la propria copia per farla firmare.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/firmacopie.webp" },
     { "name": "Dj set by Bi Disc (18:30–20:30)", "description": "Ad alzare le vibes, una selezione musicale curata da Bi Disc, per accompagnare l'aperitivo con il giusto sound.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/bi disc.webp" },
-    { "name": "Community Hang Out (19:00–20:30)", "description": "Piante, musica, nuove conoscenze e good vibes. Un momento per incontrarsi, fare due chiacchiere e condividere nuove passioni. Anche senza pollice verde!", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-1.webp" }
+    { "name": "Community Hang Out (19:00–20:30)", "description": "Piante, musica, nuove conoscenze e good vibes. Un momento per incontrarsi, fare due chiacchiere e condividere nuove passioni. Anche senza pollice verde!", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/community.webp" }
   ],
   "venueCards": [
     { "name": "Forno Ritorno", "description": "Via Amerigo Vespucci 20, Testaccio — Roma. Nel cuore di Testaccio, Forno Ritorno è il posto perfetto per una pausa golosa, un caffè o un aperitivo in compagnia.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-1.webp" },
-    { "name": "La merenda", "description": "Torte irresistibili e specialità dolci e salate per aprire il pomeriggio.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-2.webp" },
-    { "name": "L'aperitivo", "description": "Kombucha e drink botanici accompagneranno l'Aperitivo Tropicale fino all'ultimo brindisi.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-3.webp" }
+    { "name": "La merenda", "description": "Torte irresistibili e specialità dolci e salate per aprire il pomeriggio.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-3.webp" },
+    { "name": "L'aperitivo", "description": "Kombucha e drink botanici accompagneranno l'Aperitivo Tropicale fino all'ultimo brindisi.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-2.webp" }
   ],
   "archive": [
     { "title": "Estate Tropicale ’26 (Chiosco Vittorio)", "description": "Un aperitivo tra piante, musica e good vibes tra le palme di Piazza Vittorio, per salutare la città prima della pausa estiva.", "href": "/events/archive/estate-tropicale-2026", "image": "/events/estate-tropicale-2026/flyer.jpeg" },
