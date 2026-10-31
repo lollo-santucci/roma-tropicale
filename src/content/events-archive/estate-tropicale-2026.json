@@ -1,0 +1,50 @@
+{
+  "active": true,
+  "comingSoonHeroTitle": "Stiamo pianificando il prossimo evento",
+  "comingSoonHeroImage": "/events/coming-soon-header.jpg",
+  "heroImage": "/events/estate-tropicale-2026/header.webp",
+  "festivalImage": "/events/estate-tropicale-2026/flyer.jpeg",
+  "logoImage": "",
+  "registrationUrl": "https://www.eventbrite.it/e/estate-tropicale-tickets-1992762709909",
+  "activitiesBookingEnabled": true,
+  "activitiesBookingUrl": "https://forms.gle/i1Nqw4v4rfHT76YUA",
+  "heroMobilePosition": "left top",
+  "dates": [],
+  "texts": {
+    "title": "Estate Tropicale",
+    "heroTitle": "Estate Tropicale",
+    "intro": [
+      "Estate Tropicale è l'ultimo appuntamento di Roma Tropicale prima della pausa estiva: un aperitivo tra piante, musica e good vibes per salutare la città prima delle vacanze.",
+      "Venerdì 17 luglio, dalle 18:00 alle 21:00, Chiosco Vittorio si trasforma in una giungla urbana. Tra le palme di Piazza Vittorio, nel cuore di una Roma sempre più vibrante e contemporanea, prende vita un pomeriggio dedicato allo scambio di piante, agli incontri, a nuove esperienze green e a un brindisi collettivo all'estate.",
+      "Un'occasione per ritrovarsi, chiacchierare e condividere la passione per il verde in uno degli angoli più tropicali della città.",
+      "See you in the jungle! Everyone is welcome."
+    ],
+    "highlights": [],
+    "outro": "",
+    "workshopIntro": "Prenota il tuo posto ai laboratori del prossimo evento.",
+    "activitiesIntro": "Scopri le attività della giornata",
+    "venueIntro": "Il luogo dell'evento"
+  },
+  "workshops": [],
+  "activities": [
+    { "name": "Tarocchi botanici (18:00-21:00)", "description": "Un momento di ascolto tra simboli e natura: i Tarocchi Botanici accompagnano un viaggio tra intuizioni, cambiamenti e nuovi germogli.", "image": "/events/estate-tropicale-2026/activities/tarocchi botanici.webp" },
+    { "name": "Dj Set by Bi Disc (18:00-21:00)", "description": "3 ore di selezioni musicali a cura di Bi Disc", "image": "/events/estate-tropicale-2026/activities/dj set.webp" },
+    { "name": "Visita botanica guidata (18:15-19:00)", "description": "Un viaggio tra gli alberi monumentali e le palme secolari dei Giardini di Piazza Vittorio, alla scoperta del loro valore storico, botanico e ambientale.", "image": "/events/estate-tropicale-2026/activities/alberi.jpeg", "bookable": true },
+    { "name": "Olimpiadi botaniche: Rivasi Challenge (18:30-19:00)", "description": "Sai riconoscere una pianta e rinvasarla alla perfezione? Mettiti in gioco e vinci un ricco premio per la tua giungla domestica.", "image": "/events/estate-tropicale-2026/activities/rinvasi challenge.webp", "bookable": true },
+    { "name": "Il plant swap (19:00-20:00)", "description": "Il momento preferito di ogni plant lover: il plant swap, dove scambiare piantine, talee e semi e far crescere la propria home jungle.", "image": "/events/estate-tropicale-2026/activities/plant swap.webp" },
+    { "name": "La plant lottery by Palma (19:00 e 20:30)", "description": "Sfida la sorte e prova a vincere una tropical plant “segreta” by Palma, non una ma ben due volte!", "image": "/events/estate-tropicale-2026/activities/plant lottery.webp" }
+  ],
+  "venueCards": [
+    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/estate-tropicale-2026/venues/9.webp" },
+    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/estate-tropicale-2026/venues/10.webp" },
+    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/estate-tropicale-2026/venues/11.webp" },
+    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/estate-tropicale-2026/venues/12.webp" }
+  ],
+  "archive": [
+    { "title": "Primavera Tropicale ’26", "description": "Tre giorni di block party green tra workshop, market botanico e dj set nel quartiere Ostiense.", "href": "/events/archive/primavera-tropicale-2026", "image": "/events/primavera-tropicale-2026/flyer.jpg" },
+    { "title": "No Roses, Just Plants ‘26 (The Hoxton Rome)", "description": "Un format esperienziale durante San Valentino, che univa workshop, musica e momenti di socialità, invitando la community a scegliere le piante...", "href": "https://romatropicale.com/2026/01/20/14-02-26-no-roses-just-plants-the-hoxton-rome/", "image": "/events/archive/14.02 tropicale V2 (1).jpg" },
+    { "title": "Urban Nature ‘25 (Orto Botanico di Roma)", "description": "In collaborazione con WWF Italia, un evento dedicato alla riscoperta della natura in città, pensato per promuovere un rapporto più...", "href": "https://romatropicale.com/2025/09/09/urban-nature-orto-botanico/", "image": "/events/archive/Posting WWF  - 2.png" },
+    { "title": "Festival Tropicale ‘25 (Forte Trionfale, Roma)", "description": "Forte Trionfale rappresenta uno dei forti storici di Roma e ha riaperto al pubblico in occasione del nostro evento, contribuendo al processo...", "href": "https://romatropicale.com/2025/04/17/11-05-25-roma-tropicale-festival-%e2%98%bb-forte-trionfale/", "image": "/events/archive/flyer-fest-scaled.webp" },
+    { "title": "Festival Tropicale ‘24-’23 (Borgo Della Mistica)", "description": "Le prime due edizioni del festival si sono svolte presso Borgo della Mistica, una location che rappresenta perfettamente il dialogo tra...", "href": "https://romatropicale.com/2024/03/17/roma-tropicale-festival/", "image": "/events/archive/Fest Layout - 1.png" }
+  ]
+}

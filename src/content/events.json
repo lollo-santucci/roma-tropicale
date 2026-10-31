@@ -2,45 +2,48 @@
   "active": true,
   "comingSoonHeroTitle": "Stiamo pianificando il prossimo evento",
   "comingSoonHeroImage": "/events/coming-soon-header.jpg",
-  "heroImage": "/events/nuovo-evento-2026/header.webp",
-  "festivalImage": "/events/nuovo-evento-2026/flyer.jpeg",
+  "heroImage": "/events/aperitivo-tropicale-sfobbo-2026/hero.webp",
+  "festivalImage": "/events/aperitivo-tropicale-sfobbo-2026/flyer.webp",
   "logoImage": "",
-  "registrationUrl": "https://www.eventbrite.it/e/estate-tropicale-tickets-1992762709909",
-  "activitiesBookingEnabled": true,
-  "activitiesBookingUrl": "https://forms.gle/i1Nqw4v4rfHT76YUA",
-  "heroMobilePosition": "left top",
+  "registrationUrl": "https://www.eventbrite.com/e/aperitivo-tropicale-feat-sfobbo-tickets-2004131625642?aff=oddtdtcreator",
+  "activitiesBookingEnabled": false,
+  "activitiesBookingUrl": "",
+  "heroMobilePosition": "",
   "dates": [],
   "texts": {
-    "title": "Estate Tropicale",
-    "heroTitle": "Estate Tropicale",
+    "title": "Aperitivo Tropicale con Sfobbo",
+    "heroTitle": "Aperitivo Tropicale 🌴 con Sfobbo",
     "intro": [
-      "Estate Tropicale è l'ultimo appuntamento di Roma Tropicale prima della pausa estiva: un aperitivo tra piante, musica e good vibes per salutare la città prima delle vacanze.",
-      "Venerdì 17 luglio, dalle 18:00 alle 21:00, Chiosco Vittorio si trasforma in una giungla urbana. Tra le palme di Piazza Vittorio, nel cuore di una Roma sempre più vibrante e contemporanea, prende vita un pomeriggio dedicato allo scambio di piante, agli incontri, a nuove esperienze green e a un brindisi collettivo all'estate.",
-      "Un'occasione per ritrovarsi, chiacchierare e condividere la passione per il verde in uno degli angoli più tropicali della città.",
-      "See you in the jungle! Everyone is welcome."
+      "Plant Swap · Book Presentation · DJ Set",
+      "Un sabato pomeriggio tra piante, libri, musica e good vibes, con un ospite speciale: Sfobbo!",
+      "Sabato 21 novembre, dalle 17:00 alle 20:30, Roma Tropicale arriva da Forno Ritorno, nel cuore di Testaccio, per un nuovo appuntamento dedicato alla community e a chiunque abbia voglia di trascorrere qualche ora in buona compagnia.",
+      "Protagonista dell'evento sarà Sfobbo, tra i plant creator più amati in Italia, che presenterà il suo nuovo libro Botanica da appartamento: un invito a superare i falsi miti sulla cura delle piante, abbandonare regole fisse e rimedi miracolosi e imparare a comprendere le esigenze del verde domestico.",
+      "Ma non sarà la solita presentazione! Tra un Plant Swap, una merenda, un aperitivo e la selezione musicale di Bi Disc, ci sarà spazio per incontrarsi, condividere esperienze, scoprire nuove passioni e fare quattro chiacchiere.",
+      "See you in the jungle! Everyone is welcome.",
+      "L'ingresso è gratuito, con prenotazione, fino al raggiungimento della capienza massima del locale.",
+      "Indirizzo: Via Amerigo Vespucci, 20 - Roma (Fermata Metro Piramide)"
     ],
     "highlights": [],
     "outro": "",
     "workshopIntro": "Prenota il tuo posto ai laboratori del prossimo evento.",
-    "activitiesIntro": "Scopri le attività della giornata",
-    "venueIntro": "Il luogo dell'evento"
+    "activitiesIntro": "Scopri il programma del pomeriggio",
+    "venueIntro": "Vi aspettiamo da Forno Ritorno!"
   },
   "workshops": [],
   "activities": [
-    { "name": "Tarocchi botanici (18:00-21:00)", "description": "Un momento di ascolto tra simboli e natura: i Tarocchi Botanici accompagnano un viaggio tra intuizioni, cambiamenti e nuovi germogli.", "image": "/events/nuovo-evento-2026/activities/tarocchi botanici.webp" },
-    { "name": "Dj Set by Bi Disc (18:00-21:00)", "description": "3 ore di selezioni musicali a cura di Bi Disc", "image": "/events/nuovo-evento-2026/activities/dj set.webp" },
-    { "name": "Visita botanica guidata (18:15-19:00)", "description": "Un viaggio tra gli alberi monumentali e le palme secolari dei Giardini di Piazza Vittorio, alla scoperta del loro valore storico, botanico e ambientale.", "image": "/events/nuovo-evento-2026/activities/alberi.jpeg", "bookable": true },
-    { "name": "Olimpiadi botaniche: Rivasi Challenge (18:30-19:00)", "description": "Sai riconoscere una pianta e rinvasarla alla perfezione? Mettiti in gioco e vinci un ricco premio per la tua giungla domestica.", "image": "/events/nuovo-evento-2026/activities/rinvasi challenge.webp", "bookable": true },
-    { "name": "Il plant swap (19:00-20:00)", "description": "Il momento preferito di ogni plant lover: il plant swap, dove scambiare piantine, talee e semi e far crescere la propria home jungle.", "image": "/events/nuovo-evento-2026/activities/plant swap.webp" },
-    { "name": "La plant lottery by Palma (19:00 e 20:30)", "description": "Sfida la sorte e prova a vincere una tropical plant “segreta” by Palma, non una ma ben due volte!", "image": "/events/nuovo-evento-2026/activities/plant lottery.webp" }
+    { "name": "Plant Swap & Merenda (17:00–18:00)", "description": "Sfobbo porterà piante e talee da scambiare. E voi? Portate le vostre e preparatevi a tornare a casa con qualche nuova ossessione botanica! Plant reminder: solo talee già radicate, per dare a ogni piantina le migliori possibilità di crescere.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/plant swap.webp" },
+    { "name": "Book Presentation & Aperitivo (18:00–18:30)", "description": "Basta piante “facili” o “difficili”, regole universali e falsi miti sulla plant care! Una chiacchierata con Sfobbo per scoprire Botanica da appartamento, approfondire i temi del libro e imparare a guardare le piante con una nuova consapevolezza.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/sfobbo.webp" },
+    { "name": "Firmacopie (18:30–19:00)", "description": "Un'occasione per incontrare Sfobbo e portarsi a casa una dedica speciale! Durante l'evento sarà possibile acquistare Botanica da appartamento oppure portare la propria copia per farla firmare.", "image": "/events/aperitivo-tropicale-sfobbo-2026/flyer.webp" },
+    { "name": "Dj set by Bi Disc (18:30–20:30)", "description": "Ad alzare le vibes, una selezione musicale curata da Bi Disc, per accompagnare l'aperitivo con il giusto sound.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/bi disc.webp" },
+    { "name": "Community Hang Out (19:00–20:30)", "description": "Piante, musica, nuove conoscenze e good vibes. Un momento per incontrarsi, fare due chiacchiere e condividere nuove passioni. Anche senza pollice verde!", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-1.webp" }
   ],
   "venueCards": [
-    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/nuovo-evento-2026/venues/9.webp" },
-    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/nuovo-evento-2026/venues/10.webp" },
-    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/nuovo-evento-2026/venues/11.webp" },
-    { "name": "Chiosco Vittorio", "description": "Piazza Vittorio", "image": "/events/nuovo-evento-2026/venues/12.webp" }
+    { "name": "Forno Ritorno", "description": "Via Amerigo Vespucci 20, Testaccio — Roma. Nel cuore di Testaccio, Forno Ritorno è il posto perfetto per una pausa golosa, un caffè o un aperitivo in compagnia.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-1.webp" },
+    { "name": "La merenda", "description": "Torte irresistibili e specialità dolci e salate per aprire il pomeriggio.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-2.webp" },
+    { "name": "L'aperitivo", "description": "Kombucha e drink botanici accompagneranno l'Aperitivo Tropicale fino all'ultimo brindisi.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-3.webp" }
   ],
   "archive": [
+    { "title": "Estate Tropicale ’26 (Chiosco Vittorio)", "description": "Un aperitivo tra piante, musica e good vibes tra le palme di Piazza Vittorio, per salutare la città prima della pausa estiva.", "href": "/events/archive/estate-tropicale-2026", "image": "/events/estate-tropicale-2026/flyer.jpeg" },
     { "title": "Primavera Tropicale ’26", "description": "Tre giorni di block party green tra workshop, market botanico e dj set nel quartiere Ostiense.", "href": "/events/archive/primavera-tropicale-2026", "image": "/events/primavera-tropicale-2026/flyer.jpg" },
     { "title": "No Roses, Just Plants ‘26 (The Hoxton Rome)", "description": "Un format esperienziale durante San Valentino, che univa workshop, musica e momenti di socialità, invitando la community a scegliere le piante...", "href": "https://romatropicale.com/2026/01/20/14-02-26-no-roses-just-plants-the-hoxton-rome/", "image": "/events/archive/14.02 tropicale V2 (1).jpg" },
     { "title": "Urban Nature ‘25 (Orto Botanico di Roma)", "description": "In collaborazione con WWF Italia, un evento dedicato alla riscoperta della natura in città, pensato per promuovere un rapporto più...", "href": "https://romatropicale.com/2025/09/09/urban-nature-orto-botanico/", "image": "/events/archive/Posting WWF  - 2.png" },
