@@ -1,0 +1,53 @@
+{
+  "active": true,
+  "comingSoonHeroTitle": "Stiamo pianificando il prossimo evento",
+  "comingSoonHeroImage": "/events/coming-soon-header.jpg",
+  "heroImage": "/events/aperitivo-tropicale-sfobbo-2026/hero.webp",
+  "festivalImage": "/events/aperitivo-tropicale-sfobbo-2026/flyer.webp",
+  "logoImage": "",
+  "registrationUrl": "https://www.eventbrite.it/e/aperitivo-tropicale-feat-sfobbo-tickets-2004131625642",
+  "activitiesBookingEnabled": false,
+  "activitiesBookingUrl": "",
+  "heroMobilePosition": "",
+  "dates": [],
+  "texts": {
+    "title": "Aperitivo Tropicale con Sfobbo",
+    "heroTitle": "Aperitivo Tropicale 🌴 con Sfobbo",
+    "intro": [
+      "Plant Swap · Book Presentation · DJ Set",
+      "Un sabato pomeriggio tra piante, libri, musica e good vibes, con un ospite speciale: Sfobbo!",
+      "Sabato 21 novembre, dalle 17:00 alle 20:30, Roma Tropicale arriva da Forno Ritorno, nel cuore di Testaccio, per un nuovo appuntamento dedicato alla community e a chiunque abbia voglia di trascorrere qualche ora in buona compagnia.",
+      "Protagonista dell'evento sarà Sfobbo, tra i plant creator più amati in Italia, che presenterà il suo nuovo libro Botanica da appartamento: un invito a superare i falsi miti sulla cura delle piante, abbandonare regole fisse e rimedi miracolosi e imparare a comprendere le esigenze del verde domestico.",
+      "Ma non sarà la solita presentazione! Tra un Plant Swap, una merenda, un aperitivo e la selezione musicale di Bi Disc, ci sarà spazio per incontrarsi, condividere esperienze, scoprire nuove passioni e fare quattro chiacchiere.",
+      "See you in the jungle! Everyone is welcome.",
+      "L'ingresso è gratuito, con prenotazione, fino al raggiungimento della capienza massima del locale.",
+      "Indirizzo: Via Amerigo Vespucci, 20 - Roma (Fermata Metro Piramide)"
+    ],
+    "highlights": [],
+    "outro": "",
+    "workshopIntro": "Prenota il tuo posto ai laboratori del prossimo evento.",
+    "activitiesIntro": "Scopri il programma del pomeriggio",
+    "venueIntro": "Vi aspettiamo da Forno Ritorno!"
+  },
+  "workshops": [],
+  "activities": [
+    { "name": "Plant Swap & Merenda (17:00–18:00)", "description": "Sfobbo porterà piante e talee da scambiare. E voi? Portate le vostre e preparatevi a tornare a casa con qualche nuova ossessione botanica! Plant reminder: solo talee già radicate, per dare a ogni piantina le migliori possibilità di crescere.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/plant swap.webp" },
+    { "name": "Book Presentation & Aperitivo (18:00–18:30)", "description": "Basta piante “facili” o “difficili”, regole universali e falsi miti sulla plant care! Una chiacchierata con Sfobbo per scoprire Botanica da appartamento, approfondire i temi del libro e imparare a guardare le piante con una nuova consapevolezza.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/sfobbo.webp" },
+    { "name": "Firmacopie (18:30–19:00)", "description": "Un'occasione per incontrare Sfobbo e portarsi a casa una dedica speciale! Durante l'evento sarà possibile acquistare Botanica da appartamento oppure portare la propria copia per farla firmare.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/firmacopie.webp" },
+    { "name": "Dj set by Bi Disc (18:30–20:30)", "description": "Ad alzare le vibes, una selezione musicale curata da Bi Disc, per accompagnare l'aperitivo con il giusto sound.", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/bi disc.webp" },
+    { "name": "Community Hang Out (19:00–20:30)", "description": "Piante, musica, nuove conoscenze e good vibes. Un momento per incontrarsi, fare due chiacchiere e condividere nuove passioni. Anche senza pollice verde!", "image": "/events/aperitivo-tropicale-sfobbo-2026/activities/community.webp" }
+  ],
+  "venueCards": [
+    { "name": "Forno Ritorno", "description": "Via Amerigo Vespucci 20, Testaccio — Roma. Nel cuore di Testaccio, Forno Ritorno è il posto perfetto per una pausa golosa, un caffè o un aperitivo in compagnia.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-1.webp" },
+    { "name": "La merenda", "description": "Torte irresistibili e specialità dolci e salate per aprire il pomeriggio.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-3.webp" },
+    { "name": "L'aperitivo", "description": "Kombucha e drink botanici accompagneranno l'Aperitivo Tropicale fino all'ultimo brindisi.", "image": "/events/aperitivo-tropicale-sfobbo-2026/venues/forno-2.webp" }
+  ],
+  "archive": [
+    { "title": "Estate Tropicale ’26 (Chiosco Vittorio)", "description": "Un aperitivo tra piante, musica e good vibes tra le palme di Piazza Vittorio, per salutare la città prima della pausa estiva.", "href": "/events/archive/estate-tropicale-2026", "image": "/events/estate-tropicale-2026/flyer.jpeg" },
+    { "title": "Primavera Tropicale ’26", "description": "Tre giorni di block party green tra workshop, market botanico e dj set nel quartiere Ostiense.", "href": "/events/archive/primavera-tropicale-2026", "image": "/events/primavera-tropicale-2026/flyer.jpg" },
+    { "title": "No Roses, Just Plants ‘26 (The Hoxton Rome)", "description": "Un format esperienziale durante San Valentino, che univa workshop, musica e momenti di socialità, invitando la community a scegliere le piante...", "href": "https://romatropicale.com/2026/01/20/14-02-26-no-roses-just-plants-the-hoxton-rome/", "image": "/events/archive/14.02 tropicale V2 (1).jpg" },
+    { "title": "Urban Nature ‘25 (Orto Botanico di Roma)", "description": "In collaborazione con WWF Italia, un evento dedicato alla riscoperta della natura in città, pensato per promuovere un rapporto più...", "href": "https://romatropicale.com/2025/09/09/urban-nature-orto-botanico/", "image": "/events/archive/Posting WWF  - 2.png" },
+    { "title": "Festival Tropicale ‘25 (Forte Trionfale, Roma)", "description": "Forte Trionfale rappresenta uno dei forti storici di Roma e ha riaperto al pubblico in occasione del nostro evento, contribuendo al processo...", "href": "https://romatropicale.com/2025/04/17/11-05-25-roma-tropicale-festival-%e2%98%bb-forte-trionfale/", "image": "/events/archive/flyer-fest-scaled.webp" },
+    { "title": "Festival Tropicale ‘24-’23 (Borgo Della Mistica)", "description": "Le prime due edizioni del festival si sono svolte presso Borgo della Mistica, una location che rappresenta perfettamente il dialogo tra...", "href": "https://romatropicale.com/2024/03/17/roma-tropicale-festival/", "image": "/events/archive/Fest Layout - 1.png" }
+  ]
+}

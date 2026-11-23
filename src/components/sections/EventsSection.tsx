@@ -1,6 +1,6 @@
 "use client";
 
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -30,6 +30,20 @@ const SOCIALS = [
   { name: "Spotify", icon: "/icons/spotify.svg", href: BRAND.socials.spotify },
   { name: "LinkedIn", icon: "/icons/linkedin.svg", href: BRAND.socials.linkedin },
 ] as const;
+
+// Supporta link inline nelle descrizioni: [testo](https://...)
+function linkify(text: string): ReactNode {
+  return text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    return m ? (
+      <a key={i} href={m[2]} target="_blank" rel="noopener noreferrer" className="underline hover:text-roma-purple">
+        {m[1]}
+      </a>
+    ) : (
+      part
+    );
+  });
+}
 
 export default function EventsSection() {
   const { enabled } = useAdmin();
@@ -348,7 +362,7 @@ export function EventsActive({
               <Editable path={`activities[${i}].name`}>{activity.name}</Editable>
             </p>
             <p className="text-xs text-roma-dark/50 leading-relaxed">
-              <Editable path={`activities[${i}].description`} multiline>{activity.description}</Editable>
+              <Editable path={`activities[${i}].description`} multiline>{adminEnabled ? activity.description : linkify(activity.description)}</Editable>
             </p>
             {showActivityBooking && activity.bookable && (
               <PillButton
