@@ -228,8 +228,8 @@ export function EventsActive({
                     Partecipa
                   </PillButton>
                 )}
-                {event.workshops.length > 0 && (
-                  <PillButton href="https://forms.gle/gEathYpYqjohQU8n8" rotate={15}>
+                {event.workshops.length > 0 && event.workshopsBookingUrl && (
+                  <PillButton href={event.workshopsBookingUrl} rotate={15}>
                     prenota un <br/> workshop
                   </PillButton>
                 )}

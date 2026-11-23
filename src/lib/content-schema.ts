@@ -96,6 +96,7 @@ export const eventsSchema = z.object({
   registrationUrl: z.string().default(""),
   activitiesBookingEnabled: z.boolean().default(false),
   activitiesBookingUrl: z.string().default(""),
+  workshopsBookingUrl: z.string().optional(),
   heroMobilePosition: z.string().default(""),
   dates: z.array(dateCardSchema).default([]),
   texts: z.object({
